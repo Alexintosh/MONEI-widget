@@ -9,7 +9,8 @@ class PaymentForm extends Component {
     redirectUrl: location.href,
     showLabels: false,
     showPlaceholders: true,
-    showCardHolder: false
+    showCardHolder: false,
+    showEmail: true
   };
 
   constructor(props) {
@@ -42,6 +43,20 @@ class PaymentForm extends Component {
     this.adjustForm();
   };
 
+  renderEmailField() {
+    return `
+      <div class="wpwl-group wpwl-group-email wpwl-clearfix">
+        <div class="wpwl-wrapper wpwl-wrapper-email">
+          <input 
+            name="customer.email"
+            class="wpwl-control wpwl-control-email" 
+            placeholder="Email" 
+            type="text">
+        </div>
+      </div>
+    `.trim();
+  }
+
   adjustForm() {
     const $form = this.$formContainer.find('.wpwl-form');
 
@@ -55,6 +70,10 @@ class PaymentForm extends Component {
       $cardHolder.prependTo($form);
     } else {
       $cardHolder.remove();
+    }
+
+    if (this.props.showEmail) {
+      $form.prepend(this.renderEmailField());
     }
   }
 
