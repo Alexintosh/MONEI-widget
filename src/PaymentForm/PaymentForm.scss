@@ -1,12 +1,9 @@
 .formContainer {
-  display: flex;
-  flex-wrap: wrap;
   font-size: 14px;
   font-family: -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
   line-height: 1.3em;
   -webkit-font-smoothing: subpixel-antialiased;
   color: #212b35;
-  max-width: 316px;
 }
 
 :global {
@@ -17,7 +14,6 @@
 
   .wpwl-form {
     margin: 0;
-    max-width: none;
     .wpwl-button-brand {
       border: 1px solid #d9d9d9;
       background-color: #f9fafb;;
@@ -40,41 +36,17 @@
   }
 
   .wpwl-form-card {
-    margin-bottom: 1em;
-    max-width: none;
-    padding: 1.14286em;
-    position: relative;
-    background-color: #f9fafb;
-    border-radius: 3px;
-    display: flex;
-    flex-wrap: wrap;
-    box-shadow: 0 0 0 1px rgba(63,63,68,0.05), 0 1px 3px 0 rgba(63,63,68,0.15);
+    .wpwl-label {
+      width: auto;
+    }
 
     .wpwl-group {
-      width: auto;
       padding: 0.45em;
       margin: 0;
     }
 
     .wpwl-group-brand {
       display: none;
-    }
-
-    .wpwl-group-cardNumber {
-      width: 100%;
-    }
-
-    .wpwl-group-cardHolder {
-      width: 100%;
-    }
-
-    .wpwl-group-cvv, .wpwl-group-expiry {
-      width: 50%;
-      vertical-align: top;
-    }
-
-    .wpwl-group-submit {
-      width: 100%;
     }
 
     .wpwl-wrapper {
@@ -89,8 +61,6 @@
     .wpwl-control, .wpwl-input {
       color: rgb(51, 51, 51);
       margin: 0;
-      display: block;
-      width: 100%;
       box-sizing: border-box;
       outline: none;
       height: 42px;
@@ -139,27 +109,26 @@
     .wpwl-group-submit {
       margin-bottom: 0;
       text-align: center;
+    }
 
-      .wpwl-button-pay {
-        float: none;
-        width: 100%;
-        font-weight: 500;
-        height: 42px;
-        background: #1990c6;
-        color: white;
-        display: inline-block;
-        border-radius: 3px;
-        box-sizing: border-box;
-        text-align: center;
-        cursor: pointer;
-        position: relative;
-        border: none;
-        transition: background 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    .wpwl-button-pay {
+      float: none;
+      font-weight: 500;
+      height: 42px;
+      background: #1990c6;
+      color: white;
+      display: inline-block;
+      border-radius: 3px;
+      box-sizing: border-box;
+      text-align: center;
+      cursor: pointer;
+      position: relative;
+      border: none;
+      transition: background 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 
-        &:hover, &:active {
-          background: #136f99;
-          color: white
-        }
+      &:hover, &:active {
+        background: #136f99;
+        color: white
       }
     }
 

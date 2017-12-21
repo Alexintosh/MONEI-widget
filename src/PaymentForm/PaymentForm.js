@@ -6,20 +6,21 @@ import classNames from './PaymentForm.scss';
 class PaymentForm extends Component {
   static defaultProps = {
     brands: 'VISA MASTER',
-    redirectUrl: location.href
+    redirectUrl: location.href,
+    showLabels: false,
+    showPlaceholders: true
   };
 
   constructor(props) {
     super(props);
     this.state = {
-      isLoading: true,
       is3DFrame: false
     };
     window.wpwlOptions = {
-      showLabels: false,
-      requireCvv: true,
-      showCVVHint: true,
-      autofocus: true,
+      showLabels: props.showLabels,
+      requireCvv: props.requireCvv,
+      showCVVHint: props.showCVVHint,
+      showPlaceholders: props.showPlaceholders,
       style: 'plain',
       locale: props.locale,
       onLoadThreeDIframe: this.onLoadThreeDIframe,
@@ -33,14 +34,11 @@ class PaymentForm extends Component {
   };
 
   onError = () => {
-    this.setState({isLoading: false, hasError: true});
+    this.setState({hasError: true});
   };
 
   onReady = () => {
     this.adjustForm();
-
-    // TODO PayOn has a bug causing ugly jQuery animation, we skip it here.
-    setTimeout(() => this.setState({isLoading: false}), 800);
   };
 
   adjustForm() {
@@ -68,7 +66,7 @@ class PaymentForm extends Component {
     });
   }
 
-  render({brands, redirectUrl}, {isLoading, isFrame, hasError, error}, context) {
+  render({brands, redirectUrl}, {isFrame, hasError, error}, context) {
     const config = window.wpwl || {};
     const {amount, currency} = config.checkout || {};
     console.log(config);
