@@ -26,16 +26,15 @@
 
   .wpwl-container {
     margin: 0 !important;
-    padding: 0.45em !important;
+    padding: 0 !important;
     height: auto !important;
     width: auto !important;
   }
 
-  .wpwl-container:not(.wpwl-container-card) {
-    width: 50%;
-  }
-
   .wpwl-form-card {
+    display: flex;
+    flex-wrap: wrap;
+
     .wpwl-label {
       width: auto;
     }
@@ -56,6 +55,10 @@
 
     .wpwl-hint {
       font-size: 13px;
+    }
+
+    .wpwl-group-expiry, .wpwl-group-cvv {
+      max-width: 50%;
     }
 
     .wpwl-control, .wpwl-input {
@@ -115,7 +118,7 @@
       float: none;
       font-weight: 500;
       height: 42px;
-      background: #1990c6;
+      background: #00796b;
       color: white;
       display: inline-block;
       border-radius: 3px;
@@ -127,7 +130,7 @@
       transition: background 0.2s ease-in-out, color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 
       &:hover, &:active {
-        background: #136f99;
+        background: #00695b;
         color: white
       }
     }
