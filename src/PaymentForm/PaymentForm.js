@@ -8,7 +8,8 @@ class PaymentForm extends Component {
     brands: 'VISA MASTER',
     redirectUrl: location.href,
     showLabels: false,
-    showPlaceholders: true
+    showPlaceholders: true,
+    showCardHolder: false
   };
 
   constructor(props) {
@@ -42,13 +43,19 @@ class PaymentForm extends Component {
   };
 
   adjustForm() {
-    // move brand icon to the card number field and hide by default
     const $form = this.$formContainer.find('.wpwl-form');
+
+    // move brand icon to the card number field and hide by default
     const $brand = $form.find('.wpwl-brand-card').addClass('wpwl-brand-GENERIC');
     $brand.appendTo($form.find('.wpwl-wrapper-cardNumber'));
 
-    // place cardHolder on top of the form
-    $form.find('.wpwl-group-cardNumber').before($form.find('.wpwl-group-cardHolder'));
+    // show cardholder firs or hide it
+    const $cardHolder = $form.find('.wpwl-group-cardHolder');
+    if (this.props.showCardHolder) {
+      $cardHolder.prependTo($form);
+    } else {
+      $cardHolder.remove();
+    }
   }
 
   checkPaymentError = () => {
