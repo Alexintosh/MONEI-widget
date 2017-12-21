@@ -4862,6 +4862,12 @@ postcss@^6.0.0, postcss@^6.0.1, postcss@^6.0.11, postcss@^6.0.13, postcss@^6.0.1
     source-map "^0.6.1"
     supports-color "^4.4.0"
 
+preact-render-to-string@^3.7.0:
+  version "3.7.0"
+  resolved "https://registry.yarnpkg.com/preact-render-to-string/-/preact-render-to-string-3.7.0.tgz#7db4177454bc01395e0d01d6ac07bc5e838e31ee"
+  dependencies:
+    pretty-format "^3.5.1"
+
 preact@^8.2.6:
   version "8.2.7"
   resolved "https://registry.yarnpkg.com/preact/-/preact-8.2.7.tgz#316249fb678cd5e93e7cee63cea7bfb62dbd6814"
@@ -4884,6 +4890,10 @@ pretty-error@^2.0.2:
   dependencies:
     renderkid "^2.0.1"
     utila "~0.4"
+
+pretty-format@^3.5.1:
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/pretty-format/-/pretty-format-3.8.0.tgz#bfbed56d5e9a776645f4b1ff7aa1a3ac4fa3c385"
 
 private@^0.1.6, private@^0.1.7, private@~0.1.5:
   version "0.1.8"

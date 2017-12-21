@@ -46,13 +46,14 @@
     "postcss-loader": "^2.0.9",
     "postcss-reporter": "^5.0.0",
     "preact": "^8.2.6",
+    "preact-render-to-string": "^3.7.0",
+    "query-string": "latest",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.19.1",
     "url-loader": "^0.6.2",
     "webpack": "^3.8.1",
     "webpack-dev-server": "^2.9.3",
     "webpack-s3-plugin": "^1.0.0-rc.0",
-    "whatwg-fetch": "^2.0.3",
-    "query-string": "latest"
+    "whatwg-fetch": "^2.0.3"
   }
 }

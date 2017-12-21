@@ -2,6 +2,21 @@ import {Component} from 'preact';
 import loadJS from 'load-js';
 import $ from 'cash-dom';
 import classNames from './PaymentForm.scss';
+import render from 'preact-render-to-string';
+import {isValidEmail} from 'lib/utils';
+
+const EmailField = () => (
+  <div className="wpwl-group wpwl-group-email wpwl-clearfix">
+    <div className="wpwl-wrapper wpwl-wrapper-email">
+      <input
+        name="customer.email"
+        className="wpwl-control wpwl-control-email"
+        placeholder="Email"
+        type="text"
+      />
+    </div>
+  </div>
+);
 
 class PaymentForm extends Component {
   static defaultProps = {
@@ -43,18 +58,23 @@ class PaymentForm extends Component {
     this.adjustForm();
   };
 
-  renderEmailField() {
-    return `
-      <div class="wpwl-group wpwl-group-email wpwl-clearfix">
-        <div class="wpwl-wrapper wpwl-wrapper-email">
-          <input 
-            name="customer.email"
-            class="wpwl-control wpwl-control-email" 
-            placeholder="Email" 
-            type="text">
-        </div>
-      </div>
-    `.trim();
+  appendEmail($form) {
+    const $email = $(render(<EmailField />));
+    const $emailInput = $email.find('input');
+    $emailInput.on('blur', e => this.validateEmail($emailInput, $email));
+    $form.prepend($email);
+  }
+
+  validateEmail($input, $email) {
+    const value = $input.val();
+    const isValid = isValidEmail(value);
+    const $hint = $email.find('.wpwl-hint-emailError');
+    $input.toggleClass('wpwl-has-error', !isValid);
+    if (isValid && $hint.length) {
+      $hint.remove();
+    } else if (!isValid && !$hint.length) {
+      $input.after('<div class="wpwl-hint wpwl-hint-emailError">Invalid email</div>');
+    }
   }
 
   adjustForm() {
@@ -73,7 +93,7 @@ class PaymentForm extends Component {
     }
 
     if (this.props.showEmail) {
-      $form.prepend(this.renderEmailField());
+      this.appendEmail($form);
     }
   }
 
