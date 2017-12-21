@@ -1,0 +1,23 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "standard"
+  ],
+  "plugins": [
+    "babel"
+  ],
+  "rules": {
+    "babel/generator-star-spacing": 1,
+    "semi": [
+      2,
+      "always"
+    ],
+    "space-before-function-paren": [
+      "error",
+      "never"
+    ]
+  },
+  "env": {
+    "browser": true
+  }
+}
