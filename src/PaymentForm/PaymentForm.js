@@ -5,19 +5,6 @@ import classNames from './PaymentForm.scss';
 import render from 'preact-render-to-string';
 import {isValidEmail} from 'lib/utils';
 
-const EmailField = () => (
-  <div className="wpwl-group wpwl-group-email wpwl-clearfix">
-    <div className="wpwl-wrapper wpwl-wrapper-email">
-      <input
-        name="customer.email"
-        className="wpwl-control wpwl-control-email"
-        placeholder="Email"
-        type="text"
-      />
-    </div>
-  </div>
-);
-
 class PaymentForm extends Component {
   static defaultProps = {
     brands: 'VISA MASTER',
@@ -25,7 +12,13 @@ class PaymentForm extends Component {
     showLabels: false,
     showPlaceholders: true,
     showCardHolder: false,
-    showEmail: true
+    showEmail: true,
+    labels: {
+      email: 'Email'
+    },
+    errorMessages: {
+      email: 'Invalid email'
+    }
   };
 
   constructor(props) {
@@ -40,9 +33,12 @@ class PaymentForm extends Component {
       showPlaceholders: props.showPlaceholders,
       style: 'plain',
       locale: props.locale,
+      labels: props.labels,
+      errorMessages: props.errorMessages,
       onLoadThreeDIframe: this.onLoadThreeDIframe,
       onReady: this.onReady,
-      onError: this.onError
+      onError: this.onError,
+      validateCard: () => this.validateEmail(true)
     };
   }
 
@@ -59,22 +55,48 @@ class PaymentForm extends Component {
   };
 
   appendEmail($form) {
-    const $email = $(render(<EmailField />));
-    const $emailInput = $email.find('input');
-    $emailInput.on('blur', e => this.validateEmail($emailInput, $email));
-    $form.prepend($email);
+    const {showLabels, showPlaceholders, labels} = this.props;
+    this.$emailField = $(
+      render(
+        <div className="wpwl-group wpwl-group-email wpwl-clearfix">
+          {showLabels && <div className="wpwl-label wpwl-label-email">{labels.email}</div>}
+          <div className="wpwl-wrapper wpwl-wrapper-email">
+            <input
+              name="customer.email"
+              className="wpwl-control wpwl-control-email"
+              placeholder={showPlaceholders && labels.email}
+              type="text"
+            />
+          </div>
+        </div>
+      )
+    );
+    const $emailInput = this.$emailField.find('input');
+    $emailInput.on('blur', () => this.validateEmail());
+    $form.prepend(this.$emailField);
   }
 
-  validateEmail($input, $email) {
+  validateEmail(errorOnEmpty = false) {
+    if (!this.$emailField) return true;
+    const $input = this.$emailField.find('input');
     const value = $input.val();
+    if (!value && !errorOnEmpty) {
+      return true;
+    }
     const isValid = isValidEmail(value);
-    const $hint = $email.find('.wpwl-hint-emailError');
+    const $hint = this.$emailField.find('.wpwl-hint-emailError');
     $input.toggleClass('wpwl-has-error', !isValid);
     if (isValid && $hint.length) {
       $hint.remove();
     } else if (!isValid && !$hint.length) {
-      $input.after('<div class="wpwl-hint wpwl-hint-emailError">Invalid email</div>');
+      $input.after(
+        render(
+          <div className="wpwl-hint wpwl-hint-emailError">{this.props.errorMessages.email}</div>
+        )
+      );
     }
+
+    return isValid;
   }
 
   adjustForm() {
