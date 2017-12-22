@@ -18,7 +18,8 @@ class PaymentForm extends Component {
     },
     errorMessages: {
       email: 'Invalid email'
-    }
+    },
+    style: 'plain'
   };
 
   constructor(props) {
@@ -27,30 +28,32 @@ class PaymentForm extends Component {
       is3DFrame: false
     };
     window.wpwlOptions = {
-      showLabels: props.showLabels,
-      requireCvv: props.requireCvv,
-      showCVVHint: props.showCVVHint,
-      showPlaceholders: props.showPlaceholders,
-      style: 'plain',
-      locale: props.locale,
-      labels: props.labels,
-      errorMessages: props.errorMessages,
+      ...props,
+      brandDetection: true,
       onLoadThreeDIframe: this.onLoadThreeDIframe,
       onReady: this.onReady,
       onError: this.onError,
-      validateCard: () => this.validateEmail(true)
+      validateCard: this.validateCard
     };
   }
 
+  validateCard = () => {
+    this.props.validateCard && this.props.validateCard();
+    this.validateEmail(true);
+  };
+
   onLoadThreeDIframe = () => {
+    this.props.onLoadThreeDIframe && this.props.onLoadThreeDIframe();
     this.setState({is3DFrame: true});
   };
 
-  onError = () => {
+  onError = error => {
+    this.props.onError && this.props.onError(error);
     this.setState({hasError: true});
   };
 
   onReady = () => {
+    this.props.onReady && this.props.onReady();
     this.adjustForm();
   };
 
@@ -128,7 +131,7 @@ class PaymentForm extends Component {
   componentDidMount() {
     loadJS({
       async: true,
-      url: `https://test.monei-api.net/v1/paymentWidgets.js?checkoutId=${this.props.checkoutId}`
+      url: `https://test.oppwa.com/v1/paymentWidgets.js?checkoutId=${this.props.checkoutId}`
     }).then(() => {
       setTimeout(this.checkPaymentError, 1000);
     });

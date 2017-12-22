@@ -48,6 +48,26 @@
       display: none;
     }
 
+    .wpwl-wrapper-cardHolder {
+      .wpwl-control-empty {
+        width: 100%;
+        &:first-child {
+          margin-bottom: 0.8em;
+        }
+      }
+    }
+
+    .wpwl-sup-wrapper {
+      margin-bottom: 0.8em;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .wpwl-group-cardNumber {
+      width: 100%;
+    }
+
     .wpwl-wrapper {
       width: 100%;
       text-align: left;
@@ -61,13 +81,16 @@
       max-width: 50%;
     }
 
+    input.wpwl-control, input.wpwl-input {
+      -webkit-appearance: none;
+    }
+
     .wpwl-control, .wpwl-input {
       color: rgb(51, 51, 51);
       margin: 0;
       box-sizing: border-box;
       outline: none;
       height: 42px;
-      -webkit-appearance: none;
       line-height: 19px;
       padding: 0 16px;
       font-size: 16px;
