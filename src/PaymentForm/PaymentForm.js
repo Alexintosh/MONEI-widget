@@ -24,9 +24,7 @@ class PaymentForm extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      is3DFrame: false
-    };
+    this.apiBaseUrl = `https://${props.testMode ? 'test.' : ''}oppwa.com`;
     window.wpwlOptions = {
       ...props,
       brandDetection: true,
@@ -131,16 +129,13 @@ class PaymentForm extends Component {
   componentDidMount() {
     loadJS({
       async: true,
-      url: `https://test.oppwa.com/v1/paymentWidgets.js?checkoutId=${this.props.checkoutId}`
+      url: `${this.apiBaseUrl}/v1/paymentWidgets.js?checkoutId=${this.props.checkoutId}`
     }).then(() => {
       setTimeout(this.checkPaymentError, 1000);
     });
   }
 
   render({brands, redirectUrl}, {isFrame, hasError, error}, context) {
-    const config = window.wpwl || {};
-    const {amount, currency} = config.checkout || {};
-    console.log(config);
     return (
       <div className={classNames.formContainer} ref={el => (this.$formContainer = $(el))}>
         <form action={redirectUrl} className="paymentWidgets" data-brands={brands} />

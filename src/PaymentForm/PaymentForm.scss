@@ -12,18 +12,6 @@
     margin: 0;
   }
 
-  .wpwl-form {
-    margin: 0;
-    .wpwl-button-brand {
-      border: 1px solid #d9d9d9;
-      background-color: #f9fafb;;
-      border-radius: 3px;
-      width: 100%;
-      height: 70px;
-      min-width: auto;
-    }
-  }
-
   .wpwl-container {
     margin: 0 !important;
     padding: 0 !important;
@@ -159,43 +147,35 @@
     }
 
     .wpwl-brand-MASTER {
-      background-image: url(//cdn.shopify.com/s/assets/payment_icons/master-b3e9556358eab118e528bd537b2a5b8291bd33fa66a42fe85787e80352e4e383.png);
-      background-image: url(//cdn.shopify.com/s/assets/payment_icons/master-c32dfa3399907a3e21ae77f834e052b862ad7f0b33a085ddd74d6337c868793e.svg), none
+      background-image: url('../static/master.svg'), none
     }
 
     .wpwl-brand-DISCOVER {
-      background-image: url(//cdn.shopify.com/s/assets/payment_icons/discover-3fabcda303997ec75319067abbfd77b8a2950da7d692b538f4dc13063a3c9d52.png);
-      background-image: url(//cdn.shopify.com/s/assets/payment_icons/discover-c076f02bb17de06b93c754a81cdf60f5e0732653b5df3c575cd93214c1d809f9.svg), none
+      background-image: url('../static/discover.svg'), none
     }
 
     .wpwl-brand-VISAELECTRON {
-      background-image: url(//cdn.shopify.com/s/assets/payment_icons/visaelectron-10a9f65cd1e70de7fecc3f529d5a22a5e99135d0f7e06b086f61e85f3a0f1fb4.png);
-      background-image: url(//cdn.shopify.com/s/assets/payment_icons/visaelectron-4a70293ddb9de1392bdeae46906a10eb32647e65edd3c456f6aedd386f37aa4a.svg), none
+      background-image: url('../static/visaelectron.svg'), none
     }
 
     .wpwl-brand-JCB {
-      background-image: url(//cdn.shopify.com/s/assets/payment_icons/jcb-1c2e6ee9d4711fc142a455eaeed3b0933e1a7507575e1eef2317f95a13e10fdd.png);
-      background-image: url(//cdn.shopify.com/s/assets/payment_icons/jcb-d59424e4efb1bbe2b5a1d529f593879bebe8c960b46494bb00271eed036fdbbb.svg), none
+      background-image: url('../static/jcb.svg'), none
     }
 
     .wpwl-brand-AMEX {
-      background-image: url(//cdn.shopify.com/s/assets/payment_icons/american_express-4fbb62cc9099f46b5b6613dcc37fb22915ac54e62f1373e98b1c739bedb4b914.png);
-      background-image: url(//cdn.shopify.com/s/assets/payment_icons/american_express-b6b211368d19a429ac2d4dedf304c8622338870747b20d79d9775a0ce1d8ac63.svg), none
+      background-image: url('../static/american_express.svg'), none
     }
 
     .wpwl-brand-VISA {
-      background-image: url(//cdn.shopify.com/s/assets/payment_icons/visa-e5bb9ed6e55d7351774b2989db708125c012b93faaefd3b620aae1493ca5c76c.png);
-      background-image: url(//cdn.shopify.com/s/assets/payment_icons/visa-104fe31176c68b0293cf54cfcee1f2ab564def635d065b0260e17e80aae139ee.svg), none
+      background-image: url('../static/visa.svg'), none
     }
 
     .wpwl-brand-MAESTRO {
-      background-image: url(//cdn.shopify.com/s/assets/payment_icons/maestro-99a83dcd1235aec8c45531dc41bec9de11f92ecd5e9e26d96bc70e2b0667da12.png);
-      background-image: url(//cdn.shopify.com/s/assets/payment_icons/maestro-052935eb4e2801b641bbb893d58566e1735dc3f8ff20ca12b84db9bda2358d17.svg), none
+      background-image: url('../static/maestro.svg'), none
     }
 
     .wpwl-brand-GENERIC {
-      background-image: url(//cdn.shopify.com/s/assets/payment_icons/generic-073e5465ebcadd141f1eedbd083c91a38190ea5793cb54232e2892d3e1a06662.png);
-      background-image: url(//cdn.shopify.com/s/assets/payment_icons/generic-f6769e3788047d1cae97854af2dc3445511f88c9813f8f2edda508caf8a90833.svg), none
+      background-image: url('../static/generic.svg'), none
     }
   }
 }

@@ -4,3 +4,27 @@ export const isValidEmail = email => {
   if (!email) return false;
   return email.match(EMAIL_REGEX);
 };
+
+export const updateQuery = (uri, key, value) => {
+  const re = new RegExp('([?&])' + key + '=.*?(&|$)', 'i');
+  const separator = uri.indexOf('?') !== -1 ? '&' : '?';
+  if (uri.match(re)) {
+    return uri.replace(re, '$1' + key + '=' + value + '$2');
+  } else {
+    return uri + separator + key + '=' + value;
+  }
+};
+
+const parseBoolean = str => {
+  if (str === 'true') return true;
+  if (str === 'false') return false;
+  return str;
+};
+
+export const normalizeDataSet = data => {
+  const result = {};
+  Object.entries(data).forEach(([key, value]) => {
+    result[key] = parseBoolean(value);
+  });
+  return result;
+};

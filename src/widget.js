@@ -1,6 +1,8 @@
 import {render} from 'preact';
 import $ from 'cash-dom';
 import PaymentForm from './PaymentForm';
+import checkout from 'lib/checkout';
+import {normalizeDataSet} from './lib/utils';
 
 export const WIDGET_CONTAINER_CLASS_NAME = 'monei-widget';
 
@@ -22,8 +24,14 @@ function setup(element, options) {
 }
 
 function setupWidget(container, options) {
-  const props = Object.assign({}, container.dataset, options);
-  render(<PaymentForm {...props} />, container);
+  const props = Object.assign({}, normalizeDataSet(container.dataset), options);
+  if (props.checkoutId) {
+    render(<PaymentForm {...props} />, container);
+  } else {
+    checkout(props).then(({id, error}) => {
+      render(<PaymentForm {...props} checkoutId={id} error={error} />, container);
+    });
+  }
 }
 
 function disableAutoSetup() {

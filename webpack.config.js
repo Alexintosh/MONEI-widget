@@ -6,7 +6,13 @@ import S3Plugin from 'webpack-s3-plugin';
 import path from 'path';
 
 export default options => {
-  const globals = {};
+  const globals = {
+    API_BASE: 'https://xodfzwfygj.execute-api.eu-west-1.amazonaws.com/dev'
+  };
+
+  if (options.release) {
+    globals.API_BASE = 'https://api.monei.net';
+  }
 
   const webpackConfig = {
     context: path.resolve(__dirname, 'src'),

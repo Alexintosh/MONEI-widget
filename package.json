@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "babel-node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --env.dev",
+    "start:release": "babel-node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --env.dev --env.release",
     "lint": "eslint src test;exit 0;",
     "lint:fix": "eslint --fix src;exit 0;",
     "build": "babel-node ./node_modules/webpack/bin/webpack.js --env.prod",
