@@ -5,10 +5,10 @@ import classNames from './PaymentModal.scss';
 import cx from 'classnames';
 
 class PaymentModal extends Component {
-  setActive = (isActive = true) => this.setState({isActive});
-  setReady = (isReady = true) => this.setState({isReady});
+  setActive = () => this.setState({isActive: true});
+  setReady = () => this.setState({isReady: true});
   handleClose = () => {
-    this.setState({isReady: false, isActive: false});
+    this.setState({isActive: false, isReady: false});
     setTimeout(this.props.onClose.bind(this), 200);
   };
 
@@ -16,8 +16,12 @@ class PaymentModal extends Component {
     if (!props.isOpen) return null;
     return (
       <Portal into="body">
-        <div className={cx(classNames.portal, {[classNames.active]: state.isActive})}>
-          <div className={cx(classNames.container, {[classNames.ready]: state.isReady})}>
+        <div
+          className={cx(classNames.portal, {
+            [classNames.active]: state.isActive,
+            [classNames.ready]: state.isReady
+          })}>
+          <div className={classNames.container}>
             <div className={classNames.modal}>
               {props.name ||
                 (props.description && (
@@ -30,8 +34,8 @@ class PaymentModal extends Component {
                 <PaymentForm
                   {...props}
                   className={classNames.paymentForm}
-                  onReadyIframeCommunication={this.setReady}
-                  onLoad={this.setActive}
+                  onMount={this.setReady}
+                  onReadyIframeCommunication={this.setActive}
                 />
               </div>
               <div className={classNames.cancelButton} onClick={this.handleClose}>

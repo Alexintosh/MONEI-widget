@@ -4,6 +4,7 @@ import classNames from './PaymentForm.scss';
 import render from 'preact-render-to-string';
 import {isValidEmail} from 'lib/utils';
 import cx from 'classnames';
+import checkout from 'lib/checkout';
 
 class PaymentForm extends Component {
   static defaultProps = {
@@ -35,9 +36,9 @@ class PaymentForm extends Component {
     };
   }
 
-  injectPaymentScript() {
+  injectPaymentScript(checkoutId) {
     const script = document.createElement('script');
-    script.src = `${this.apiBaseUrl}/v1/paymentWidgets.js?checkoutId=${this.props.checkoutId}`;
+    script.src = `${this.apiBaseUrl}/v1/paymentWidgets.js?checkoutId=${checkoutId}`;
     script.async = true;
     script.onload = this.props.onLoad;
     document.body.appendChild(script);
@@ -146,7 +147,17 @@ class PaymentForm extends Component {
   };
 
   componentDidMount() {
-    this.injectPaymentScript();
+    if (this.props.onMount)
+      setTimeout(() => {
+        this.props.onMount();
+      }, 100);
+    if (this.props.checkoutId) {
+      this.injectPaymentScript(this.props.checkoutId);
+    } else {
+      checkout(this.props).then(({id, error}) => {
+        this.injectPaymentScript(id);
+      });
+    }
   }
 
   componentWillUnmount() {
