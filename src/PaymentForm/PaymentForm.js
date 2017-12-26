@@ -48,6 +48,9 @@ class PaymentForm extends Component {
     if (this.$script) {
       this.$script.remove();
       this.$script = null;
+
+      // remove script added by paymentWidgets.js
+      $('script[src*="oppwa.com"]').remove();
     }
   }
 

@@ -22,11 +22,12 @@
 .container {
   text-align: center;
   transition: all 0.3s;
+  transform: scale(0.8);
 }
 
 .modal {
   position: relative;
-  width: 300px;
+  width: 320px;
   height: auto;
   display: inline-block;
   border: 0;
