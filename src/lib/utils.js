@@ -16,7 +16,7 @@ export const updateQuery = (uri, key, value) => {
 };
 
 const parseBoolean = str => {
-  if (str === 'true') return true;
+  if (str === 'true' || str === '') return true;
   if (str === 'false') return false;
   return str;
 };
