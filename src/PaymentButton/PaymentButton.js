@@ -5,7 +5,8 @@ import {formatAmount} from 'lib/utils';
 
 class PaymentButton extends Component {
   static defaultProps = {
-    checkoutButtonText: 'Pay {amount}'
+    checkoutButtonText: 'Pay {amount}',
+    primaryColor: '#00796b'
   };
 
   constructor(props) {
@@ -27,7 +28,10 @@ class PaymentButton extends Component {
 
   render(props, {isModalOpen}, context) {
     return (
-      <span className={classNames.button} onClick={this.handleOpen}>
+      <span
+        className={classNames.button}
+        onClick={this.handleOpen}
+        style={{backgroundColor: props.primaryColor}}>
         {this.getButtonText()}
         <PaymentModal {...props} isOpen={isModalOpen} onClose={this.handleClose} />
       </span>

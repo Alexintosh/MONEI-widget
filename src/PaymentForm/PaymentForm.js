@@ -20,7 +20,8 @@ class PaymentForm extends Component {
     errorMessages: {
       email: 'Invalid email'
     },
-    style: 'plain'
+    style: 'plain',
+    primaryColor: '#00796b'
   };
 
   constructor(props) {
@@ -136,7 +137,14 @@ class PaymentForm extends Component {
   }
 
   adjustForm() {
-    const {showCardHolder, showEmail, customer, billing, customParameters} = this.props;
+    const {
+      showCardHolder,
+      showEmail,
+      customer,
+      billing,
+      customParameters,
+      primaryColor
+    } = this.props;
     const $form = this.$formContainer.find('.wpwl-form-card');
 
     // move brand icon to the card number field and hide by default
@@ -154,6 +162,8 @@ class PaymentForm extends Component {
     if (showEmail && !customer.email) {
       this.appendEmail($form);
     }
+
+    $form.find('.wpwl-button-pay').css({backgroundColor: primaryColor});
 
     // add custom fields
     Object.keys(customer).forEach(key => {
