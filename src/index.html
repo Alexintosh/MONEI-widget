@@ -23,5 +23,37 @@
     data-test-mode
     data-popup>
   </div>
+  <div id="widget-2"></div>
+  <script>
+    moneiWidget.disableAutoSetup();
+    document.addEventListener('DOMContentLoaded', function() {
+      moneiWidget.setup('widget-2', {
+        amount: 5000,
+        currency: 'usd',
+        redirectUrl: 'http://monei.net',
+        token: 'eyJ1IjoiYXV0aDB8NTZjZjEwMzIxYzRjN2YyZTJmYjI2NGFhIiwiYyI6IjhhODI5NDE4NTM0MTVmMjEwMTUzNjA2Yzc5MmU0ZmQwIn0',
+        name: 'Product 2 title',
+        brands: 'VISA MASTER MAESTRO JCB',
+        testMode: true,
+        showCardHolder: true,
+        customer: {
+          email: 'email@example.com',
+          givenName: 'John',
+          surname: 'Doe'
+        },
+        customParameters: {
+          foo: 'bar'
+        },
+        billing: {
+          street1: 'Street 1',
+          street2: 'Street 2',
+          country: 'ES',
+          city: 'Malaga',
+          state: 'Malaga',
+          postcode: '12345'
+        }
+      });
+    });
+  </script>
 </body>
 </html>

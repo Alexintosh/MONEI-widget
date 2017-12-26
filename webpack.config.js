@@ -16,21 +16,20 @@ export default options => {
   const webpackConfig = {
     context: path.resolve(__dirname, 'src'),
     entry: {
-      widget2: './index.js'
+      widget: './index.js'
     },
     output: {
-      path: path.resolve(__dirname, 'dist'),
+      path: path.resolve(__dirname, 'build'),
       publicPath: '/',
-      filename: '[name].js'
+      filename: 'widget.js',
+      library: 'moneiWidget',
+      libraryTarget: 'umd'
     },
     plugins: [
       new HtmlWebpackPlugin({
         template: './index.html',
         filename: 'index.html',
-        inject: 'body',
-        minify: {
-          collapseWhitespace: true
-        }
+        inject: 'head'
       }),
       new webpack.ProvidePlugin({
         h: ['preact', 'h']
