@@ -25,8 +25,10 @@ class PaymentModal extends Component {
             <div className={classNames.modal}>
               {(props.name || props.description) && (
                 <div className={classNames.header}>
-                  <div className={classNames.name}>{props.name}</div>
-                  <div className={classNames.description}>{props.description}</div>
+                  {props.name && <div className={classNames.name}>{props.name}</div>}
+                  {props.description && (
+                    <div className={classNames.description}>{props.description}</div>
+                  )}
                 </div>
               )}
               <div className={classNames.body}>

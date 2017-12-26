@@ -28,3 +28,15 @@ export const normalizeDataSet = data => {
   });
   return result;
 };
+
+export const formatAmount = (amount, currency) => {
+  const formattedAmount = String(amount).replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, '$1,');
+  switch (currency.toUpperCase()) {
+    case 'EUR':
+      return `€${formattedAmount}`;
+    case 'USD':
+      return `$${formattedAmount}`;
+  }
+
+  return `${formattedAmount} ${currency.toUpperCase()}`;
+};

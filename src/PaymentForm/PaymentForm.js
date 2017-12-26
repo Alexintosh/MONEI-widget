@@ -2,7 +2,7 @@ import {Component} from 'preact';
 import $ from 'cash-dom';
 import classNames from './PaymentForm.scss';
 import render from 'preact-render-to-string';
-import {isValidEmail} from 'lib/utils';
+import {formatAmount, isValidEmail} from 'lib/utils';
 import cx from 'classnames';
 import checkout from 'lib/checkout';
 
@@ -26,6 +26,12 @@ class PaymentForm extends Component {
   constructor(props) {
     super(props);
     this.apiBaseUrl = `https://${props.testMode ? 'test.' : ''}oppwa.com`;
+    if (props.submitButtonText) {
+      props.labels.submit = props.submitButtonText.replace(
+        '{amount}',
+        formatAmount(props.amount, props.currency)
+      );
+    }
     window.wpwlOptions = {
       ...props,
       brandDetection: true,
@@ -51,6 +57,7 @@ class PaymentForm extends Component {
       this.$script = null;
 
       // remove script added by paymentWidgets.js
+      window.wpwl.unload();
       $('script[src*="oppwa.com"]').remove();
     }
   }
@@ -139,12 +146,6 @@ class PaymentForm extends Component {
       this.appendEmail($form);
     }
   }
-
-  checkPaymentError = () => {
-    if (this.$formContainer.find('.wpwl-message.wpwl-has-error').length) {
-      this.onError();
-    }
-  };
 
   componentDidMount() {
     if (this.props.onMount)
