@@ -1,6 +1,7 @@
 import {render} from 'preact';
 import $ from 'cash-dom';
 import PaymentButton from './PaymentButton';
+import PaymentForm from './PaymentForm';
 import checkout from 'lib/checkout';
 import {normalizeDataSet} from './lib/utils';
 
@@ -25,11 +26,12 @@ function setup(element, options) {
 
 function setupWidget(container, options) {
   const props = Object.assign({}, normalizeDataSet(container.dataset), options);
+  const Component = props.popup ? PaymentButton : PaymentForm;
   if (props.checkoutId) {
-    render(<PaymentButton {...props} />, container);
+    render(<Component {...props} />, container);
   } else {
     checkout(props).then(({id, error}) => {
-      render(<PaymentButton {...props} checkoutId={id} error={error} />, container);
+      render(<Component {...props} checkoutId={id} error={error} />, container);
     });
   }
 }
