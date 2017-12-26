@@ -63,8 +63,10 @@ class PaymentForm extends Component {
   }
 
   validateCard = () => {
-    this.props.validateCard && this.props.validateCard();
-    this.validateEmail(true);
+    if (this.props.validateCard) {
+      return this.props.validateCard() && this.validateEmail(true);
+    }
+    return this.validateEmail(true);
   };
 
   onLoadThreeDIframe = () => {
@@ -128,7 +130,7 @@ class PaymentForm extends Component {
   }
 
   adjustForm() {
-    const $form = this.$formContainer.find('.wpwl-form');
+    const $form = this.$formContainer.find('.wpwl-form-card');
 
     // move brand icon to the card number field and hide by default
     const $brand = $form.find('.wpwl-brand-card').addClass('wpwl-brand-GENERIC');

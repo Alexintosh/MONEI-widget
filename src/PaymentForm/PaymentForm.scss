@@ -13,10 +13,33 @@
   }
 
   .wpwl-container {
-    margin: 0 !important;
+    margin: 0 0 0.8em !important;
     padding: 0 !important;
     height: auto !important;
     width: auto !important;
+    &:last-child {
+      margin-bottom: 0 !important;
+    }
+  }
+
+
+  .wpwl-form {
+    margin-bottom: 0;
+    .wpwl-group-button {
+      padding: 0 0.45em;
+    }
+    .wpwl-button-brand {
+      width: 100%;
+      border-radius: 3px;
+      box-shadow: 0 0 0 0 transparent inset;
+      transition: color 0.1s ease, border-color 0.1s ease;
+      &:hover {
+        color: rgba(0, 0, 0, 0.95);
+        border-color: rgb(102, 175, 233);
+        background: #FFFFFF;
+        box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.35) inset;
+      }
+    }
   }
 
   .wpwl-form-card {
@@ -94,7 +117,6 @@
       &:focus {
         color: rgba(0, 0, 0, 0.95);
         border-color: rgb(102, 175, 233);
-        border-radius: 0.28571429rem;
         background: #FFFFFF;
         box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.35) inset;
       }
