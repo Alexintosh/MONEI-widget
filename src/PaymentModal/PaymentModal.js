@@ -23,13 +23,12 @@ class PaymentModal extends Component {
           })}>
           <div className={classNames.container}>
             <div className={classNames.modal}>
-              {props.name ||
-                (props.description && (
-                  <div className={classNames.header}>
-                    <div className={classNames.name}>{props.name}</div>
-                    <div className={classNames.description}>{props.description}</div>
-                  </div>
-                ))}
+              {(props.name || props.description) && (
+                <div className={classNames.header}>
+                  <div className={classNames.name}>{props.name}</div>
+                  <div className={classNames.description}>{props.description}</div>
+                </div>
+              )}
               <div className={classNames.body}>
                 <PaymentForm
                   {...props}
