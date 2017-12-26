@@ -4,6 +4,7 @@ import $ from 'cash-dom';
 import classNames from './PaymentForm.scss';
 import render from 'preact-render-to-string';
 import {isValidEmail} from 'lib/utils';
+import cx from 'classnames';
 
 class PaymentForm extends Component {
   static defaultProps = {
@@ -33,6 +34,21 @@ class PaymentForm extends Component {
       onError: this.onError,
       validateCard: this.validateCard
     };
+  }
+
+  injectPaymentScript() {
+    const script = document.createElement('script');
+    script.src = `${this.apiBaseUrl}/v1/paymentWidgets.js?checkoutId=${this.props.checkoutId}`;
+    script.async = true;
+    document.body.appendChild(script);
+    this.$script = $(script);
+  }
+
+  removePaymentScript() {
+    if (this.$script) {
+      this.$script.remove();
+      this.$script = null;
+    }
   }
 
   validateCard = () => {
@@ -127,17 +143,18 @@ class PaymentForm extends Component {
   };
 
   componentDidMount() {
-    loadJS({
-      async: true,
-      url: `${this.apiBaseUrl}/v1/paymentWidgets.js?checkoutId=${this.props.checkoutId}`
-    }).then(() => {
-      setTimeout(this.checkPaymentError, 1000);
-    });
+    this.injectPaymentScript();
   }
 
-  render({brands, redirectUrl}, {isFrame, hasError, error}, context) {
+  componentWillUnmount() {
+    this.removePaymentScript();
+  }
+
+  render({brands, redirectUrl, className}, {isFrame, hasError, error}, context) {
     return (
-      <div className={classNames.formContainer} ref={el => (this.$formContainer = $(el))}>
+      <div
+        className={cx(classNames.formContainer, className)}
+        ref={el => (this.$formContainer = $(el))}>
         <form action={redirectUrl} className="paymentWidgets" data-brands={brands} />
       </div>
     );

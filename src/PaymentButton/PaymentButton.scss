@@ -1,0 +1,30 @@
+.button {
+  display: inline-block;
+  font-size: inherit;
+  cursor: pointer;
+  min-height: 16px;
+  outline: 0;
+  border: none;
+  vertical-align: baseline;
+  background: #00796b;
+  color: #fff;
+  font-family: inherit;
+  padding: 12px 24px;
+  text-transform: none;
+  text-shadow: none;
+  font-weight: 700;
+  line-height: 1em;
+  font-style: normal;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 4px;
+  box-shadow: 0 0 0 1px transparent inset, 0 0 0 0 rgba(34, 36, 38, .15) inset;
+  user-select: none;
+  transition: opacity .1s ease, background-color .1s ease, color .1s ease, box-shadow .1s ease, background .1s ease;
+  -webkit-tap-highlight-color: transparent;
+
+  &:hover, &:active {
+    background: #00695b;
+    box-shadow: 0 0 0 1px transparent inset, 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
+  }
+}
