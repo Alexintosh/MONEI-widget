@@ -57,7 +57,7 @@ class PaymentForm extends Component {
       this.$script = null;
 
       // remove script added by paymentWidgets.js
-      window.wpwl.unload();
+      window.wpwl && wpwl.unload();
       $('script[src*="oppwa.com"]').remove();
     }
   }
@@ -82,6 +82,12 @@ class PaymentForm extends Component {
   onReady = () => {
     this.props.onReady && this.props.onReady();
     this.adjustForm();
+  };
+
+  checkPaymentError = () => {
+    if (this.$formContainer.find('.wpwl-message.wpwl-has-error').length) {
+      this.onError();
+    }
   };
 
   appendEmail($form) {
@@ -158,16 +164,22 @@ class PaymentForm extends Component {
       this.injectPaymentScript(this.props.checkoutId);
     } else {
       checkout(this.props).then(({id, error}) => {
+        if (error) {
+          return this.onError(error);
+        }
         this.injectPaymentScript(id);
       });
     }
+    setTimeout(() => {
+      this.checkPaymentError();
+    }, 1000);
   }
 
   componentWillUnmount() {
     this.removePaymentScript();
   }
 
-  render({brands, redirectUrl, token, className}, {isFrame, hasError, error}, context) {
+  render({brands, redirectUrl, token, className, testMode}, {isFrame, hasError, error}, context) {
     if (token) {
       redirectUrl = updateQuery(redirectUrl, 'token', token);
     }
@@ -175,6 +187,11 @@ class PaymentForm extends Component {
       <div
         className={cx(classNames.formContainer, className)}
         ref={el => (this.$formContainer = $(el))}>
+        {testMode && (
+          <div className={classNames.testModeWarning}>
+            <div>You will not be billed for this test charge.</div>
+          </div>
+        )}
         <form action={redirectUrl} className="paymentWidgets" data-brands={brands} />
       </div>
     );

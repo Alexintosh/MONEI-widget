@@ -37,6 +37,7 @@ class PaymentModal extends Component {
                   className={classNames.paymentForm}
                   onMount={this.setReady}
                   onReadyIframeCommunication={this.setActive}
+                  onError={this.setActive}
                 />
               </div>
               <div className={classNames.cancelButton} onClick={this.handleClose}>
