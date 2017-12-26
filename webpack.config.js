@@ -1,7 +1,6 @@
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ExtendedDefinePlugin from 'extended-define-webpack-plugin';
-import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import S3Plugin from 'webpack-s3-plugin';
 import path from 'path';
 
@@ -20,9 +19,9 @@ export default options => {
       widget2: './index.js'
     },
     output: {
-      path: path.resolve(__dirname, 'public'),
+      path: path.resolve(__dirname, 'dist'),
       publicPath: '/',
-      filename: '[name].[hash].js'
+      filename: '[name].js'
     },
     plugins: [
       new HtmlWebpackPlugin({
@@ -46,11 +45,6 @@ export default options => {
             require('postcss-reporter')()
           ]
         }
-      }),
-      new ExtractTextPlugin({
-        filename: '[name].[contenthash].css',
-        allChunks: true,
-        disable: options.dev
       })
     ],
     module: {

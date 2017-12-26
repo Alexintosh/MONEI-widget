@@ -1,5 +1,4 @@
 import {Component} from 'preact';
-import loadJS from 'load-js';
 import $ from 'cash-dom';
 import classNames from './PaymentForm.scss';
 import render from 'preact-render-to-string';
@@ -40,6 +39,7 @@ class PaymentForm extends Component {
     const script = document.createElement('script');
     script.src = `${this.apiBaseUrl}/v1/paymentWidgets.js?checkoutId=${this.props.checkoutId}`;
     script.async = true;
+    script.onload = this.props.onLoad;
     document.body.appendChild(script);
     this.$script = $(script);
   }

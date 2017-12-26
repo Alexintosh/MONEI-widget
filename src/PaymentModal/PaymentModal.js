@@ -2,13 +2,20 @@ import {Component} from 'preact';
 import Portal from 'preact-portal';
 import PaymentForm from '../PaymentForm';
 import classNames from './PaymentModal.scss';
+import cx from 'classnames';
 
 class PaymentModal extends Component {
+  setActive = (isActive = true) => this.setState({isActive});
+  handleClose = () => {
+    this.setActive(false);
+    setTimeout(this.props.onClose.bind(this), 200);
+  };
+
   render(props, state, context) {
     if (!props.isOpen) return null;
     return (
       <Portal into="body">
-        <div className={classNames.portal}>
+        <div className={cx(classNames.portal, {[classNames.active]: state.isActive})}>
           <div className={classNames.container}>
             <div className={classNames.modal}>
               {props.name ||
@@ -19,9 +26,13 @@ class PaymentModal extends Component {
                   </div>
                 ))}
               <div className={classNames.body}>
-                <PaymentForm {...props} className={classNames.paymentForm} />
+                <PaymentForm
+                  {...props}
+                  className={classNames.paymentForm}
+                  onLoad={this.setActive}
+                />
               </div>
-              <div className={classNames.cancelButton} onClick={() => props.onClose()}>
+              <div className={classNames.cancelButton} onClick={this.handleClose}>
                 &times;
               </div>
             </div>
