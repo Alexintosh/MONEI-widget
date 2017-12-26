@@ -136,6 +136,7 @@ class PaymentForm extends Component {
   }
 
   adjustForm() {
+    const {showCardHolder, showEmail, customer, billing, customParameters} = this.props;
     const $form = this.$formContainer.find('.wpwl-form-card');
 
     // move brand icon to the card number field and hide by default
@@ -144,15 +145,32 @@ class PaymentForm extends Component {
 
     // show cardholder firs or hide it
     const $cardHolder = $form.find('.wpwl-group-cardHolder');
-    if (this.props.showCardHolder) {
+    if (showCardHolder) {
       $cardHolder.prependTo($form);
     } else {
       $cardHolder.remove();
     }
 
-    if (this.props.showEmail) {
+    if (showEmail && !customer.email) {
       this.appendEmail($form);
     }
+
+    // add custom fields
+    Object.keys(customer).forEach(key => {
+      const value = customer[key];
+      if (value) $form.prepend(`<input type="hidden" name="customer.${key}" value="${value}">`);
+    });
+    Object.keys(billing).forEach(key => {
+      const value = billing[key];
+      if (value) $form.prepend(`<input type="hidden" name="billing.${key}" value="${value}">`);
+    });
+    Object.keys(customParameters).forEach(key => {
+      const value = customParameters[key];
+      if (value)
+        $form.prepend(
+          `<input type="hidden" name="customParameters[SHOPPER_${key}]" value="${value}">`
+        );
+    });
   }
 
   componentDidMount() {

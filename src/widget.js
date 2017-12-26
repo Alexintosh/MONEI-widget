@@ -25,7 +25,31 @@ function setup(element, options) {
 }
 
 function setupWidget(container, options) {
-  const props = Object.assign({}, normalizeDataSet(container.dataset), options);
+  const defaultProps = {
+    customer: {
+      email: container.dataset['customerEmail'],
+      givenName: container.dataset['customerGivenName'],
+      middleName: container.dataset['customerMiddleName'],
+      surname: container.dataset['customerSurname'],
+      sex: container.dataset['customerSex'],
+      birthDate: container.dataset['customerBirthDate'],
+      phone: container.dataset['customerPhone'],
+      mobile: container.dataset['customerMobile'],
+      workPhone: container.dataset['customerWorkPhone'],
+      companyName: container.dataset['customerCompanyName'],
+      status: container.dataset['customerStatus']
+    },
+    billing: {
+      street1: container.dataset['billingStreet1'],
+      street2: container.dataset['billingStreet2'],
+      country: container.dataset['billingCountry'],
+      city: container.dataset['billingCity'],
+      state: container.dataset['billingState'],
+      postcode: container.dataset['billingPostcode']
+    },
+    customParameters: {}
+  };
+  const props = Object.assign(defaultProps, normalizeDataSet(container.dataset), options);
   const Component = props.popup ? PaymentButton : PaymentForm;
   render(<Component {...props} />, container);
 }
