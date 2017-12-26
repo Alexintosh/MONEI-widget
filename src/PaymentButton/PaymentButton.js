@@ -20,6 +20,7 @@ class PaymentButton extends Component {
 
   getButtonText() {
     const {amount, currency, checkoutButtonText} = this.props;
+    if (!amount) return 'Pay now';
     const price = formatAmount(amount, currency);
     return checkoutButtonText.replace('{amount}', price);
   }

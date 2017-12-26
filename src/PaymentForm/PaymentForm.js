@@ -2,7 +2,7 @@ import {Component} from 'preact';
 import $ from 'cash-dom';
 import classNames from './PaymentForm.scss';
 import render from 'preact-render-to-string';
-import {formatAmount, isValidEmail} from 'lib/utils';
+import {formatAmount, isValidEmail, updateQuery} from 'lib/utils';
 import cx from 'classnames';
 import checkout from 'lib/checkout';
 
@@ -167,7 +167,10 @@ class PaymentForm extends Component {
     this.removePaymentScript();
   }
 
-  render({brands, redirectUrl, className}, {isFrame, hasError, error}, context) {
+  render({brands, redirectUrl, token, className}, {isFrame, hasError, error}, context) {
+    if (token) {
+      redirectUrl = updateQuery(redirectUrl, 'token', token);
+    }
     return (
       <div
         className={cx(classNames.formContainer, className)}

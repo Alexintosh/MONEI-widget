@@ -31,6 +31,7 @@ export const normalizeDataSet = data => {
 
 export const formatAmount = (amount, currency) => {
   const formattedAmount = String(amount).replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, '$1,');
+  if (!currency) return formattedAmount;
   switch (currency.toUpperCase()) {
     case 'EUR':
       return `€${formattedAmount}`;

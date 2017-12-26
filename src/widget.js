@@ -3,6 +3,7 @@ import $ from 'cash-dom';
 import PaymentButton from './PaymentButton';
 import PaymentForm from './PaymentForm';
 import {normalizeDataSet} from './lib/utils';
+import {updateQuery} from 'lib/utils';
 
 export const WIDGET_CONTAINER_CLASS_NAME = 'monei-widget';
 
