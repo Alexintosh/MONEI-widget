@@ -4,6 +4,7 @@ import PaymentButton from './PaymentButton';
 import PaymentForm from './PaymentForm';
 import {normalizeDataSet} from './lib/utils';
 import merge from 'deepmerge';
+import validateProps from 'lib/propsValidator';
 
 export const WIDGET_CONTAINER_CLASS_NAME = 'monei-widget';
 
@@ -60,6 +61,11 @@ function setupWidget(container, options) {
     }
   };
   const props = merge.all([defaultProps, normalizeDataSet(ds), options]);
+  const error = validateProps(props);
+  if (error) {
+    console.error(error);
+    return;
+  }
   const Component = props.popup ? PaymentButton : PaymentForm;
   render(<Component {...props} container={container} />, container);
 }
