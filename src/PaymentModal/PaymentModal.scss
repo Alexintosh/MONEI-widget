@@ -48,6 +48,29 @@
   backface-visibility: hidden;
 }
 
+.brand {
+  margin-top: 10px;
+  font-size: 12px;
+  line-height: 13px;
+  color: #fff;
+  span {
+    opacity: 0.4;
+    vertical-align: middle;
+  }
+  a, img {
+    vertical-align: middle;
+    width: 50px;
+    display: inline-block;
+  }
+  a {
+    opacity: 0.4;
+    margin-bottom: 2px;
+  }
+  &:hover a {
+    opacity: 1;
+  }
+}
+
 .frame {
   width: 600px;
   .header {
