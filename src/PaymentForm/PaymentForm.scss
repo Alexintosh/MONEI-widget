@@ -1,24 +1,60 @@
 .formContainer {
   font-size: 14px;
-  font-family: -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue,
+    sans-serif;
   line-height: 1.3em;
   -webkit-font-smoothing: subpixel-antialiased;
   color: #212b35;
+  &.frame {
+    :global(.wpwl-container:not(.wpwl-container-card)) {
+      display: none !important;
+    }
+  }
+  &.ready {
+    .brand,
+    .testModeWarning {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
 }
 
-.frame {
-  :global(.wpwl-container:not(.wpwl-container-card)) {
-    display: none !important;
+.brand {
+  opacity: 0;
+  visibility: hidden;
+  padding-top: 10px;
+  font-size: 12px;
+  line-height: 13px;
+  transition: opacity 0.3s;
+  span {
+    opacity: 0.4;
+    vertical-align: middle;
+  }
+  a,
+  img {
+    vertical-align: middle;
+    width: 50px;
+    display: inline-block;
+  }
+  a {
+    opacity: 0.6;
+  }
+  &:hover a {
+    opacity: 1;
   }
 }
 
 .testModeWarning {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s;
   & > div {
     background-color: #fcf1cd;
     border-radius: 3px;
     margin: 0.45em;
     padding: 0.8em;
-    box-shadow: inset 0 3px 0 0 #eec200, inset 0 0 0 0 transparent, 0 0 0 1px rgba(63,63,68,0.05), 0 1px 3px 0 rgba(63,63,68,0.15);
+    box-shadow: inset 0 3px 0 0 #eec200, inset 0 0 0 0 transparent, 0 0 0 1px rgba(63, 63, 68, 0.05),
+      0 1px 3px 0 rgba(63, 63, 68, 0.15);
     color: #212b35;
   }
   max-width: 30em;
@@ -41,7 +77,6 @@
     }
   }
 
-
   .wpwl-form {
     margin-bottom: 0;
     .wpwl-group-button {
@@ -55,7 +90,7 @@
       &:hover {
         color: rgba(0, 0, 0, 0.95);
         border-color: rgb(102, 175, 233);
-        background: #FFFFFF;
+        background: #ffffff;
         box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.35) inset;
       }
     }
@@ -108,15 +143,18 @@
       font-size: 13px;
     }
 
-    .wpwl-group-expiry, .wpwl-group-cvv {
+    .wpwl-group-expiry,
+    .wpwl-group-cvv {
       max-width: 50%;
     }
 
-    input.wpwl-control, input.wpwl-input {
+    input.wpwl-control,
+    input.wpwl-input {
       -webkit-appearance: none;
     }
 
-    .wpwl-control, .wpwl-input {
+    .wpwl-control,
+    .wpwl-input {
       color: rgb(51, 51, 51);
       margin: 0;
       box-sizing: border-box;
@@ -125,18 +163,18 @@
       line-height: 19px;
       padding: 0 16px;
       font-size: 16px;
-      background: #FFFFFF;
+      background: #ffffff;
       color: rgba(0, 0, 0, 0.87);
       border-radius: 3px;
       box-shadow: 0 0 0 0 transparent inset;
       transition: color 0.1s ease, border-color 0.1s ease;
       font-smoothing: initial;
       -webkit-font-smoothing: initial;
-      font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+      font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
       &:focus {
         color: rgba(0, 0, 0, 0.95);
         border-color: rgb(102, 175, 233);
-        background: #FFFFFF;
+        background: #ffffff;
         box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.35) inset;
       }
     }
@@ -182,57 +220,62 @@
       position: relative;
       border: none;
       background: #00796b;
-      transition: opacity .1s ease, background-color .1s ease, color .1s ease, box-shadow .1s ease, background .1s ease;
-      &[disabled], &[disabled]:hover, &[disabled]:focus, &[disabled]:active {
+      transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s ease,
+        box-shadow 0.1s ease, background 0.1s ease;
+      &[disabled],
+      &[disabled]:hover,
+      &[disabled]:focus,
+      &[disabled]:active {
         background: #00796b;
         border: none;
         opacity: 0.65 !important;
         pointer-events: none;
       }
-      &:hover, &:active {
+      &:hover,
+      &:active {
         opacity: 1;
         box-shadow: 0 0 0 1px transparent inset, 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
       }
     }
 
     .wpwl-brand-MASTER {
-      background-image: url('../static/master.svg'), none
+      background-image: url('../static/master.svg'), none;
     }
 
     .wpwl-brand-DISCOVER {
-      background-image: url('../static/discover.svg'), none
+      background-image: url('../static/discover.svg'), none;
     }
 
     .wpwl-brand-VISAELECTRON {
-      background-image: url('../static/visaelectron.svg'), none
+      background-image: url('../static/visaelectron.svg'), none;
     }
 
     .wpwl-brand-JCB {
-      background-image: url('../static/jcb.svg'), none
+      background-image: url('../static/jcb.svg'), none;
     }
 
     .wpwl-brand-AMEX {
-      background-image: url('../static/american_express.svg'), none
+      background-image: url('../static/american_express.svg'), none;
     }
 
     .wpwl-brand-VISA {
-      background-image: url('../static/visa.svg'), none
+      background-image: url('../static/visa.svg'), none;
     }
 
     .wpwl-brand-MAESTRO {
-      background-image: url('../static/maestro.svg'), none
+      background-image: url('../static/maestro.svg'), none;
     }
 
     .wpwl-brand-DINERS {
-      background-image: url('../static/diners.svg'), none
+      background-image: url('../static/diners.svg'), none;
     }
 
     .wpwl-brand-DANKORT {
-      background-image: url('../static/dankort.svg'), none
+      background-image: url('../static/dankort.svg'), none;
     }
 
     .wpwl-brand-GENERIC {
-      background-image: url('../static/generic.svg'), none
+      background-image: url('../static/generic.svg'), none;
     }
   }
 }

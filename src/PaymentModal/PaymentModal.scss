@@ -19,7 +19,7 @@
   &.active {
     .container {
       opacity: 1;
-      transform: scale(1);
+      transform: scale(1) translateY(0);
     }
   }
 }
@@ -30,7 +30,7 @@
   position: relative;
   text-align: center;
   transition: all 0.3s;
-  transform: scale(0.8);
+  transform: scale(0.8) translateY(20%);
   max-width: 100%;
 }
 

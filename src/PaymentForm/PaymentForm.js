@@ -5,6 +5,7 @@ import render from 'preact-render-to-string';
 import {formatAmount, isValidEmail, updateQuery} from 'lib/utils';
 import cx from 'classnames';
 import checkout from 'lib/checkout';
+import Branding from './Branding';
 
 class PaymentForm extends Component {
   static defaultProps = {
@@ -20,7 +21,13 @@ class PaymentForm extends Component {
     errorMessages: {
       email: 'Invalid email'
     },
-    style: 'plain'
+    style: 'plain',
+    spinner: {
+      lines: 8,
+      width: 3,
+      radius: 5,
+      length: 5
+    }
   };
 
   constructor(props) {
@@ -81,6 +88,7 @@ class PaymentForm extends Component {
 
   onReady = () => {
     this.props.onReady && this.props.onReady();
+    this.setState({isReady: true});
     this.adjustForm();
   };
 
@@ -206,13 +214,16 @@ class PaymentForm extends Component {
     this.removePaymentScript();
   }
 
-  render({brands, redirectUrl, token, className, test}, {is3DFrame, hasError, error}, context) {
+  render({brands, redirectUrl, token, className, test, popup}, {is3DFrame, isReady}, context) {
     if (token) {
       redirectUrl = updateQuery(redirectUrl, 'token', token);
     }
     return (
       <div
-        className={cx(classNames.formContainer, className, {[classNames.frame]: is3DFrame})}
+        className={cx(classNames.formContainer, className, {
+          [classNames.frame]: is3DFrame,
+          [classNames.ready]: isReady
+        })}
         ref={el => (this.$formContainer = $(el))}>
         {!is3DFrame &&
           test && (
@@ -220,7 +231,10 @@ class PaymentForm extends Component {
               <div>You will not be billed for this test charge.</div>
             </div>
           )}
-        <form action={redirectUrl} className="paymentWidgets" data-brands={brands} />
+        <div>
+          <form action={redirectUrl} className="paymentWidgets" data-brands={brands} />
+        </div>
+        {!popup && <Branding className={classNames.brand} />}
       </div>
     );
   }
