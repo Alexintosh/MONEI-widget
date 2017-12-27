@@ -212,7 +212,7 @@ class PaymentForm extends Component {
     }
     return (
       <div
-        className={cx(classNames.formContainer, className)}
+        className={cx(classNames.formContainer, className, {[classNames.frame]: is3DFrame})}
         ref={el => (this.$formContainer = $(el))}>
         {!is3DFrame &&
           test && (

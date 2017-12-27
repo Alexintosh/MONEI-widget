@@ -6,6 +6,12 @@
   color: #212b35;
 }
 
+.frame {
+  :global(.wpwl-container:not(.wpwl-container-card)) {
+    display: none !important;
+  }
+}
+
 .testModeWarning {
   & > div {
     background-color: #fcf1cd;
