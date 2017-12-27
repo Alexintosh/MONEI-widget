@@ -3,7 +3,7 @@ import $ from 'cash-dom';
 import PaymentButton from './PaymentButton';
 import PaymentForm from './PaymentForm';
 import {normalizeDataSet} from './lib/utils';
-import assign from 'object-assign-deep';
+import merge from 'deepmerge';
 
 export const WIDGET_CONTAINER_CLASS_NAME = 'monei-widget';
 
@@ -56,9 +56,9 @@ function setupWidget(container, options) {
       email: 'Invalid email'
     }
   };
-  const props = assign(defaultProps, normalizeDataSet(container.dataset), options);
+  const props = merge(defaultProps, normalizeDataSet(container.dataset), options);
   const Component = props.popup ? PaymentButton : PaymentForm;
-  render(<Component {...props} />, container);
+  render(<Component {...props} container={container} />, container);
 }
 
 function disableAutoSetup() {

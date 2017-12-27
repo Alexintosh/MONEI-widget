@@ -15,9 +15,16 @@ class PaymentButton extends Component {
     this.state = {
       isModalOpen: false
     };
+    if (props.noEnhance) {
+      props.container.onclick = this.handleOpen;
+    }
   }
 
-  handleOpen = () => this.setState({isModalOpen: true});
+  handleOpen = e => {
+    e.preventDefault();
+    this.setState({isModalOpen: true});
+  };
+
   handleClose = () => this.setState({isModalOpen: false});
 
   getButtonText() {
@@ -28,6 +35,9 @@ class PaymentButton extends Component {
   }
 
   render(props, {isModalOpen}, context) {
+    if (props.noEnhance) {
+      return <PaymentModal {...props} isOpen={isModalOpen} onClose={this.handleClose} />;
+    }
     return (
       <span
         className={classNames.button}

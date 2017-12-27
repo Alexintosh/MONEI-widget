@@ -32,7 +32,7 @@ class PaymentForm extends Component {
 
   constructor(props) {
     super(props);
-    this.apiBaseUrl = `https://${props.test ? 'test.' : ''}oppwa.com`;
+    this.apiBaseUrl = `https://${props.test ? 'test.' : ''}monei-api.net`;
     if (props.labels.submit) {
       props.labels.submit = props.labels.submit.replace(
         '{amount}',

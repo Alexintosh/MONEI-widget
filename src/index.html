@@ -14,27 +14,10 @@
   </style>
 </head>
 <body>
-  <h1>MONEI Widget showcase</h1>
-  <div id="widget-2"></div>
-  <script>
-    moneiWidget.disableAutoSetup();
-    document.addEventListener('DOMContentLoaded', function() {
-      moneiWidget.setup('widget-2', {
-        amount: 5000,
-        currency: 'usd',
-        redirectUrl: 'http://monei.net',
-        checkoutId: 'BA343B7322315B5A85F4AC4B102FB0E4.sbg-vm-tx02',
-        name: 'Product title',
-        description: 'Product description for this transaction',
-        brands: 'VISA MASTER MAESTRO JCB AMEX DISCOVER DINERS',
-        test: true,
-        popup: true,
-        showEmail: false,
-        customParameters: {
-          foo: 'bar'
-        }
-      });
-    });
-  </script>
+<h1>MONEI Widget showcase</h1>
+<div class="monei-widget"
+     data-token="eyJ1IjoiYXV0aDB8NTZjZjEwMzIxYzRjN2YyZTJmYjI2NGFhIiwiYyI6IjhhODI5NDE4NTM0MTVmMjEwMTUzNjA2Yzc5MmU0ZmQwIn0"
+     data-amount="100" data-currency="eur"
+     data-test></div>
 </body>
 </html>
