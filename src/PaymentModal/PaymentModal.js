@@ -5,11 +5,29 @@ import classNames from './PaymentModal.scss';
 import cx from 'classnames';
 
 class PaymentModal extends Component {
-  setActive = () => this.setState({isActive: true});
-  setReady = () => this.setState({isReady: true});
   handleClose = () => {
     this.setState({isActive: false, isReady: false});
     setTimeout(this.props.onClose.bind(this), 200);
+  };
+
+  onError = error => {
+    this.props.onError && this.props.onError(error);
+    this.setState({isActive: true});
+  };
+
+  onReadyIframeCommunication = () => {
+    this.props.onReadyIframeCommunication && this.props.onReadyIframeCommunication();
+    this.setState({isActive: true});
+  };
+
+  onLoadThreeDIframe = () => {
+    this.props.onLoadThreeDIframe && this.props.onLoadThreeDIframe();
+    this.setState({is3DFrame: true});
+  };
+
+  onMount = () => {
+    this.props.onMount && this.props.onMount();
+    this.setState({isReady: true});
   };
 
   render(props, state, context) {
@@ -22,7 +40,7 @@ class PaymentModal extends Component {
             [classNames.ready]: state.isReady
           })}>
           <div className={classNames.container}>
-            <div className={classNames.modal}>
+            <div className={cx(classNames.modal, {[classNames.frame]: state.is3DFrame})}>
               {(props.name || props.description) && (
                 <div className={classNames.header}>
                   {props.name && <div className={classNames.name}>{props.name}</div>}
@@ -35,9 +53,10 @@ class PaymentModal extends Component {
                 <PaymentForm
                   {...props}
                   className={classNames.paymentForm}
-                  onMount={this.setReady}
-                  onReadyIframeCommunication={this.setActive}
-                  onError={this.setActive}
+                  onMount={this.onMount}
+                  onReadyIframeCommunication={this.onReadyIframeCommunication}
+                  onLoadThreeDIframe={this.onLoadThreeDIframe}
+                  onError={this.onError}
                 />
               </div>
               <div className={classNames.cancelButton} onClick={this.handleClose}>

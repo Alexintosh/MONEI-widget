@@ -206,7 +206,7 @@ class PaymentForm extends Component {
     this.removePaymentScript();
   }
 
-  render({brands, redirectUrl, token, className, test}, {isFrame, hasError, error}, context) {
+  render({brands, redirectUrl, token, className, test}, {is3DFrame, hasError, error}, context) {
     if (token) {
       redirectUrl = updateQuery(redirectUrl, 'token', token);
     }
@@ -214,11 +214,12 @@ class PaymentForm extends Component {
       <div
         className={cx(classNames.formContainer, className)}
         ref={el => (this.$formContainer = $(el))}>
-        {test && (
-          <div className={classNames.testModeWarning}>
-            <div>You will not be billed for this test charge.</div>
-          </div>
-        )}
+        {!is3DFrame &&
+          test && (
+            <div className={classNames.testModeWarning}>
+              <div>You will not be billed for this test charge.</div>
+            </div>
+          )}
         <form action={redirectUrl} className="paymentWidgets" data-brands={brands} />
       </div>
     );
