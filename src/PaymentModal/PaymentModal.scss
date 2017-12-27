@@ -11,6 +11,8 @@
   justify-content: center;
   opacity: 0;
   transition: all 0.2s;
+  overflow: auto !important;
+  padding: 5px;
   &.ready {
     opacity: 1;
   }
@@ -24,17 +26,20 @@
 
 .container {
   opacity: 0;
+  margin: auto;
+  position: relative;
   text-align: center;
   transition: all 0.3s;
   transform: scale(0.8);
+  max-width: 100%;
 }
 
 .modal {
   position: relative;
   width: 340px;
-  max-width: 95%;
   height: auto;
   display: inline-block;
+  max-width: 100%;
   border: 0;
   overflow: hidden;
   border-radius: 4px;
@@ -47,6 +52,9 @@
   width: 600px;
   .header {
     display: none;
+  }
+  .body {
+    padding: 0;
   }
 }
 
@@ -74,9 +82,6 @@
   padding: 25px;
   box-sizing: border-box;
   min-height: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 
