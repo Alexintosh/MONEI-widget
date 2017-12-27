@@ -5,8 +5,9 @@ import {formatAmount} from 'lib/utils';
 
 class PaymentButton extends Component {
   static defaultProps = {
-    checkoutButtonText: 'Pay {amount}',
-    primaryColor: '#00796b'
+    labels: {
+      checkout: 'Pay {amount}'
+    }
   };
 
   constructor(props) {
@@ -20,10 +21,10 @@ class PaymentButton extends Component {
   handleClose = () => this.setState({isModalOpen: false});
 
   getButtonText() {
-    const {amount, currency, checkoutButtonText} = this.props;
+    const {amount, currency, labels} = this.props;
     if (!amount) return 'Pay now';
     const price = formatAmount(amount, currency);
-    return checkoutButtonText.replace('{amount}', price);
+    return labels.checkout.replace('{amount}', price);
   }
 
   render(props, {isModalOpen}, context) {

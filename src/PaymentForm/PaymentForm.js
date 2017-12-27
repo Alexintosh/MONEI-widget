@@ -20,15 +20,14 @@ class PaymentForm extends Component {
     errorMessages: {
       email: 'Invalid email'
     },
-    style: 'plain',
-    primaryColor: '#00796b'
+    style: 'plain'
   };
 
   constructor(props) {
     super(props);
-    this.apiBaseUrl = `https://${props.testMode ? 'test.' : ''}oppwa.com`;
-    if (props.submitButtonText) {
-      props.labels.submit = props.submitButtonText.replace(
+    this.apiBaseUrl = `https://${props.test ? 'test.' : ''}oppwa.com`;
+    if (props.labels.submit) {
+      props.labels.submit = props.labels.submit.replace(
         '{amount}',
         formatAmount(props.amount, props.currency)
       );
@@ -207,7 +206,7 @@ class PaymentForm extends Component {
     this.removePaymentScript();
   }
 
-  render({brands, redirectUrl, token, className, testMode}, {isFrame, hasError, error}, context) {
+  render({brands, redirectUrl, token, className, test}, {isFrame, hasError, error}, context) {
     if (token) {
       redirectUrl = updateQuery(redirectUrl, 'token', token);
     }
@@ -215,7 +214,7 @@ class PaymentForm extends Component {
       <div
         className={cx(classNames.formContainer, className)}
         ref={el => (this.$formContainer = $(el))}>
-        {testMode && (
+        {test && (
           <div className={classNames.testModeWarning}>
             <div>You will not be billed for this test charge.</div>
           </div>

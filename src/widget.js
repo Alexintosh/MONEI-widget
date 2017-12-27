@@ -3,7 +3,7 @@ import $ from 'cash-dom';
 import PaymentButton from './PaymentButton';
 import PaymentForm from './PaymentForm';
 import {normalizeDataSet} from './lib/utils';
-import {updateQuery} from 'lib/utils';
+import assign from 'object-assign-deep';
 
 export const WIDGET_CONTAINER_CLASS_NAME = 'monei-widget';
 
@@ -47,9 +47,16 @@ function setupWidget(container, options) {
       state: container.dataset['billingState'],
       postcode: container.dataset['billingPostcode']
     },
-    customParameters: {}
+    customParameters: {},
+    labels: {
+      checkout: 'Pay {amount}',
+      email: 'Email'
+    },
+    errorMessages: {
+      email: 'Invalid email'
+    }
   };
-  const props = Object.assign(defaultProps, normalizeDataSet(container.dataset), options);
+  const props = assign(defaultProps, normalizeDataSet(container.dataset), options);
   const Component = props.popup ? PaymentButton : PaymentForm;
   render(<Component {...props} />, container);
 }

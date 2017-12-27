@@ -24,17 +24,17 @@
         currency: 'usd',
         redirectUrl: 'http://monei.net',
         token: 'eyJ1IjoiYXV0aDB8NTZjZjEwMzIxYzRjN2YyZTJmYjI2NGFhIiwiYyI6IjhhODI5NDE4NTM0MTVmMjEwMTUzNjA2Yzc5MmU0ZmQwIn0',
-        name: 'Product detailed title for this transaction',
-        description: 'Product detailed description for this transaction',
+        name: 'Product title',
+        description: 'Product description for this transaction',
         brands: 'VISA MASTER MAESTRO JCB',
-        testMode: true,
+        test: true,
         popup: true,
-        primaryColor: '#2460b7',
-        showCardHolder: true,
-        customer: {
-          email: 'email@example.com',
-          givenName: 'John',
-          surname: 'Doe'
+        labels: {
+          submit: 'Submit',
+          checkout: 'Checkout'
+        },
+        errorMessages: {
+          email: 'This email is invalid'
         },
         customParameters: {
           foo: 'bar'
