@@ -4,12 +4,6 @@ import classNames from './PaymentButton.scss';
 import {formatAmount} from 'lib/utils';
 
 class PaymentButton extends Component {
-  static defaultProps = {
-    labels: {
-      checkout: 'Pay {amount}'
-    }
-  };
-
   constructor(props) {
     super(props);
     this.state = {
@@ -29,9 +23,10 @@ class PaymentButton extends Component {
 
   getButtonText() {
     const {amount, currency, labels} = this.props;
+    const checkoutText = labels.checkout || 'Pay {amount}';
     if (!amount) return 'Pay now';
     const price = formatAmount(amount, currency);
-    return labels.checkout.replace('{amount}', price);
+    return checkoutText.replace('{amount}', price);
   }
 
   render(props, {isModalOpen}, context) {

@@ -25,38 +25,41 @@ function setup(element, options) {
 }
 
 function setupWidget(container, options) {
+  const ds = container.dataset;
   const defaultProps = {
+    popup: true,
     customer: {
-      email: container.dataset['customerEmail'],
-      givenName: container.dataset['customerGivenName'],
-      middleName: container.dataset['customerMiddleName'],
-      surname: container.dataset['customerSurname'],
-      sex: container.dataset['customerSex'],
-      birthDate: container.dataset['customerBirthDate'],
-      phone: container.dataset['customerPhone'],
-      mobile: container.dataset['customerMobile'],
-      workPhone: container.dataset['customerWorkPhone'],
-      companyName: container.dataset['customerCompanyName'],
-      status: container.dataset['customerStatus']
+      email: ds.customerEmail,
+      givenName: ds.customerGivenName,
+      middleName: ds.customerMiddleName,
+      surname: ds.customerSurname,
+      sex: ds.customerSex,
+      birthDate: ds.customerBirthDate,
+      phone: ds.customerPhone,
+      mobile: ds.customerMobile,
+      workPhone: ds.customerWorkPhone,
+      companyName: ds.customerCompanyName,
+      status: ds.customerStatus
     },
     billing: {
-      street1: container.dataset['billingStreet1'],
-      street2: container.dataset['billingStreet2'],
-      country: container.dataset['billingCountry'],
-      city: container.dataset['billingCity'],
-      state: container.dataset['billingState'],
-      postcode: container.dataset['billingPostcode']
+      street1: ds.billingStreet1,
+      street2: ds.billingStreet2,
+      country: ds.billingCountry,
+      city: ds.billingCity,
+      state: ds.billingState,
+      postcode: ds.billingPostcode
     },
     customParameters: {},
     labels: {
-      checkout: 'Pay {amount}',
+      checkout: ds.checkoutText,
+      submit: ds.submitText,
       email: 'Email'
     },
     errorMessages: {
       email: 'Invalid email'
     }
   };
-  const props = merge(defaultProps, normalizeDataSet(container.dataset), options);
+  const props = merge.all([defaultProps, normalizeDataSet(ds), options]);
   const Component = props.popup ? PaymentButton : PaymentForm;
   render(<Component {...props} container={container} />, container);
 }
@@ -67,4 +70,10 @@ function disableAutoSetup() {
 
 $(document).ready(() => autoSetupEnabled && setupAll());
 
-export default {setup, setupAll, disableAutoSetup};
+export default {
+  setup,
+  setupAll,
+  disableAutoSetup,
+  PaymentForm,
+  PaymentButton
+};

@@ -28,7 +28,7 @@ export default options => {
     plugins: [
       new HtmlWebpackPlugin({
         template: './index.html',
-        filename: 'index.html',
+        hash: false,
         inject: 'head'
       }),
       new webpack.ProvidePlugin({
