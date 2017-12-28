@@ -63,7 +63,8 @@ function setupWidget(container, options) {
       radius: 8,
       length: 5,
       position: 'fixed'
-    }
+    },
+    locale: window.navigator.userLanguage || window.navigator.language
   };
   const props = merge.all([defaultProps, normalizeDataSet(ds), options]);
   const error = validateProps(props);
