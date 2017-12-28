@@ -47,7 +47,7 @@ class PaymentForm extends Component {
       onLoadThreeDIframe: this.onLoadThreeDIframe,
       onReady: this.onReady,
       onError: this.onError,
-      validateCard: this.validateCard
+      onBeforeSubmitCard: this.onBeforeSubmitCard
     };
   }
 
@@ -74,9 +74,10 @@ class PaymentForm extends Component {
     }
   }
 
-  validateCard = () => {
-    if (this.props.validateCard) {
-      return this.props.validateCard() && this.validateEmail(true);
+  onBeforeSubmitCard = e => {
+    e.preventDefault();
+    if (this.props.onBeforeSubmitCard) {
+      return this.props.onBeforeSubmitCard(e) && this.validateEmail(true);
     }
     return this.validateEmail(true);
   };
