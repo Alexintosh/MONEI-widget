@@ -52,8 +52,6 @@ function setupWidget(container, options) {
     },
     customParameters: {},
     labels: {
-      checkout: ds.checkoutText,
-      submit: ds.submitText,
       email: 'Email'
     },
     errorMessages: {

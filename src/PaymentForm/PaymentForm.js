@@ -35,8 +35,8 @@ class PaymentForm extends Component {
   constructor(props) {
     super(props);
     this.apiBaseUrl = `https://${props.test ? 'test.' : ''}monei-api.net`;
-    if (props.labels.submit) {
-      props.labels.submit = props.labels.submit.replace(
+    if (props.submitText) {
+      props.labels.submit = props.submitText.replace(
         '{amount}',
         formatAmount(props.amount, props.currency)
       );
