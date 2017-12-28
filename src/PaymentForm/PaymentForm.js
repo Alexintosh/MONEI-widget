@@ -26,7 +26,7 @@ class PaymentForm extends Component {
     spinner: {
       lines: 8,
       width: 3,
-      radius: 5,
+      radius: 8,
       length: 5,
       position: 'fixed'
     }
@@ -160,7 +160,10 @@ class PaymentForm extends Component {
     const $form = this.$formContainer.find('.wpwl-form-card');
 
     // move brand icon to the card number field and hide by default
-    const $brand = $form.find('.wpwl-brand-card').addClass('wpwl-brand-GENERIC');
+    const $brand = $form
+      .find('.wpwl-brand-card')
+      .removeClass('wpwl-brand-VISA')
+      .addClass('wpwl-brand-GENERIC');
     $brand.appendTo($form.find('.wpwl-wrapper-cardNumber'));
 
     // show cardholder firs or hide it
@@ -196,10 +199,6 @@ class PaymentForm extends Component {
   }
 
   componentDidMount() {
-    if (this.props.onMount)
-      setTimeout(() => {
-        this.props.onMount();
-      }, 100);
     if (this.props.checkoutId) {
       this.injectPaymentScript(this.props.checkoutId);
     } else {

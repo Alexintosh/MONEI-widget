@@ -60,7 +60,7 @@ function setupWidget(container, options) {
     spinner: {
       lines: 8,
       width: 3,
-      radius: 5,
+      radius: 8,
       length: 5,
       position: 'fixed'
     }

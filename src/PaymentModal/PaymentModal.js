@@ -6,18 +6,20 @@ import cx from 'classnames';
 
 class PaymentModal extends Component {
   handleClose = () => {
-    this.setState({isActive: false, isReady: false});
-    setTimeout(this.props.onClose.bind(this), 200);
+    this.setState({isActive: false});
+    setTimeout(this.props.onClose.bind(this), 400);
   };
 
   onError = error => {
     this.props.onError && this.props.onError(error);
-    this.setState({isActive: true});
+    this.setState({isActive: true, isError: true});
   };
 
-  onReadyIframeCommunication = () => {
-    this.props.onReadyIframeCommunication && this.props.onReadyIframeCommunication();
-    this.setState({isActive: true});
+  onReady = () => {
+    this.props.onReady && this.props.onReady();
+    setTimeout(() => {
+      this.setState({isActive: true});
+    }, 500);
   };
 
   onLoadThreeDIframe = () => {
@@ -25,22 +27,20 @@ class PaymentModal extends Component {
     this.setState({is3DFrame: true});
   };
 
-  onMount = () => {
-    this.props.onMount && this.props.onMount();
-    this.setState({isReady: true});
-  };
-
-  render(props, state, context) {
+  render(props, {isActive, is3DFrame, isError}, context) {
     if (!props.isOpen) return null;
     return (
       <Portal into="body">
         <div
           className={cx(classNames.portal, {
-            [classNames.active]: state.isActive,
-            [classNames.ready]: state.isReady
+            [classNames.active]: isActive
           })}>
           <div className={classNames.container}>
-            <div className={cx(classNames.modal, {[classNames.frame]: state.is3DFrame})}>
+            <div
+              className={cx(classNames.modal, {
+                [classNames.frame]: is3DFrame,
+                [classNames.error]: isError
+              })}>
               {(props.name || props.description) && (
                 <div className={classNames.header}>
                   {props.name && <div className={classNames.name}>{props.name}</div>}
@@ -53,8 +53,7 @@ class PaymentModal extends Component {
                 <PaymentForm
                   {...props}
                   className={classNames.paymentForm}
-                  onMount={this.onMount}
-                  onReadyIframeCommunication={this.onReadyIframeCommunication}
+                  onReady={this.onReady}
                   onLoadThreeDIframe={this.onLoadThreeDIframe}
                   onError={this.onError}
                 />
