@@ -1,7 +1,7 @@
 .formContainer {
   font-size: 14px;
-  font-family: -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue,
-    sans-serif;
+  font-family: "Avenir Next", Avenir, -apple-system, BlinkMacSystemFont, Roboto, Helvetica, sans-serif;
+  text-rendering: optimizeLegibility;
   line-height: 1.3em;
   -webkit-font-smoothing: subpixel-antialiased;
   color: #212b35;
@@ -170,7 +170,8 @@
       transition: color 0.1s ease, border-color 0.1s ease;
       font-smoothing: initial;
       -webkit-font-smoothing: initial;
-      font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+      font-family: "Avenir Next", Avenir, -apple-system, BlinkMacSystemFont, Roboto, Helvetica, sans-serif;
+      text-rendering: optimizeLegibility;
       &:focus {
         color: rgba(0, 0, 0, 0.95);
         border-color: rgb(102, 175, 233);

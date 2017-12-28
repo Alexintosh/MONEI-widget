@@ -14,6 +14,8 @@
   transition-duration: .4s;
   overflow: auto !important;
   padding: 20px;
+  font-family: "Avenir Next", Avenir, -apple-system, BlinkMacSystemFont, Roboto, Helvetica, sans-serif;
+  text-rendering: optimizeLegibility;
   &.active {
     opacity: 1;
     .container {
@@ -35,7 +37,7 @@
 
 .modal {
   position: relative;
-  width: 340px;
+  width: 320px;
   height: auto;
   display: inline-block;
   max-width: 100%;
@@ -95,7 +97,7 @@
 }
 
 .name {
-  font-weight: bold;
+  font-weight: 500;
   line-height: 22px;
   font-size: 20px;
   color: #000;
