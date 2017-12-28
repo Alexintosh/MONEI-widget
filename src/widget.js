@@ -65,7 +65,11 @@ function setupWidget(container, options = {}) {
     return;
   }
   const Component = props.popup ? PaymentButton : PaymentForm;
-  render(<Component {...props} container={container} />, container);
+  container.moneiWidget = render(
+    <Component {...props} container={container} />,
+    container,
+    container.moneiWidget
+  );
 }
 
 function disableAutoSetup() {
