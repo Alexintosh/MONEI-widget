@@ -1,7 +1,6 @@
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ExtendedDefinePlugin from 'extended-define-webpack-plugin';
-import CopyWebpackPlugin from 'copy-webpack-plugin';
 import S3Plugin from 'webpack-s3-plugin';
 import path from 'path';
 
@@ -22,20 +21,20 @@ export default options => {
     output: {
       path: path.resolve(__dirname, 'build'),
       publicPath: '/',
-      filename: 'widget2.js',
+      filename: 'widget.js',
       library: 'moneiWidget',
       libraryTarget: 'umd'
     },
     plugins: [
       new HtmlWebpackPlugin({
         template: './index.html',
+        filename: 'widget.html',
         hash: false,
         inject: 'head'
       }),
       new webpack.ProvidePlugin({
         h: ['preact', 'h']
       }),
-      new CopyWebpackPlugin([{from: path.resolve(__dirname, 'old_version')}]),
       new ExtendedDefinePlugin(globals),
       new webpack.LoaderOptionsPlugin({
         options: {
