@@ -58,6 +58,13 @@ function setupWidget(container, options) {
     },
     errorMessages: {
       email: 'Invalid email'
+    },
+    spinner: {
+      lines: 8,
+      width: 3,
+      radius: 5,
+      length: 5,
+      position: 'fixed'
     }
   };
   const props = merge.all([defaultProps, normalizeDataSet(ds), options]);
