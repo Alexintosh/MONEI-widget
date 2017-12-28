@@ -25,7 +25,7 @@ function setup(element, options) {
   return setupWidget(container, options);
 }
 
-function setupWidget(container, options) {
+function setupWidget(container, options = {}) {
   const ds = container.dataset;
   const defaultProps = {
     popup: true,

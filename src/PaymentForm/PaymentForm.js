@@ -68,7 +68,7 @@ class PaymentForm extends Component {
       this.$script = null;
 
       // remove script added by paymentWidgets.js
-      window.wpwl && wpwl.unload();
+      window.wpwl && wpwl.unload && wpwl.unload();
       $('script[src*="oppwa.com"]').remove();
     }
   }
@@ -98,7 +98,7 @@ class PaymentForm extends Component {
   };
 
   checkPaymentError = () => {
-    if (this.$formContainer.find('.wpwl-message.wpwl-has-error').length) {
+    if (this.$formContainer.find('div.wpwl-has-error').length) {
       this.onError();
     }
   };
@@ -203,7 +203,7 @@ class PaymentForm extends Component {
     }
     setTimeout(() => {
       this.checkPaymentError();
-    }, 1000);
+    }, 2000);
   }
 
   componentWillUnmount() {
