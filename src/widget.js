@@ -85,7 +85,5 @@ $(document).ready(() => autoSetupEnabled && setupAll());
 export default {
   setup,
   setupAll,
-  disableAutoSetup,
-  PaymentForm,
-  PaymentButton
+  disableAutoSetup
 };
