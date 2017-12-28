@@ -5,16 +5,21 @@
   line-height: 1.3em;
   -webkit-font-smoothing: subpixel-antialiased;
   color: #212b35;
-  &.frame {
-    :global(.wpwl-container:not(.wpwl-container-card)) {
-      display: none !important;
-    }
-  }
   &.ready {
     .brand,
     .testModeWarning {
       opacity: 1;
       visibility: visible;
+    }
+  }
+  &.error, &.frame {
+    :global(.wpwl-container:not(.wpwl-container-card)) {
+      display: none !important;
+    }
+
+    .brand,
+    .testModeWarning {
+      display: none;
     }
   }
 }

@@ -5,7 +5,6 @@ import render from 'preact-render-to-string';
 import {formatAmount, isValidEmail, updateQuery} from 'lib/utils';
 import cx from 'classnames';
 import checkout from 'lib/checkout';
-import Branding from './Branding';
 import {Spinner} from 'spin.js';
 
 class PaymentForm extends Component {
@@ -34,7 +33,7 @@ class PaymentForm extends Component {
 
   constructor(props) {
     super(props);
-    this.apiBaseUrl = `https://${props.test ? 'test.' : ''}monei-api.net`;
+    this.apiBaseUrl = `https://${props.test ? 'test.' : ''}oppwa.com`;
     if (props.submitText) {
       props.labels.submit = props.submitText.replace(
         '{amount}',
@@ -89,7 +88,7 @@ class PaymentForm extends Component {
 
   onError = error => {
     this.props.onError && this.props.onError(error);
-    this.setState({hasError: true});
+    this.setState({isError: true});
   };
 
   onReady = () => {
@@ -150,14 +149,7 @@ class PaymentForm extends Component {
   }
 
   adjustForm() {
-    const {
-      showCardHolder,
-      showEmail,
-      customer,
-      billing,
-      customParameters,
-      primaryColor
-    } = this.props;
+    const {showCardHolder, showEmail, customer, customParameters, primaryColor} = this.props;
     const $form = this.$formContainer.find('.wpwl-form-card');
 
     // move brand icon to the card number field and hide by default
@@ -185,10 +177,6 @@ class PaymentForm extends Component {
     Object.keys(customer).forEach(key => {
       const value = customer[key];
       if (value) $form.prepend(`<input type="hidden" name="customer.${key}" value="${value}">`);
-    });
-    Object.keys(billing).forEach(key => {
-      const value = billing[key];
-      if (value) $form.prepend(`<input type="hidden" name="billing.${key}" value="${value}">`);
     });
     Object.keys(customParameters).forEach(key => {
       const value = customParameters[key];
@@ -222,7 +210,11 @@ class PaymentForm extends Component {
     this.removePaymentScript();
   }
 
-  render({brands, redirectUrl, token, className, test, popup}, {is3DFrame, isReady}, context) {
+  render(
+    {brands, redirectUrl, token, className, test, popup},
+    {is3DFrame, isReady, isError},
+    context
+  ) {
     if (token) {
       redirectUrl = updateQuery(redirectUrl, 'token', token);
     }
@@ -230,19 +222,28 @@ class PaymentForm extends Component {
       <div
         className={cx(classNames.formContainer, className, {
           [classNames.frame]: is3DFrame,
-          [classNames.ready]: isReady
+          [classNames.ready]: isReady,
+          [classNames.error]: isError
         })}
         ref={el => (this.$formContainer = $(el))}>
-        {!is3DFrame &&
-          test && (
-            <div className={classNames.testModeWarning}>
-              <div>You will not be billed for this test charge.</div>
-            </div>
-          )}
+        {test && (
+          <div className={classNames.testModeWarning}>
+            <div>You will not be billed for this test charge.</div>
+          </div>
+        )}
         <div>
           <form action={redirectUrl} className="paymentWidgets" data-brands={brands} />
         </div>
-        <Branding className={classNames.brand} />
+        <div className={classNames.brand}>
+          <span>Powered by</span>{' '}
+          <a href="https://monei.net/" target="_blank" tabIndex={-1}>
+            <img
+              src="https://static.monei.net/monei-logo.svg"
+              alt="MONEI"
+              title="Best payment gateway rates. The perfect solution to manage your digital payments. Get in now!"
+            />
+          </a>
+        </div>
       </div>
     );
   }

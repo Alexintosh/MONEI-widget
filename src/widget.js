@@ -42,14 +42,6 @@ function setupWidget(container, options) {
       companyName: ds.customerCompanyName,
       status: ds.customerStatus
     },
-    billing: {
-      street1: ds.billingStreet1,
-      street2: ds.billingStreet2,
-      country: ds.billingCountry,
-      city: ds.billingCity,
-      state: ds.billingState,
-      postcode: ds.billingPostcode
-    },
     customParameters: {},
     labels: {
       email: 'Email'

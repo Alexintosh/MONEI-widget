@@ -127,7 +127,8 @@ export default options => {
       publicPath: '/',
       contentBase: './src',
       historyApiFallback: true,
-      open: true
+      open: true,
+      openPage: '/widget.html'
     }
   };
 
