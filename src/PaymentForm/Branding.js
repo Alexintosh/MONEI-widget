@@ -1,7 +1,7 @@
 const Branding = ({className}) => (
   <div className={className}>
     <span>Powered by</span>{' '}
-    <a href="https://monei.net/" target="_blank" className="brand">
+    <a href="https://monei.net/" target="_blank" className="brand" tabIndex={-1}>
       <img
         src="https://static.monei.net/monei-logo.svg"
         alt="MONEI"
