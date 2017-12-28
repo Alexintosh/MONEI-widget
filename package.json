@@ -54,6 +54,7 @@
     "preact-render-to-string": "^3.7.0",
     "query-string": "latest",
     "sass-loader": "^6.0.6",
+    "spin.js": "^3.1.0",
     "style-loader": "^0.19.1",
     "url-loader": "^0.6.2",
     "webpack": "^3.8.1",

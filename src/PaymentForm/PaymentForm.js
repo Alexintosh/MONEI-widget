@@ -6,6 +6,7 @@ import {formatAmount, isValidEmail, updateQuery} from 'lib/utils';
 import cx from 'classnames';
 import checkout from 'lib/checkout';
 import Branding from './Branding';
+import {Spinner} from 'spin.js';
 
 class PaymentForm extends Component {
   static defaultProps = {
@@ -26,7 +27,8 @@ class PaymentForm extends Component {
       lines: 8,
       width: 3,
       radius: 5,
-      length: 5
+      length: 5,
+      position: 'fixed'
     }
   };
 
@@ -49,11 +51,14 @@ class PaymentForm extends Component {
     };
   }
 
-  injectPaymentScript(checkoutId) {
+  injectPaymentScript(checkoutId, cb) {
     const script = document.createElement('script');
     script.src = `${this.apiBaseUrl}/v1/paymentWidgets.js?checkoutId=${checkoutId}`;
     script.async = true;
-    script.onload = this.props.onLoad;
+    script.onload = () => {
+      cb && cb();
+      this.props.onLoad && this.props.onLoad();
+    };
     document.body.appendChild(script);
     this.$script = $(script);
   }
@@ -198,11 +203,14 @@ class PaymentForm extends Component {
     if (this.props.checkoutId) {
       this.injectPaymentScript(this.props.checkoutId);
     } else {
+      const spinner = new Spinner(this.props.spinner).spin(document.body);
       checkout(this.props).then(({id, error}) => {
         if (error) {
           return this.onError(error);
         }
-        this.injectPaymentScript(id);
+        this.injectPaymentScript(id, () => {
+          spinner.stop();
+        });
       });
     }
     setTimeout(() => {

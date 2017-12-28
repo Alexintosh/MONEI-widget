@@ -13,10 +13,8 @@
   transition: all 0.2s;
   overflow: auto !important;
   padding: 5px;
-  &.ready {
-    opacity: 1;
-  }
   &.active {
+    opacity: 1;
     .container {
       opacity: 1;
       transform: scale(1) translateY(0);
