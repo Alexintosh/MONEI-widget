@@ -17,14 +17,12 @@
   &.active {
     opacity: 1;
     .container {
-      opacity: 1;
       transform: translateY(0) scale(1);
     }
   }
 }
 
 .container {
-  opacity: 0;
   margin: auto;
   position: relative;
   text-align: center;
@@ -141,5 +139,27 @@
     .wpwl-button-pay {
       width: 100%;
     }
+  }
+}
+
+
+@media (max-width: 768px){
+  .container {
+    transform: translateY(100%) scale(1);
+  }
+  .portal {
+    padding: 0;
+    background: none;
+    opacity: 1;
+  }
+  .modal {
+    width: 100%;
+    min-height: 100vh;
+    border-radius: 0;
+    box-shadow: none;
+    transition-timing-function: ease-in;
+  }
+  .brand {
+    display: none;
   }
 }

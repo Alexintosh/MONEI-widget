@@ -1,6 +1,6 @@
 import {Component} from 'preact';
 import Portal from 'preact-portal';
-import PaymentForm, {Branding} from '../PaymentForm';
+import PaymentForm from '../PaymentForm';
 import classNames from './PaymentModal.scss';
 import cx from 'classnames';
 
@@ -62,7 +62,6 @@ class PaymentModal extends Component {
                 &times;
               </div>
             </div>
-            <Branding className={classNames.brand} white />
           </div>
         </div>
       </Portal>

@@ -241,7 +241,7 @@ class PaymentForm extends Component {
         <div>
           <form action={redirectUrl} className="paymentWidgets" data-brands={brands} />
         </div>
-        {!popup && <Branding className={classNames.brand} />}
+        <Branding className={classNames.brand} />
       </div>
     );
   }
