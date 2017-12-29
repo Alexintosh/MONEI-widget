@@ -21,14 +21,13 @@ export default options => {
     output: {
       path: path.resolve(__dirname, 'build'),
       publicPath: '/',
-      filename: 'widget.js',
+      filename: 'widget2.js',
       library: 'moneiWidget',
       libraryTarget: 'umd'
     },
     plugins: [
       new HtmlWebpackPlugin({
         template: './index.html',
-        filename: 'widget.html',
         hash: false,
         inject: 'head'
       }),
@@ -127,8 +126,7 @@ export default options => {
       publicPath: '/',
       contentBase: './src',
       historyApiFallback: true,
-      open: true,
-      openPage: '/widget.html'
+      open: true
     }
   };
 

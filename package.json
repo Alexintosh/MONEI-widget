@@ -2,7 +2,7 @@
   "name": "monei-widget2",
   "version": "1.0.4",
   "description": "An easy way to accept payments from your customers. Embed this widget on your website, blog or online store.",
-  "main": "build/widget.js",
+  "main": "build/widget2.js",
   "scripts": {
     "start": "babel-node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --env.dev",
     "start:release": "babel-node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --env.dev --env.release",

@@ -98,9 +98,15 @@ class PaymentForm extends Component {
   };
 
   checkPaymentError = () => {
-    if (this.$formContainer.find('div.wpwl-has-error').length) {
-      this.onError();
-    }
+    let count = 0;
+    let interval = setInterval(() => {
+      if (this.$formContainer.find('.wpwl-has-error').length) {
+        this.onError();
+        clearInterval(interval);
+      }
+      count++;
+      if (count === 10) clearInterval(interval);
+    }, 250);
   };
 
   appendEmail($form) {
@@ -201,9 +207,7 @@ class PaymentForm extends Component {
         });
       });
     }
-    setTimeout(() => {
-      this.checkPaymentError();
-    }, 2000);
+    this.checkPaymentError();
   }
 
   componentWillUnmount() {

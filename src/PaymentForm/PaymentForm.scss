@@ -8,25 +8,18 @@
   &.ready {
     .brand,
     .testModeWarning {
-      opacity: 1;
-      visibility: visible;
+      display: block;
     }
   }
   &.error, &.frame {
     :global(.wpwl-container:not(.wpwl-container-card)) {
       display: none !important;
     }
-
-    .brand,
-    .testModeWarning {
-      display: none;
-    }
   }
 }
 
 .brand {
-  opacity: 0;
-  visibility: hidden;
+  display: none;
   padding-top: 10px;
   font-size: 12px;
   line-height: 13px;
@@ -51,9 +44,7 @@
 }
 
 .testModeWarning {
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s;
+  display: none;
   & > div {
     background-color: #fcf1cd;
     border-radius: 3px;
