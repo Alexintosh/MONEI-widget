@@ -23,7 +23,6 @@
   padding-top: 10px;
   font-size: 12px;
   line-height: 13px;
-  transition: opacity 0.3s;
   text-align: center;
   span {
     opacity: 0.4;
@@ -36,10 +35,11 @@
     display: inline-block;
   }
   a {
+    transition: opacity 0.3s;
     opacity: 0.6;
-  }
-  &:hover a {
-    opacity: 1;
+    &:hover {
+      opacity: 1;
+    }
   }
 }
 
