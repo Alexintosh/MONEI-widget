@@ -15,6 +15,10 @@
     :global(.wpwl-container:not(.wpwl-container-card)) {
       display: none !important;
     }
+    .brand,
+    .testModeWarning {
+      display: none !important;
+    }
   }
 }
 
