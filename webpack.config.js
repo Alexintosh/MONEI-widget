@@ -28,6 +28,7 @@ export default options => {
     plugins: [
       new HtmlWebpackPlugin({
         template: './index.html',
+        favicon: './static/favicon.png',
         hash: false,
         inject: 'head'
       }),
