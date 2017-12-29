@@ -155,7 +155,16 @@ export default options => {
 
   if (options.deploy) {
     const s3Config = {};
-    if (options.deploy) {
+    s3Config.s3Options = {
+      accessKeyId: process.env.DEV_AWS_KEY,
+      secretAccessKey: process.env.DEV_AWS_SECRET,
+      region: process.env.S3_REGION
+    };
+    s3Config.s3UploadOptions = {
+      Bucket: process.env.DEV_S3_BUCKET_NAME
+    };
+
+    if (options.release) {
       s3Config.s3Options = {
         accessKeyId: process.env.AWS_KEY,
         secretAccessKey: process.env.AWS_SECRET,
@@ -169,6 +178,7 @@ export default options => {
         Items: ['/*']
       };
     }
+
     webpackConfig.plugins.push(new S3Plugin(s3Config));
   }
 
