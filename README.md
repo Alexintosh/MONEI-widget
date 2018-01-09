@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/MONEI/MONEI-widget-2.svg?branch=master)](https://travis-ci.org/MONEI/MONEI-widget-2)
 
-# [MONEI](https://monei.net) Widget v2
+# [MONEI](https://monei.net) Widget
 
 An easy way to accept payments from your customers. Embed this widget on your website, blog or online store.
 
@@ -29,8 +29,8 @@ Insert the code where you want your widget to show up.
   data-amount="100"
   data-currency="eur"
   data-token="{TOKEN}"
-  data-redirect-url="http://yoursite.com/monei-callback"
-></div>
+  data-redirect-url="http://yoursite.com/monei-callback">
+</div>
 ```
 
 If you are using npm module: `import 'monei-widget'`
@@ -98,8 +98,8 @@ To use the subscription mode, you need to specify `planId`. `amount` and `curren
 <div class="monei-widget"
   data-plan-id="my-plan"
   data-token="{TOKEN}"
-  data-redirect-url="http://yoursite.com/monei-callback"
-></div>
+  data-redirect-url="http://yoursite.com/monei-callback">
+</div>
 ```
 
 ## Demo
