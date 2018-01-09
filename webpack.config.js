@@ -29,8 +29,12 @@ export default options => {
       new HtmlWebpackPlugin({
         template: './index.html',
         favicon: './static/favicon.png',
-        hash: false,
-        inject: 'head'
+        hash: false
+      }),
+      new HtmlWebpackPlugin({
+        template: './embedded.html',
+        filename: 'embedded.html',
+        hash: false
       }),
       new webpack.ProvidePlugin({
         h: ['preact', 'h']

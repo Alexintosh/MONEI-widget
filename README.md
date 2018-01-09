@@ -67,7 +67,7 @@ $(() => {
       givenName: 'John',
       surname: 'Doe'
     },
-    billing: {
+    billingAddress: {
       street1: 'Street 1',
       street2: 'Street 2',
       country: 'ES',
@@ -131,7 +131,6 @@ You can either use `data-dashed-case` HTML attributes or a JavaScript object wit
 | showEmail                        | `true`            | Shows email input (Recommended. MONEI identifies customers by email. If `customer.email` is provided input will be hidden automatically                                                                                                                                                                                        |
 | customer                         |                   | Information about the customer. It will be saved in the transaction. [List of available fields](https://docs.monei.net/reference/parameters#customer)                                                                                                                                                                          |
 | maskCvv                          |                   | Masks cvv input field                                                                                                                                                                                                                                                                                                          |
-| billing                          |                   | Information about customer's billing address. It will be saved in the transaction. [List of available fields](https://docs.monei.net/reference/parameters#https://docs.monei.net/reference/parameters#billing-address)                                                                                                         |
 | billingAddress                   | `false`           | Option to display the billing address fields. Pass an object to pre-fill address fields `{country: "US", state: "NY", city: "New York", postcode: "12345",street1: "Suite 1234", street2: "Some Road" }`                                                                                                                       |
 | mandatoryBillingFields           |                   | Describe which billing fields cannot be empty. This option needs to be used with billingAddress option. ( `{country: true, state: true, city: true}`)                                                                                                                                                                          |
 | customParameters                 |                   | Any additional information. It will be saved in the transaction (each key will be prefixed with `SHOPPER_`)                                                                                                                                                                                                                    |

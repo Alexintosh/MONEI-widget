@@ -5,32 +5,333 @@
   <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>MONEI Payment</title>
+  <link rel="stylesheet" href="http://static.monei.net/semantic.min.css">
+  <title>MONEI Widget</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
+    .main.container {
+      margin-top: 5em;
+      margin-bottom: 5em;
+    }
+
+    p {
+      line-height: 1.7em;
+    }
+
+    pre.prettyprint, xmp.prettyprint {
+      border: 1px solid #e2e4e6 !important;
+      padding: 16px !important;
+      overflow: auto;
+      font-size: 85%;
+      line-height: 1.45;
+      background-color: #f1f3f5;
+      border-radius: 3px;
+    }
+
+    .monei-widget, .custom-widget {
+      font-size: 14px;
+    }
+
+    #embedded {
+      width: 100%;
+      height: 350px;
+      background-color: #f1f3f5;
+      border: 1px solid #e2e4e6;
+      border-radius: 3px;
     }
   </style>
 </head>
 <body>
-<h1>MONEI Widget showcase</h1>
-<div id="widget-2"></div>
+<div class="ui main text container">
+
+  <h1>
+    MONEI Widget
+  </h1>
+  <p>
+    <a class="github-button" href="https://github.com/MONEI" data-show-count="true" aria-label="Follow @MONEI on GitHub">Follow @MONEI</a>
+    <a class="github-button" href="https://github.com/MONEI/MONEI-widget" data-icon="octicon-star" data-show-count="true" aria-label="Star MONEI/MONEI-widget on GitHub">Star</a>
+  </p>
+  <p>
+    An easy way to accept payments from your customers. Embed this widget on your website, blog or online store. It is
+    easy to use, configurable and mobile friendly.
+  </p>
+
+  <p>
+    Try out MONEI Widget right now by clicking the button below!
+    Enter test card number - <b>5454545454545454</b>,
+    any future month and year for the expiration and any three-digit number for the CVC.
+    <a href="https://docs.monei.net/reference/parameters#test-accounts">Other test cards.</a>
+  </p>
+
+  <div class="monei-widget"
+       data-token="eyJ1IjoiZ29vZ2xlLW9hdXRoMnwxMTQxOTk4MTg4MDY3NDg4MjkzNTIiLCJjIjoiOGE4Mjk0MTg1OGUyZGJlOTAxNThlMmVlMzM1ZjAwNDcifQ"
+       data-redirect-url="https://monei.net"
+       data-name="My product"
+       data-description="Product description"
+       data-amount="100"
+       data-currency="eur"
+       data-checkout-text="Pay {amount}"
+       data-submit-text="Pay {amount}"
+       data-test>
+  </div>
+  <br>
+  <p><a target="_blank" href="https://github.com/MONEI/MONEI-widget">Full list of available options</a></p>
+
+  <h2 class="ui dividing header">Integration</h2>
+
+  <p>Insert this code before closing <code></body></code> tag:</p>
+  <xmp class="prettyprint lang-html"><script src="https://widget.monei.net/widget2.js"></script></xmp>
+
+  <p>
+    Generate the HTML code for your widget in
+    <a href="https://dashboard.monei.net/sub-accounts" target="_blank">MONEI dashboard</a>
+  </p>
+  <p>
+    Insert this code where you want your widget to show up.
+  </p>
+  <xmp class="prettyprint lang-html"><div class="monei-widget"
+    data-token="{TOKEN}"
+    data-redirect-url="https://monei.net"
+    data-name="My product"
+    data-description="Product description"
+    data-amount="100"
+    data-currency="eur"
+    data-checkout-text="Pay with Card"
+    data-submit-text="Pay {amount}"
+    data-test>
+</div></xmp>
+
+  <h2 class="ui dividing header">Examples</h2>
+  <h3>Use custom element</h3>
+  <a href="#" class="monei-widget"
+     data-token="eyJ1IjoiZ29vZ2xlLW9hdXRoMnwxMTQxOTk4MTg4MDY3NDg4MjkzNTIiLCJjIjoiOGE4Mjk0MTg1OGUyZGJlOTAxNThlMmVlMzM1ZjAwNDcifQ"
+     data-redirect-url="https://monei.net"
+     data-amount="100"
+     data-currency="eur"
+     data-no-enhance
+     data-test>
+    Click me to pay with Card
+  </a>
+ <xmp class="prettyprint lang-html"><div class="monei-widget"
+    data-token="{TOKEN}"
+    data-redirect-url="https://monei.net"
+    data-amount="100"
+    data-currency="eur"
+    data-no-enhance
+    data-test>
+</div></xmp>
+
+  <h3>Specify primary color</h3>
+  <div  class="monei-widget"
+     data-token="eyJ1IjoiZ29vZ2xlLW9hdXRoMnwxMTQxOTk4MTg4MDY3NDg4MjkzNTIiLCJjIjoiOGE4Mjk0MTg1OGUyZGJlOTAxNThlMmVlMzM1ZjAwNDcifQ"
+     data-redirect-url="https://monei.net"
+     data-amount="100"
+     data-currency="eur"
+     data-primary-color="#1990c6"
+     data-test>
+  </div>
+ <xmp class="prettyprint lang-html"><div class="monei-widget"
+    data-token="{TOKEN}"
+    data-redirect-url="https://monei.net"
+    data-amount="100"
+    data-currency="eur"
+    data-primary-color="#1990c6"
+    data-test>
+</div></xmp>
+
+  <h3>Show cardholder field</h3>
+<div class="monei-widget"
+     data-token="eyJ1IjoiZ29vZ2xlLW9hdXRoMnwxMTQxOTk4MTg4MDY3NDg4MjkzNTIiLCJjIjoiOGE4Mjk0MTg1OGUyZGJlOTAxNThlMmVlMzM1ZjAwNDcifQ"
+     data-redirect-url="https://monei.net"
+     data-amount="100"
+     data-currency="eur"
+     data-show-card-holder
+     data-test>
+</div>
+  <xmp class="prettyprint lang-html"><div class="monei-widget"
+    data-token="{TOKEN}"
+    data-redirect-url="https://monei.net"
+    data-amount="100"
+    data-currency="eur"
+    data-show-card-holder
+    data-test>
+</div></xmp>
+
+<h3>Show address fields</h3>
+<div class="monei-widget"
+     data-token="eyJ1IjoiZ29vZ2xlLW9hdXRoMnwxMTQxOTk4MTg4MDY3NDg4MjkzNTIiLCJjIjoiOGE4Mjk0MTg1OGUyZGJlOTAxNThlMmVlMzM1ZjAwNDcifQ"
+     data-redirect-url="https://monei.net"
+     data-amount="100"
+     data-currency="eur"
+     data-billing-address
+     data-test>
+</div>
+  <xmp class="prettyprint lang-html"><div class="monei-widget"
+    data-token="{TOKEN}"
+    data-redirect-url="https://monei.net"
+    data-amount="100"
+    data-currency="eur"
+    data-billing-address
+    data-test>
+</div></xmp>
+
+<h3>Show in different language</h3>
+<div class="monei-widget"
+     data-token="eyJ1IjoiZ29vZ2xlLW9hdXRoMnwxMTQxOTk4MTg4MDY3NDg4MjkzNTIiLCJjIjoiOGE4Mjk0MTg1OGUyZGJlOTAxNThlMmVlMzM1ZjAwNDcifQ"
+     data-redirect-url="https://monei.net"
+     data-amount="100"
+     data-currency="eur"
+     data-checkout-text="Pagar {amount}"
+     data-locale="es"
+     data-test>
+</div>
+  <xmp class="prettyprint lang-html"><div class="monei-widget"
+    data-token="{TOKEN}"
+    data-redirect-url="https://monei.net"
+    data-amount="100"
+    data-currency="eur"
+    data-checkout-text="Pagar {amount}"
+    data-locale="es"
+    data-test>
+</div></xmp>
+<h3>Force cardholder to equal billing name</h3>
+<p>
+  By default the cardholder is displayed as one field. If this option is set then the form displays a field for the given name and a separate field for the surname. The values entered here will be submitted both as card.holder and as customer.givenName and customer.surname. Only works if <b><code>data-show-card-holder</code></b> is present
+</p>
+<div class="monei-widget"
+     data-token="eyJ1IjoiZ29vZ2xlLW9hdXRoMnwxMTQxOTk4MTg4MDY3NDg4MjkzNTIiLCJjIjoiOGE4Mjk0MTg1OGUyZGJlOTAxNThlMmVlMzM1ZjAwNDcifQ"
+     data-redirect-url="https://monei.net"
+     data-amount="100"
+     data-currency="eur"
+     data-show-card-holder
+     data-force-card-holder-equals-billing-name
+     data-test>
+</div>
+  <xmp class="prettyprint lang-html"><div class="monei-widget"
+    data-token="{TOKEN}"
+    data-redirect-url="https://monei.net"
+    data-amount="100"
+    data-currency="eur"
+    data-show-card-holder
+    data-force-card-holder-equals-billing-name
+    data-test>
+</div></xmp>
+
+<h3>Embedded mode</h3>
+<p>
+  You can render the payment form directly on your page. <br>
+  <b>Only one form can be used on a page in embedded mode.</b>
+</p>
+<iframe src="embedded.html" frameborder="0" id="embedded"></iframe>
+<xmp class="prettyprint lang-html"><div class="monei-widget"
+    data-token="{TOKEN}"
+    data-redirect-url="https://monei.net"
+    data-amount="100"
+    data-currency="eur"
+    data-popup="false"
+    data-test>
+</div></xmp>
+
+<h2 class="ui dividing header">Advanced options</h2>
+<p>You can setup a widget using JavaScript</p>
+<pre class="prettyprint lang-js">// Disables automatic setup for all DOM elements with monei-widget class
+moneiWidget.disableAutoSetup();
+
+// Setups widget when page is loaded.
+document.addEventListener('DOMContentLoaded', function() {
+
+  // Widget will be rendered to a container with id="my-widget"
+  moneiWidget.setup('my-widget', {
+    token: '{TOKEN}',
+    redirectUrl: 'http://monei.net',
+    amount: 100,
+    currency: 'usd',
+    name: 'Product title',
+    description: 'Product description',
+    autofocus: 'customer.email',
+    test: true
+  });
+});
+</pre>
+<h3>Provide additional information to the widget</h3>
+<span class="custom-widget" id="widget1"></span>
 <script>
-  moneiWidget.disableAutoSetup();
-  document.addEventListener('DOMContentLoaded', function() {
-    moneiWidget.setup('widget-2', {
-      amount: 100,
-      currency: 'usd',
-      redirectUrl: 'http://monei.net',
-      token: 'eyJ1IjoiYXV0aDB8NTg2MjJmN2I3NTQ3ZjQyZmU0Zjk0NTdkIiwiYyI6IjhhODI5NDE4NTkyNmYyZDEwMTU5M2ZhYjY1NTMyYmUxIn0',
-      name: 'Product title',
-      description: 'Product description',
-      brands: 'VISA MASTER MAESTRO JCB AMEX DISCOVER DINERS',
-      autofocus: 'customer.email',
-      test: true
-    });
+  moneiWidget.setup('widget1', {
+    token: 'eyJ1IjoiYXV0aDB8NTZjZjEwMzIxYzRjN2YyZTJmYjI2NGFhIiwiYyI6IjhhODI5NDE4NTM0MTVmMjEwMTUzNjA2Yzc5MmU0ZmQwIn0',
+    redirectUrl: 'http://monei.net',
+    amount: 100,
+    currency: 'usd',
+    name: 'Product title',
+    description: 'Product description',
+    test: true,
+    customer: {
+      email: 'example@email.com',
+      givenName: 'John',
+      middleName: 'Unknown',
+      surname: 'Doe',
+      sex: 'M',
+      birthDate: '1970-02-17',
+      phone: '+34666666666',
+      mobile: '+34666666666',
+      workPhone: '+34666666666',
+      companyName: 'microapps SL',
+      status: 'NEW',
+      identificationDocType: 'PASSPORT',
+      identificationDocId: '123456789'
+    },
+    billingAddress: {
+      country: "US",
+      state: "NY",
+      city: "New York",
+      postcode: "12345",
+      street1: "Suite 1234",
+      street2: "Some Road"
+    },
+    customParameters: {
+      foo: 'bar'
+    }
   });
 </script>
+<pre class="prettyprint lang-js">moneiWidget.setup('widget1', {
+  token: '{TOKEN}',
+  redirectUrl: 'http://monei.net',
+  amount: 100,
+  currency: 'usd',
+  name: 'Product title',
+  description: 'Product description',
+  test: true,
+  customer: {
+    email: 'example@email.com',
+    givenName: 'John',
+    middleName: 'Unknown',
+    surname: 'Doe',
+    sex: 'M',
+    birthDate: '1970-02-17',
+    phone: '+34666666666',
+    mobile: '+34666666666',
+    workPhone: '+34666666666',
+    companyName: 'microapps SL',
+    status: 'NEW',
+    identificationDocType: 'PASSPORT',
+    identificationDocId: '123456789',
+  },
+  billingAddress: {
+    country: "US",
+    state: "NY",
+    city: "New York",
+    postcode: "12345",
+    street1: "Suite 1234",
+    street2: "Some Road"
+  },
+  customParameters: {
+    foo: 'bar'
+  }
+});
+</pre>
+
+<p><a target="_blank" href="https://github.com/MONEI/MONEI-widget">Full list of available options</a></p>
+
+</div>
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+<script src="https://buttons.github.io/buttons.js"></script>
 </body>
 </html>
