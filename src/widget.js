@@ -40,6 +40,8 @@ function setupWidget(container, options = {}) {
       mobile: ds.customerMobile,
       workPhone: ds.customerWorkPhone,
       companyName: ds.customerCompanyName,
+      identificationDocType: ds.customerIdentificationDocType,
+      identificationDocId: ds.customerIdentificationDocId,
       status: ds.customerStatus
     },
     customParameters: {},
