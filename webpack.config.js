@@ -29,11 +29,13 @@ export default options => {
       new HtmlWebpackPlugin({
         template: './index.html',
         favicon: './static/favicon.png',
+        minify: false,
         hash: false
       }),
       new HtmlWebpackPlugin({
         template: './embedded.html',
         filename: 'embedded.html',
+        minify: false,
         hash: false
       }),
       new webpack.ProvidePlugin({
@@ -85,7 +87,14 @@ export default options => {
         },
         {
           test: /\.html$/,
-          loader: 'html-loader'
+          use: [
+            {
+              loader: 'html-loader',
+              options: {
+                minimize: false
+              }
+            }
+          ]
         },
         {
           test: /\.scss/,
