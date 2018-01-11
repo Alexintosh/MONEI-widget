@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/MONEI/MONEI-widget-2.svg?branch=master)](https://travis-ci.org/MONEI/MONEI-widget-2)
+[![Build Status](https://travis-ci.org/MONEI/MONEI-widget.svg?branch=master)](https://travis-ci.org/MONEI/MONEI-widget)
 
 # MONEI Widget
 
