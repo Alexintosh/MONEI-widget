@@ -75,7 +75,7 @@ function setupWidget(container, options = {}) {
     console.error(error);
     return;
   }
-  if (isEmpty(props.billingAddress)) {
+  if (typeof props.billingAddress !== 'boolean' && isEmpty(props.billingAddress)) {
     delete props.billingAddress;
   }
   const Component = props.popup ? PaymentButton : PaymentForm;
