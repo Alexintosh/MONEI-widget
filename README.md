@@ -8,6 +8,6 @@ Embed this widget on your website, blog or online store. It is easy to use, very
 
 To use a widget you need to be registered in [MONEI Payment Gateway](https://monei.net/)
 
-![demo](https://d2ffutrenqvap3.cloudfront.net/items/1D0H1s2V1h0b2e2K2b1I/Screen%20Recording%202018-01-11%20at%2018.43.gif)
-
 ## [Demos and documentation](https://widget.monei.net/)
+
+![demo](https://d2ffutrenqvap3.cloudfront.net/items/1D0H1s2V1h0b2e2K2b1I/Screen%20Recording%202018-01-11%20at%2018.43.gif)
