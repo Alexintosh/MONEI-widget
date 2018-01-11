@@ -84,8 +84,8 @@
     <a class="item" href="#examples">Examples</a>
     <a class="item" href="#subscription">Subscription mode</a>
     <a class="item" href="#embedded">Embedded mode</a>
-    <a class="item" href="#advanced">Advanced options</a>
     <a class="item" href="#status">How to get payment status</a>
+    <a class="item" href="#advanced">Advanced options</a>
   </div>
 
   <h2 id="integrations" class="ui dividing header">Integration</h2>
@@ -278,6 +278,23 @@
     data-test>
 </div></xmp>
 
+<h2 id="status" class="ui dividing header">How to get payment status</h2>
+<p>To get the status of the payment, you should make a <code>GET</code> request to</p>
+
+<pre class="prettyprint">https://api.monei.net/checkouts/{id}?token={token}</pre>
+
+<p>
+  <b>IMPORTANT! If you're using subscription mode, you have to call this endpoint to activate the subscription.
+    If the payment is successful, subscription will be activated.</b>
+</p>
+
+<pre class="prettyprint">https://api.monei.net/plans/{planId}/subscriptions/payment-status?token={token}&checkoutId={id}</pre>
+<p>you'll get <b><code>id</code></b> and <b><code>token</code></b> as a query parameters appended to the redirect URL, <b><code>planId</code></b> should be the same as the one provided to the widget.</p>
+<p>
+  Read about response structure and available parameters in
+  <a href="https://docs.monei.net/reference/parameters#response-params" target="_blank">documentation</a>.
+</p>
+
 <h2 id="advanced" class="ui dividing header">Advanced options</h2>
 <p>You can setup a widget using JavaScript</p>
 <pre class="prettyprint lang-js">// Disables automatic setup for all DOM elements with monei-widget class
@@ -376,19 +393,6 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 </pre>
-
-  <h2 id="status" class="ui dividing header">How to get payment status</h2>
-  <p>To get the status of the payment, you should make a <code>GET</code> request to</p>
-
-  <pre class="prettyprint">https://api.monei.net/checkouts/{id}?token={token}</pre>
-
-  <p>
-    <b>IMPORTANT! If you're using subscription mode, you have to call this endpoint to activate the subscription.
-      If the payment is successful, subscription will be activated.</b>
-  </p>
-
-  <pre class="prettyprint">https://api.monei.net/plans/{planId}/subscriptions/payment-status?token={token}&checkoutId={id}</pre>
-  <p>you'll get <b><code>id</code></b> and <b><code>token</code></b> as a query parameters appended to the redirect URL</p>
 
 <p><a target="_blank" href="https://github.com/MONEI/MONEI-widget">Full list of available options</a></p>
 
