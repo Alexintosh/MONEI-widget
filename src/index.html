@@ -14,24 +14,34 @@
     }
 
     p {
-      line-height: 1.7em;
+      line-height: 1.6em;
     }
 
     pre.prettyprint, xmp.prettyprint {
       border: 1px solid #e2e4e6 !important;
       padding: 16px !important;
       overflow: auto;
-      font-size: 85%;
+      font-size: 90%;
       line-height: 1.45;
       background-color: #f1f3f5;
       border-radius: 3px;
+    }
+
+    code {
+      font-size: 90%;
+      padding: 1px 3px;
+      margin: -1px 2px;
+      border: 1px solid #e2e4e6;
+      background-color: #f1f3f5;
+      border-radius: 3px;
+      color: #606;
     }
 
     .monei-widget, .custom-widget {
       font-size: 14px;
     }
 
-    #embedded {
+    .embedded_frame {
       width: 100%;
       height: 350px;
       background-color: #f1f3f5;
@@ -47,19 +57,25 @@
     MONEI Widget
   </h1>
   <p>
-    <a class="github-button" href="https://github.com/MONEI" data-show-count="true" aria-label="Follow @MONEI on GitHub">Follow @MONEI</a>
-    <a class="github-button" href="https://github.com/MONEI/MONEI-widget" data-icon="octicon-star" data-show-count="true" aria-label="Star MONEI/MONEI-widget on GitHub">Star</a>
+    <a class="github-button" href="https://github.com/MONEI" aria-label="Follow @MONEI on GitHub">Follow @MONEI</a>
+    <a class="github-button" href="https://github.com/MONEI/MONEI-widget" data-icon="octicon-star" aria-label="Star MONEI/MONEI-widget on GitHub">Star</a>
   </p>
   <p>
-    An easy way to accept payments from your customers. Embed this widget on your website, blog or online store. It is
-    easy to use, configurable and mobile friendly.
+    An easy way to accept payments from your customers.
+  </p>
+
+  <p>Embed this widget on your website, blog or online store. It is
+    easy to use, very secure, configurable, PCI compliant and mobile friendly.</p>
+
+  <p>
+    To use a widget you need to be registered in <a href="https://monei.net/" target="_blank"><b>MONEI Payment Gateway</b></a>
   </p>
 
   <p>
     Try out MONEI Widget right now by clicking the button below!
     Enter test card number - <b>5454545454545454</b>,
     any future month and year for the expiration and any three-digit number for the CVC.
-    <a href="https://docs.monei.net/reference/parameters#test-accounts">Other test cards.</a>
+    <a href="https://docs.monei.net/reference/parameters#test-accounts" target="_blank">Other test cards.</a>
   </p>
 
   <div class="monei-widget"
@@ -73,10 +89,19 @@
        data-submit-text="Pay {amount}"
        data-test>
   </div>
-  <br>
-  <p><a target="_blank" href="https://github.com/MONEI/MONEI-widget">Full list of available options</a></p>
 
-  <h2 class="ui dividing header">Integration</h2>
+  <h3>Quick links</h3>
+  <div class="ui bulleted list">
+    <a class="item" href="#integrations">Integration</a>
+    <a class="item" href="#examples">Examples</a>
+    <a class="item" href="#subscription">Subscription mode</a>
+    <a class="item" href="#embedded">Embedded mode</a>
+    <a class="item" href="#status">How to get payment status</a>
+    <a class="item" href="#advanced">Advanced options</a>
+    <a class="item" href="#params">List of supported configuration parameters</a>
+  </div>
+
+  <h2 id="integrations" class="ui dividing header">Integration</h2>
 
   <p>Insert this code before closing <code>&lt;/body&gt;</code> tag:</p>
   <xmp class="prettyprint lang-html"><script src="https://widget.monei.net/widget2.js"></script></xmp>
@@ -100,9 +125,10 @@
     data-test>
 </div></xmp>
 
-  <h2 class="ui dividing header">Examples</h2>
+  <h2 id="examples" class="ui dividing header">Examples</h2>
   <h3>Use custom element</h3>
-  <a href="#" class="monei-widget"
+  <p>
+    <a href="#" class="monei-widget"
      data-token="eyJ1IjoiZ29vZ2xlLW9hdXRoMnwxMTQxOTk4MTg4MDY3NDg4MjkzNTIiLCJjIjoiOGE4Mjk0MTg1OGUyZGJlOTAxNThlMmVlMzM1ZjAwNDcifQ"
      data-redirect-url="https://monei.net"
      data-amount="100"
@@ -111,14 +137,16 @@
      data-test>
     Click me to pay with Card
   </a>
- <xmp class="prettyprint lang-html"><div class="monei-widget"
+  </p>
+ <xmp class="prettyprint lang-html"><a href="#" class="monei-widget"
     data-token="{TOKEN}"
     data-redirect-url="https://monei.net"
     data-amount="100"
     data-currency="eur"
     data-no-enhance
     data-test>
-</div></xmp>
+   Click me to pay with Card
+</a></xmp>
 
   <h3>Specify primary color</h3>
   <div  class="monei-widget"
@@ -174,12 +202,14 @@
     data-test>
 </div></xmp>
 
-<h3>Show in different language</h3>
+<h3>Show widget in different language</h3>
+  <p>Supported languages are: ar, be, bg, cn, cz, de, da, el, en, es, fi, fr, gr, hu, it, ja, ko, nl, no, pl, pt, ro, ru, sv, sk, sl, tr</p>
 <div class="monei-widget"
      data-token="eyJ1IjoiZ29vZ2xlLW9hdXRoMnwxMTQxOTk4MTg4MDY3NDg4MjkzNTIiLCJjIjoiOGE4Mjk0MTg1OGUyZGJlOTAxNThlMmVlMzM1ZjAwNDcifQ"
      data-redirect-url="https://monei.net"
      data-amount="100"
      data-currency="eur"
+     data-show-card-holder
      data-checkout-text="Pagar {amount}"
      data-locale="es"
      data-test>
@@ -189,13 +219,14 @@
     data-redirect-url="https://monei.net"
     data-amount="100"
     data-currency="eur"
+    data-show-card-holder
     data-checkout-text="Pagar {amount}"
     data-locale="es"
     data-test>
 </div></xmp>
 <h3>Force cardholder to equal billing name</h3>
 <p>
-  By default the cardholder is displayed as one field. If this option is set then the form displays a field for the given name and a separate field for the surname. The values entered here will be submitted both as card.holder and as customer.givenName and customer.surname. Only works if <b><code>data-show-card-holder</code></b> is present
+  By default the cardholder is displayed as one field. If this option is set then the form displays a field for the given name and a separate field for the surname. The values entered here will be submitted both as card.holder and as customer.givenName and customer.surname. Only works if <code>data-show-card-holder</code> is present.
 </p>
 <div class="monei-widget"
      data-token="eyJ1IjoiZ29vZ2xlLW9hdXRoMnwxMTQxOTk4MTg4MDY3NDg4MjkzNTIiLCJjIjoiOGE4Mjk0MTg1OGUyZGJlOTAxNThlMmVlMzM1ZjAwNDcifQ"
@@ -216,12 +247,62 @@
     data-test>
 </div></xmp>
 
-<h3>Embedded mode</h3>
+<h2 id="brands" class="ui dividing header">Different payment methods</h2>
+<p>You can enable different card brands and additional payment methods for a widget. <a href="https://docs.monei.net/tutorials/integration-guide" target="_blank">Supported brands and payment methods</a>.
+  To enable additional payment methods they should be configured in your sub account. Please contact support if you want to know more.</p>
+
+  <div class="monei-widget"
+     data-token="eyJ1IjoiZ29vZ2xlLW9hdXRoMnwxMTQxOTk4MTg4MDY3NDg4MjkzNTIiLCJjIjoiOGE4Mjk0MTg1OGUyZGJlOTAxNThlMmVlMzM1ZjAwNDcifQ"
+     data-redirect-url="https://monei.net"
+     data-brands="VISA MASTER PAYPAL BITCOIN"
+     data-amount="100"
+     data-currency="eur"
+     data-test>
+  </div>
+  <xmp class="prettyprint lang-html"><div class="monei-widget"
+    data-token="{TOKEN}"
+    data-redirect-url="https://monei.net"
+    data-brands="VISA MASTER MAESTRO JCB PAYPAL BITCOIN"
+    data-amount="100"
+    data-currency="eur"
+    data-test>
+</div></xmp>
+
+<h2 id="subscription" class="ui dividing header">Subscription mode</h2>
+  <p>You can create recurrent payments and allow your customers to buy daily and monthly subscriptions.</p>
+  <p>
+    To allow subscriptions through the widget you need to specify
+    <code>planId</code> of the plan created in <a href="https://dashboard.monei.net/plans/" target="_blank">MONEI dashboard</a>.
+    The <code>amount</code> and <code>currency</code> should be the same as in the specified plan.
+  </p>
+
+  <div class="monei-widget"
+     data-token="eyJ1IjoiZ29vZ2xlLW9hdXRoMnwxMTQxOTk4MTg4MDY3NDg4MjkzNTIiLCJjIjoiOGE4Mjk0MTg1OGUyZGJlOTAxNThlMmVlMzM1ZjAwNDcifQ"
+     data-plan-id="example-plan"
+     data-redirect-url="https://monei.net"
+     data-amount="4.99"
+     data-currency="eur"
+     data-checkout-text="Subscribe for {amount}"
+     data-submit-text="Subscribe now!"
+     data-test>
+  </div>
+  <xmp class="prettyprint lang-html"><div class="monei-widget"
+    data-token="{TOKEN}"
+    data-plan-id="example-plan"
+    data-redirect-url="https://monei.net"
+    data-amount="4.99"
+    data-currency="eur"
+    data-checkout-text="Subscribe for {amount}"
+    data-submit-text="Subscribe now!"
+    data-test>
+</div></xmp>
+
+<h2 id="embedded" class="ui dividing header">Embedded mode</h2>
 <p>
   You can render the payment form directly on your page. <br>
   <b>Only one form can be used on a page in embedded mode.</b>
 </p>
-<iframe src="embedded.html" frameborder="0" id="embedded"></iframe>
+<iframe src="embedded.html" frameborder="0" class="embedded_frame"></iframe>
 <xmp class="prettyprint lang-html"><div class="monei-widget"
     data-token="{TOKEN}"
     data-redirect-url="https://monei.net"
@@ -231,7 +312,24 @@
     data-test>
 </div></xmp>
 
-<h2 class="ui dividing header">Advanced options</h2>
+<h2 id="status" class="ui dividing header">How to get payment status</h2>
+<p>To get the status of the payment, you should make a <code>GET</code> request to</p>
+
+<pre class="prettyprint">https://api.monei.net/checkouts/{id}?token={token}</pre>
+
+<p>
+  <b>IMPORTANT! If you're using subscription mode, you have to call this endpoint to activate the subscription.
+    If the payment is successful, subscription will be activated.</b>
+</p>
+
+<pre class="prettyprint">https://api.monei.net/plans/{planId}/subscriptions/payment-status?token={token}&checkoutId={id}</pre>
+<p>you'll get <code>id</code> and <code>token</code> as a query parameters appended to the redirect URL, <code>planId</code> should be the same as the one provided to the widget.</p>
+<p>
+  Read about response structure and available parameters in
+  <a href="https://docs.monei.net/reference/parameters#response-params" target="_blank">documentation</a>.
+</p>
+
+<h2 id="advanced" class="ui dividing header">Advanced options</h2>
 <p>You can setup a widget using JavaScript</p>
 <pre class="prettyprint lang-js">// Disables automatic setup for all DOM elements with monei-widget class
 moneiWidget.disableAutoSetup();
@@ -255,40 +353,42 @@ document.addEventListener('DOMContentLoaded', function() {
 <h3>Provide additional information to the widget</h3>
 <span class="custom-widget" id="widget1"></span>
 <script>
-  moneiWidget.setup('widget1', {
-    token: 'eyJ1IjoiYXV0aDB8NTZjZjEwMzIxYzRjN2YyZTJmYjI2NGFhIiwiYyI6IjhhODI5NDE4NTM0MTVmMjEwMTUzNjA2Yzc5MmU0ZmQwIn0',
-    redirectUrl: 'http://monei.net',
-    amount: 100,
-    currency: 'usd',
-    name: 'Product title',
-    description: 'Product description',
-    test: true,
-    customer: {
-      email: 'example@email.com',
-      givenName: 'John',
-      middleName: 'Unknown',
-      surname: 'Doe',
-      sex: 'M',
-      birthDate: '1970-02-17',
-      phone: '+34666666666',
-      mobile: '+34666666666',
-      workPhone: '+34666666666',
-      companyName: 'microapps SL',
-      status: 'NEW',
-      identificationDocType: 'PASSPORT',
-      identificationDocId: '123456789'
-    },
-    billingAddress: {
-      country: "US",
-      state: "NY",
-      city: "New York",
-      postcode: "12345",
-      street1: "Suite 1234",
-      street2: "Some Road"
-    },
-    customParameters: {
-      foo: 'bar'
-    }
+  document.addEventListener('DOMContentLoaded', function() {
+    moneiWidget.setup('widget1', {
+      token: 'eyJ1IjoiYXV0aDB8NTZjZjEwMzIxYzRjN2YyZTJmYjI2NGFhIiwiYyI6IjhhODI5NDE4NTM0MTVmMjEwMTUzNjA2Yzc5MmU0ZmQwIn0',
+      redirectUrl: 'http://monei.net',
+      amount: 100,
+      currency: 'usd',
+      name: 'Product title',
+      description: 'Product description',
+      test: true,
+      customer: {
+        email: 'example@email.com',
+        givenName: 'John',
+        middleName: 'Unknown',
+        surname: 'Doe',
+        sex: 'M',
+        birthDate: '1970-02-17',
+        phone: '+34666666666',
+        mobile: '+34666666666',
+        workPhone: '+34666666666',
+        companyName: 'microapps SL',
+        status: 'NEW',
+        identificationDocType: 'PASSPORT',
+        identificationDocId: '123456789'
+      },
+      billingAddress: {
+        country: "US",
+        state: "NY",
+        city: "New York",
+        postcode: "12345",
+        street1: "Suite 1234",
+        street2: "Some Road"
+      },
+      customParameters: {
+        foo: 'bar'
+      }
+    });
   });
 </script>
 <pre class="prettyprint lang-js">moneiWidget.setup('widget1', {
@@ -328,8 +428,230 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </pre>
 
-<p><a target="_blank" href="https://github.com/MONEI/MONEI-widget">Full list of available options</a></p>
+<h2 id="params" class="ui dividing header">List of supported configuration parameters</h2>
+  <p>Change how widget looks and behaves using the following configuration parameters.</p>
 
+  <p>You can either use <code>data-dashed-case</code> HTML attributes or a
+    JavaScript object with <code>camelCase</code> options as <code>setup()</code> second parameter.</p>
+
+
+  <h3>Required parameters</h3>
+  <table class="ui small definition table">
+    <tr>
+      <td>token</td>
+      <td>Token generated for sub account in <a href="https://dashboard.monei.net" target="_blank">MONEI dashboard</a></td>
+    </tr>
+    <tr>
+      <td>amount</td>
+      <td>The amount to be charged</td>
+    </tr>
+    <tr>
+      <td>currency</td>
+      <td>The currency in which to charge. It should match your sub account currency.</td>
+    </tr>
+    <tr>
+      <td>redirectUrl</td>
+      <td>
+        After submitting the form a customer will be redirected to this url.
+        Transaction <code>id</code> and <code>token</code> will be passed to this URL.
+        <a href="#status">How to get payment status</a>
+      </td>
+    </tr>
+    <tr>
+      <td>planId</td>
+      <td>Id of the plan created in <a href="https://dashboard.monei.net/plans/" target="_blank">MONEI dashboard</a>.
+        Only required for subscription mode.</td>
+    </tr>
+    <tr>
+      <td>test</td>
+      <td>Pass <code>true</code> to enable test mode. (You need to pass test mode token)</td>
+    </tr>
+  </table>
+
+  <h3>Payment parameters</h3>
+  <table class="ui small definition table">
+    <tr>
+      <td>brands</td>
+      <td>
+        String with space as delimiter. <a href="https://docs.monei.net/tutorials/integration-guide">Supported brands and payment methods</a>.
+        To enable additional payment methods they should be configured in your sub account. Please contact support if you want to know more.
+        Default: <code>'VISA MASTER'</code>
+      </td>
+    </tr>
+    <tr>
+      <td>paymentType</td>
+      <td>
+        <code>PA</code> (Preauthorization) or <code>DB</code> (Debit).
+        Default is <code>DB</code> but it is possible to pass <code>PA</code>
+        to enable preauthorisation payments that should be captured manually through the dashboard.
+      </td>
+    </tr>
+    <tr>
+      <td>descriptor</td>
+      <td>Descriptor that will be shown in customer's bank statement</td>
+    </tr>
+    <tr>
+      <td>customer</td>
+      <td>
+        <p>Information about the customer. It will be saved in the transaction.
+        <a href="https://docs.monei.net/reference/parameters#customer">List of available fields</a>.</p>
+        <p>html data attributes: <br>
+        <code>data-customer-email</code><br>
+        <code>data-customer-given-name</code><br>
+        <code>data-customer-middle-name</code><br>
+        <code>data-customer-surname</code><br>
+        <code>data-customer-sex</code><br>
+        <code>data-customer-birth-date</code><br>
+        <code>data-customer-phone</code><br>
+        <code>data-customer-mobile</code><br>
+        <code>data-customer-work-phone</code><br>
+        <code>data-customer-company-name</code><br>
+        <code>data-customer-identification-doc-type</code><br>
+        <code>data-customer-identification-doc-id</code><br>
+        <code>data-customer-status</code>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>billingAddress</td>
+      <td>
+        <p>Information about the customer billing address. It will be saved in the transaction.
+        Pass an object to pre-fill address fields.
+        <a href="https://docs.monei.net/reference/parameters#billing">List of available fields</a>.</p>
+        <p>html data attributes: <br>
+        <code>data-billing-country</code><br>
+        <code>data-billing-state</code><br>
+        <code>data-billing-city</code><br>
+        <code>data-billing-postcode</code><br>
+        <code>data-billing-street1</code><br>
+        <code>data-billing-street2</code><br>
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td>mandatoryBillingFields</td>
+      <td>
+        Describe which billing fields cannot be empty. This option needs to be used with billingAddress option.
+        Default: <code>{country: true, state: true, city: true}</code>
+      </td>
+    </tr>
+    <tr>
+      <td>customParameters</td>
+      <td>Pass and object with any custom key/values. It will be saved in the transaction (each key will be prefixed with SHOPPER_)</td>
+    </tr>
+  </table>
+
+  <h3>Appearance parameters</h3>
+  <table class="ui small definition table">
+    <tr>
+      <td>popup</td>
+      <td>Pass <code>false</code> to show a payment form directly on the page</td>
+    </tr>
+    <tr>
+      <td>name</td>
+      <td>Product name in popup header</td>
+    </tr>
+    <tr>
+      <td>description</td>
+      <td>Product description in popup header</td>
+    </tr>
+    <tr>
+      <td>checkoutText</td>
+      <td>
+        Checkout button text in popup mode, <code>{amount}</code>
+        will be replaced with amount value with currency. Default: <code>Pay {amount}</code>
+      </td>
+    </tr>
+    <tr>
+      <td>submitText</td>
+      <td>
+        Submit button text, <code>{amount}</code> will be replaced with amount value with currency. Default: <code>Pay now</code>
+      </td>
+    </tr>
+    <tr>
+      <td>noEnhance</td>
+      <td>Disables default styling for checkout button</td>
+    </tr>
+    <tr>
+      <td>showCardHolder</td>
+      <td>Shows cardholder name input</td>
+    </tr>
+    <tr>
+      <td>forceCardHolderEqualsBillingName</td>
+      <td>By default the cardholder is displayed as one field. If this option is set to true then the form displays a field for the given name and a separate field for the surname. The values entered here will be submitted both as <code>card.holder</code> and as <code>customer.givenName</code> and <code>customer.surname</code>. Only works if <code>showCardHolder: true</code></td>
+    </tr>
+    <tr>
+      <td>showEmail</td>
+      <td>
+        Shows email input. If <code>customer.email</code> is provided input will be hidden automatically.
+        <b>Recommended. MONEI identifies customers by email.</b> Default: <code>true</code> </td>
+    </tr>
+    <tr>
+      <td>locale</td>
+      <td>
+        Sets the language/country of the payment forms.
+        Supported languages are: ar, be, bg, cn, cz, de, da, el, en, es, fi, fr, gr, hu, it, ja, ko, nl, no, pl, pt, ro, ru, sv, sk, sl, tr.
+        By default detected by the browser.
+      </td>
+    </tr>
+    <tr>
+      <td>autofocus</td>
+      <td>Sets focus to the selected input/select element on the payment form upon loading. Example: <code>autofocus: 'customer.email'</code></td>
+    </tr>
+    <tr>
+      <td>threeDIframeSize</td>
+      <td>Sets size of the 3D secure iframe. This iframe will only be used in case a shopper has to enter 3D secure credentials on the bank's page. Example: <code>{width: 100%, height: 580px}</code></td>
+    </tr>
+    <tr>
+      <td>showCVVHint</td>
+      <td>If set to true then the credit card form will display a hint on where the CVV is located when the mouse is hovering over the CVV field.</td>
+    </tr>
+    <tr>
+      <td>showLabels</td>
+      <td>Shows input labels</td>
+    </tr>
+    <tr>
+      <td>showPlaceholders</td>
+      <td>Shows input placeholders. Default: <code>true</code></td>
+    </tr>
+    <tr>
+      <td>labels</td>
+      <td>Overrides labels from the <a href="https://docs.monei.net/tutorials/integration-guide/widget-api#labels" target="_blank">list of available labels</a>.</td>
+    </tr>
+    <tr>
+      <td>errorMessages</td>
+      <td>Overrides error messages from the <a href="https://docs.monei.net/tutorials/integration-guide/widget-api#error_messages" target="_blank">list of available error messages</a>.</td>
+    </tr>
+  </table>
+
+  <h3>Callback functions</h3>
+  <p>If you are using advanced JavaScript mode it is possible to provide callback functions</p>
+
+  <table class="ui small definition table">
+    <tr>
+      <td>onReady</td>
+      <td>Triggers when all payment forms are ready</td>
+    </tr>
+    <tr>
+      <td>onError</td>
+      <td>
+        Callback that triggers if an error occurs during checkout.
+        <br><code>onError: function(error){ /* function here */}</code></td>
+    </tr>
+    <tr>
+      <td>onAfterSubmit</td>
+      <td>Triggers after the payment submission.</td>
+    </tr>
+    <tr>
+      <td>onBeforeSubmitCard</td>
+      <td>Triggers before card payment submission. Context (this) is the form. Overrides the internal submit function. Do event.preventDefault() or return false to cancel the payment submit action.
+        <br><code>onBeforeSubmitCard: function(event){ /* function here */}</code></td>
+    </tr>
+    <tr>
+      <td>onLoadThreeDIframe</td>
+      <td>Triggers when the 3D secure targetIframe has loaded</td>
+    </tr>
+  </table>
 </div>
 <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 <script src="https://buttons.github.io/buttons.js"></script>
