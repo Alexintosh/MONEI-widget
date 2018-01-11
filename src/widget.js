@@ -5,6 +5,7 @@ import PaymentForm from './PaymentForm';
 import {normalizeDataSet} from './lib/utils';
 import merge from 'deepmerge';
 import validateProps from 'lib/propsValidator';
+import {isEmpty} from 'lib/utils';
 
 export const WIDGET_CONTAINER_CLASS_NAME = 'monei-widget';
 
@@ -44,6 +45,14 @@ function setupWidget(container, options = {}) {
       identificationDocId: ds.customerIdentificationDocId,
       status: ds.customerStatus
     },
+    billingAddress: {
+      country: ds.billingCountry,
+      state: ds.billingState,
+      city: ds.billingCity,
+      postcode: ds.billingPostalcode,
+      street1: ds.billingStreet1,
+      street2: ds.billingStreet2
+    },
     customParameters: {},
     labels: {
       email: 'Email'
@@ -65,6 +74,9 @@ function setupWidget(container, options = {}) {
   if (error) {
     console.error(error);
     return;
+  }
+  if (isEmpty(props.billingAddress)) {
+    delete props.billingAddress;
   }
   const Component = props.popup ? PaymentButton : PaymentForm;
   container.moneiWidget = render(

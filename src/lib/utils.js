@@ -41,3 +41,13 @@ export const formatAmount = (amount, currency) => {
 
   return `${formattedAmount} ${currency.toUpperCase()}`;
 };
+
+export const isEmpty = obj => {
+  let isEmpty = true;
+  Object.keys(obj).forEach(key => {
+    if (obj[key] !== undefined) {
+      isEmpty = false;
+    }
+  });
+  return isEmpty;
+};
