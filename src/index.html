@@ -82,6 +82,7 @@
   <div class="ui bulleted list">
     <a class="item" href="#integrations">Integration</a>
     <a class="item" href="#examples">Examples</a>
+    <a class="item" href="#subscription">Subscription mode</a>
     <a class="item" href="#embedded">Embedded mode</a>
     <a class="item" href="#advanced">Advanced options</a>
   </div>
@@ -123,14 +124,15 @@
     Click me to pay with Card
   </a>
   </p>
- <xmp class="prettyprint lang-html"><div class="monei-widget"
+ <xmp class="prettyprint lang-html"><a href="#" class="monei-widget"
     data-token="{TOKEN}"
     data-redirect-url="https://monei.net"
     data-amount="100"
     data-currency="eur"
     data-no-enhance
     data-test>
-</div></xmp>
+   Click me to pay with Card
+</a></xmp>
 
   <h3>Specify primary color</h3>
   <div  class="monei-widget"
@@ -228,6 +230,35 @@
     data-currency="eur"
     data-show-card-holder
     data-force-card-holder-equals-billing-name
+    data-test>
+</div></xmp>
+
+<h2 id="subscription" class="ui dividing header">Subscription mode</h2>
+  <p>You can create recurrent payments and allow your customers to buy daily and monthly subscriptions</p>
+  <p>
+    To allow subscriptions through the widget you need to specify
+    <b><code>planId</code></b> of the plan created in <a href="https://dashboard.monei.net/plans/" target="_blank">MONEI dashboard</a>.
+    The <b><code>amount</code></b> and <b><code>currency</code></b> should be the same as in the specified plan.
+  </p>
+
+  <div class="monei-widget"
+     data-token="eyJ1IjoiZ29vZ2xlLW9hdXRoMnwxMTQxOTk4MTg4MDY3NDg4MjkzNTIiLCJjIjoiOGE4Mjk0MTg1OGUyZGJlOTAxNThlMmVlMzM1ZjAwNDcifQ"
+     data-plan-id="example-plan"
+     data-redirect-url="https://monei.net"
+     data-amount="4.99"
+     data-currency="eur"
+     data-checkout-text="Subscribe for {amount}"
+     data-submit-text="Subscribe now!"
+     data-test>
+  </div>
+  <xmp class="prettyprint lang-html"><div class="monei-widget"
+    data-token="{TOKEN}"
+    data-plan-id="example-plan"
+    data-redirect-url="https://monei.net"
+    data-amount="4.99"
+    data-currency="eur"
+    data-checkout-text="Subscribe for {amount}"
+    data-submit-text="Subscribe now!"
     data-test>
 </div></xmp>
 
