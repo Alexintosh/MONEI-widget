@@ -49,6 +49,7 @@
 
 .testModeWarning {
   display: none;
+  text-align: center;
   & > div {
     background-color: #fcf1cd;
     border-radius: 3px;
@@ -193,6 +194,11 @@
         background: #ffffff;
         box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.35) inset;
       }
+    }
+
+    .wpwl-label {
+      padding-top: 4px;
+      padding-bottom: 4px;
     }
 
     .wpwl-brand-card {
