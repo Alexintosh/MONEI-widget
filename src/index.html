@@ -79,7 +79,7 @@
   </p>
 
   <div class="monei-widget"
-       data-checkout-id="383B4AE194A7FFAB002BD4E75392499F.sbg-vm-tx01"
+       data-token="eyJ1IjoiZ29vZ2xlLW9hdXRoMnwxMTQxOTk4MTg4MDY3NDg4MjkzNTIiLCJjIjoiOGE4Mjk0MTg1OGUyZGJlOTAxNThlMmVlMzM1ZjAwNDcifQ"
        data-redirect-url="https://static.monei.net/invoice.html"
        data-name="My product"
        data-description="Product description"
@@ -728,8 +728,13 @@ document.addEventListener('DOMContentLoaded', function() {
     </tr>
     <tr>
       <td>onBeforeSubmitCard</td>
-      <td>Triggers before card payment submission. Context (this) is the form. Overrides the internal submit function. Do event.preventDefault() or return false to cancel the payment submit action.
+      <td>Triggers before card payment submission. Overrides the internal submit function. Do event.preventDefault() or return false to cancel the payment submit action.
         <br><code>onBeforeSubmitCard: function(event){ /* function here */}</code></td>
+    </tr>
+    <tr>
+      <td>onBeforeSubmitDirectDebit</td>
+      <td>Triggers before direct debit payment submission. Overrides the internal submit function. Do event.preventDefault() or return false to cancel the payment submit action.
+        <br><code>onBeforeSubmitDirectDebit: function(event){ /* function here */}</code></td>
     </tr>
     <tr>
       <td>onLoadThreeDIframe</td>

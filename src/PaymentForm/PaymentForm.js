@@ -47,7 +47,8 @@ class PaymentForm extends Component {
       onLoadThreeDIframe: this.onLoadThreeDIframe,
       onReady: this.onReady,
       onError: this.onError,
-      onBeforeSubmitCard: this.onBeforeSubmitCard
+      onBeforeSubmitCard: this.onBeforeSubmitCard,
+      onBeforeSubmitDirectDebit: this.onBeforeSubmitDirectDebit
     };
   }
 
@@ -80,6 +81,15 @@ class PaymentForm extends Component {
       return this.props.onBeforeSubmitCard(e) && this.validateEmail(true);
     }
     return this.validateEmail(true);
+  };
+
+  onBeforeSubmitDirectDebit = e => {
+    if (this.props.onBeforeSubmitDirectDebit) {
+      return this.props.onBeforeSubmitDirectDebit(e) && this.validateEmail(true);
+    }
+    if (!this.validateEmail(true)) {
+      e.preventDefault();
+    }
   };
 
   onLoadThreeDIframe = () => {
