@@ -75,11 +75,11 @@
     Try out MONEI Widget right now by clicking the button below!
     Enter test card number - <b>5454545454545454</b>,
     any future month and year for the expiration and any three-digit number for the CVC.
-    <a href="https://docs.monei.net/reference/parameters#test-accounts" target="_blank">Other test cards.</a>
+    <a href="#test-accounts">Other test cards.</a>
   </p>
 
   <div class="monei-widget"
-       data-token="eyJ1IjoiZ29vZ2xlLW9hdXRoMnwxMTQxOTk4MTg4MDY3NDg4MjkzNTIiLCJjIjoiOGE4Mjk0MTg1OGUyZGJlOTAxNThlMmVlMzM1ZjAwNDcifQ"
+       data-checkout-id="383B4AE194A7FFAB002BD4E75392499F.sbg-vm-tx01"
        data-redirect-url="https://static.monei.net/invoice.html"
        data-name="My product"
        data-description="Product description"
@@ -282,6 +282,8 @@
      that allows you to debit their account.
    </p>
 
+  <p>You can test it with <b>DE23100000001234567890</b>.  <a href="#test-accounts">Other test accounts.</a></p>
+
   <div class="monei-widget"
      data-token="eyJ1IjoiZ29vZ2xlLW9hdXRoMnwxMTQxOTk4MTg4MDY3NDg4MjkzNTIiLCJjIjoiOGE4Mjk0MTg1OGUyZGJlOTAxNThlMmVlMzM1ZjAwNDcifQ"
      data-redirect-url="https://static.monei.net/invoice.html"
@@ -458,6 +460,57 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 </pre>
+
+ <h2 id="test-accounts" class="ui dividing header">Test Accounts</h2>
+  <h3>Credit Card Test Accounts</h3>
+  <table class="ui small table">
+    <thead>
+    <tr><th>Brand</th><th>Number</th><th>CVV</th><th>Expiry Date</th></tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td data-label="Brand">VISA</td>
+      <td data-label="Number">4200000000000000 (no 3D)<br>4711100000000000 (3D enrolled)</td>
+      <td data-label="CVV">any 3 digits</td>
+      <td data-label="Expiry Date">any date after today</td>
+    </tr>
+    <tr>
+      <td data-label="Brand">MASTER</td>
+      <td data-label="Number">5454545454545454 (no 3D)<br>5212345678901234 (3D enrolled)</td>
+      <td data-label="CVV">any 3 digits</td>
+      <td data-label="Expiry Date">any date after today</td>
+    </tr>
+    <tr>
+      <td data-label="Brand">AMEX</td>
+      <td data-label="Number">377777777777770 (no 3D)<br>375987000000005 (3D enrolled)</td>
+      <td data-label="CVV">any 4 digits</td>
+      <td data-label="Expiry Date">any date after today</td>
+    </tr>
+    </tbody>
+  </table>
+  <h3>Test Bank Accounts (SEPA)</h3>
+  <table class="ui small table">
+    <thead class="custom_testBankAccount">
+    <tr class="custom_testBankAccount"><th>Country</th><th>IBAN</th><th>BIC</th></tr>
+    </thead>
+    <tbody class="custom_testBankAccount">
+    <tr>
+      <td data-label="Country">Austria (AT)</td>
+      <td data-label="IBAN">AT152011128161647502</td>
+      <td data-label="BIC">GIBAATWWXXX</td>
+    </tr>
+    <tr>
+      <td data-label="Country">Germany (DE)</td>
+      <td data-label="IBAN">DE23100000001234567890</td>
+      <td data-label="BIC">MARKDEF1100</td>
+    </tr>
+    <tr>
+      <td data-label="Country">Spain (ES)</td>
+      <td data-label="IBAN">ES9121000418450200051332</td>
+      <td data-label="BIC">CAIXESBBXXX</td>
+    </tr>
+    </tbody>
+  </table>
 
 <h2 id="params" class="ui dividing header">List of supported configuration parameters</h2>
   <p>Change how widget looks and behaves using the following configuration parameters.</p>
