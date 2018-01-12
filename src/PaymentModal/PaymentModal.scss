@@ -33,7 +33,7 @@
   position: relative;
   text-align: center;
   transition: all 0.5s;
-  transform: translateY(50px) scale(.95);
+  transform: translateY(20px) scale(.95);
   transition-timing-function: cubic-bezier(.15,1.45,.55,1);
   transition-duration: .4s;
   max-width: 100%;
@@ -41,7 +41,7 @@
 
 .modal {
   position: relative;
-  width: 320px;
+  width: 325px;
   height: auto;
   display: inline-block;
   max-width: 100%;

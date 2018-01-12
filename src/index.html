@@ -94,6 +94,8 @@
   <div class="ui bulleted list">
     <a class="item" href="#integrations">Integration</a>
     <a class="item" href="#examples">Examples</a>
+    <a class="item" href="#brands">Different payment methods</a>
+    <a class="item" href="#sepa">SEPA Direct Debit</a>
     <a class="item" href="#subscription">Subscription mode</a>
     <a class="item" href="#embedded">Embedded mode</a>
     <a class="item" href="#status">How to get payment status</a>
@@ -254,7 +256,7 @@
   <div class="monei-widget"
      data-token="eyJ1IjoiZ29vZ2xlLW9hdXRoMnwxMTQxOTk4MTg4MDY3NDg4MjkzNTIiLCJjIjoiOGE4Mjk0MTg1OGUyZGJlOTAxNThlMmVlMzM1ZjAwNDcifQ"
      data-redirect-url="https://monei.net"
-     data-brands="VISA MASTER PAYPAL BITCOIN"
+     data-brands="VISA MASTER MAESTRO JCB PAYPAL BITCOIN"
      data-amount="100"
      data-currency="eur"
      data-test>
@@ -263,6 +265,35 @@
     data-token="{TOKEN}"
     data-redirect-url="https://monei.net"
     data-brands="VISA MASTER MAESTRO JCB PAYPAL BITCOIN"
+    data-amount="100"
+    data-currency="eur"
+    data-test>
+</div></xmp>
+
+<h2 id="sepa" class="ui dividing header">SEPA Direct Debit</h2>
+  <p>MONEI allows to accept SEPA Direct Debit payments from customers in countries within the
+    <a href="https://en.wikipedia.org/wiki/Single_Euro_Payments_Area" target="_blank">Single Euro Payments Area</a>.
+  </p>
+
+   <p>During the payment process, your integration collects your customer’s EUR-denominated
+     <a href="https://en.wikipedia.org/wiki/International_Bank_Account_Number" target="_blank">IBAN</a> bank account information.
+     SEPA Direct Debits require the bank account holder to accept a
+     <a href="https://www.europeanpaymentscouncil.eu/what-we-do/sepa-direct-debit/sdd-mandate" target="_blank">mandate</a> (debit authorization)
+     that allows you to debit their account.
+   </p>
+
+  <div class="monei-widget"
+     data-token="eyJ1IjoiZ29vZ2xlLW9hdXRoMnwxMTQxOTk4MTg4MDY3NDg4MjkzNTIiLCJjIjoiOGE4Mjk0MTg1OGUyZGJlOTAxNThlMmVlMzM1ZjAwNDcifQ"
+     data-redirect-url="https://monei.net"
+     data-brands="DIRECTDEBIT_SEPA"
+     data-amount="100"
+     data-currency="eur"
+     data-test>
+  </div>
+  <xmp class="prettyprint lang-html"><div class="monei-widget"
+    data-token="{TOKEN}"
+    data-redirect-url="https://monei.net"
+    data-brands="DIRECTDEBIT_SEPA"
     data-amount="100"
     data-currency="eur"
     data-test>
