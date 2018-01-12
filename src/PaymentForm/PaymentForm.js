@@ -16,7 +16,8 @@ class PaymentForm extends Component {
     showCardHolder: false,
     showEmail: true,
     labels: {
-      email: 'Email'
+      email: 'Email',
+      otherPaymentMethods: 'Or pay with'
     },
     errorMessages: {
       email: 'Invalid email'
