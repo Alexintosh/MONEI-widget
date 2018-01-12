@@ -97,6 +97,18 @@
         box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.35) inset;
       }
     }
+
+    .wpwl-brand-BITCOIN {
+      background-image: url('../static/bitcoin.svg'), none;
+      background-size: contain;
+      background-position: center;
+    }
+
+    .wpwl-brand-PAYPAL {
+      background-image: url('../static/paypal.svg'), none;
+      background-size: contain;
+      background-position: center;
+    }
   }
 
   .wpwl-form-card, .wpwl-form-directDebit {
