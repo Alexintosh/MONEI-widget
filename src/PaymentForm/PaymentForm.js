@@ -156,7 +156,7 @@ class PaymentForm extends Component {
 
   adjustForm() {
     const {showCardHolder, showEmail, customer, customParameters, primaryColor} = this.props;
-    const $form = this.$formContainer.find('.wpwl-form-card');
+    const $form = this.$formContainer.find('.wpwl-form-card, .wpwl-form-directDebit');
 
     // move brand icon to the card number field and hide by default
     const $brand = $form
@@ -167,7 +167,7 @@ class PaymentForm extends Component {
 
     // show cardholder firs or hide it
     const $cardHolder = $form.find('.wpwl-group-cardHolder');
-    if (showCardHolder) {
+    if ($cardHolder.length && showCardHolder) {
       $cardHolder.prependTo($form);
     } else {
       $cardHolder.remove();
