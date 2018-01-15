@@ -61,20 +61,20 @@
     <a class="github-button" href="https://github.com/MONEI/MONEI-widget" data-icon="octicon-star" aria-label="Star MONEI/MONEI-widget on GitHub">Star</a>
   </p>
   <p>
-    An easy way to accept payments from your customers.
+    The easiest way to accept payments from your customers.
   </p>
 
   <p>Embed this widget on your website, blog or online store. It is
     easy to use, very secure, configurable, PCI compliant and mobile friendly.</p>
 
   <p>
-    To use a widget you need to be registered in <a href="https://static.monei.net/invoice.html/" target="_blank"><b>MONEI Payment Gateway</b></a>
+    To use the MONEI widget you need to be registered in <a href="https://static.monei.net/invoice.html/" target="_blank"><b>MONEI Payment Gateway</b></a>
   </p>
 
   <p>
-    Try out MONEI Widget right now by clicking the button below!
-    Enter test card number - <b>5454545454545454</b>,
-    any future month and year for the expiration and any three-digit number for the CVC.
+    Try out the MONEI Widget right now by clicking the button below!
+    Use the following test card number: <b>5454545454545454</b>,
+    any future month and year for the expiration date, and any three-digit number for the CVC.
     <a href="#test-accounts">Other test cards.</a>
   </p>
 
@@ -98,7 +98,7 @@
     <a class="item" href="#sepa">SEPA Direct Debit</a>
     <a class="item" href="#subscription">Subscription mode</a>
     <a class="item" href="#embedded">Embedded mode</a>
-    <a class="item" href="#status">How to get payment status</a>
+    <a class="item" href="#status">How to get the payment status</a>
     <a class="item" href="#advanced">Advanced options</a>
     <a class="item" href="#test-accounts">Test Accounts</a>
     <a class="item" href="#params">List of supported configuration parameters</a>
@@ -106,15 +106,15 @@
 
   <h2 id="integrations" class="ui dividing header">Integration</h2>
 
-  <p>Insert this code before closing <code>&lt;/body&gt;</code> tag:</p>
+  <p>Insert this code before closing the <code>&lt;/body&gt;</code> tag:</p>
   <xmp class="prettyprint lang-html"><script src="https://widget.monei.net/widget2.js"></script></xmp>
 
   <p>
     Generate the HTML code for your widget in
-    <a href="https://dashboard.monei.net/sub-accounts" target="_blank">MONEI dashboard</a>
+    <a href="https://dashboard.monei.net/sub-accounts" target="_blank">MONEI dashboard.</a>
   </p>
   <p>
-    Insert this code where you want your widget to show up.
+    Insert this code where you want your widget to show up:
   </p>
   <xmp class="prettyprint lang-html"><div class="monei-widget"
     data-token="{TOKEN}"
@@ -129,7 +129,7 @@
 </div></xmp>
 
   <h2 id="examples" class="ui dividing header">Examples</h2>
-  <h3>Use custom element</h3>
+  <h3>Use custom elements</h3>
   <p>
     <a href="#" class="monei-widget"
      data-token="eyJ1IjoiZ29vZ2xlLW9hdXRoMnwxMTQxOTk4MTg4MDY3NDg4MjkzNTIiLCJjIjoiOGE4Mjk0MTg1OGUyZGJlOTAxNThlMmVlMzM1ZjAwNDcifQ"
@@ -138,7 +138,7 @@
      data-currency="eur"
      data-no-enhance
      data-test>
-    Click me to pay with Card
+    Click me to pay with a Credit Card
   </a>
   </p>
  <xmp class="prettyprint lang-html"><a href="#" class="monei-widget"
@@ -148,10 +148,10 @@
     data-currency="eur"
     data-no-enhance
     data-test>
-   Click me to pay with Card
+   Click me to pay with a Credit Card
 </a></xmp>
 
-  <h3>Specify primary color</h3>
+  <h3>Define the primary color</h3>
   <div  class="monei-widget"
      data-token="eyJ1IjoiZ29vZ2xlLW9hdXRoMnwxMTQxOTk4MTg4MDY3NDg4MjkzNTIiLCJjIjoiOGE4Mjk0MTg1OGUyZGJlOTAxNThlMmVlMzM1ZjAwNDcifQ"
      data-redirect-url="https://static.monei.net/invoice.html"
@@ -205,7 +205,7 @@
     data-test>
 </div></xmp>
 
-<h3>Show widget in different language</h3>
+<h3>Localize - Show the widget in different language than english</h3>
   <p>Supported languages are: ar, be, bg, cn, cz, de, da, el, en, es, fi, fr, gr, hu, it, ja, ko, nl, no, pl, pt, ro, ru, sv, sk, sl, tr</p>
 <div class="monei-widget"
      data-token="eyJ1IjoiZ29vZ2xlLW9hdXRoMnwxMTQxOTk4MTg4MDY3NDg4MjkzNTIiLCJjIjoiOGE4Mjk0MTg1OGUyZGJlOTAxNThlMmVlMzM1ZjAwNDcifQ"
@@ -251,7 +251,7 @@
 </div></xmp>
 
 <h2 id="brands" class="ui dividing header">Different payment methods</h2>
-<p>You can enable different card brands and additional payment methods like <b>Paypal</b> and <b>Bitcoin</b> for a widget. <a href="https://docs.monei.net/tutorials/integration-guide" target="_blank">Supported brands and payment methods</a>.
+<p>You can enable different card brands and additional payment methods like <b>Paypal</b>, <b>Bitcoin</b> and <b>SEPA</b>. <a href="https://docs.monei.net/tutorials/integration-guide" target="_blank">Supported brands and payment methods</a>.
   To enable additional payment methods they should be configured in your sub account. Please contact support if you want to know more.</p>
 
   <div class="monei-widget"
@@ -306,7 +306,7 @@
   <p>You can create recurrent payments and allow your customers to buy daily and monthly subscriptions.</p>
   <p>
     To allow subscriptions through the widget you need to specify
-    <code>planId</code> of the plan created in <a href="https://dashboard.monei.net/plans/" target="_blank">MONEI dashboard</a>.
+    <code>planId</code> of the plan created in the <a href="https://dashboard.monei.net/plans/" target="_blank">MONEI dashboard</a>.
     The <code>amount</code> and <code>currency</code> should be the same as in the specified plan.
   </p>
 
@@ -346,25 +346,25 @@
     data-test>
 </div></xmp>
 
-<h2 id="status" class="ui dividing header">How to get payment status</h2>
-<p>To get the status of the payment, you should make a <code>GET</code> request to</p>
+<h2 id="status" class="ui dividing header">How to get the payment status</h2>
+<p>To get the status of the payment, you should make a <code>GET</code> request to:</p>
 
 <pre class="prettyprint">https://api.monei.net/checkouts/{id}?token={token}</pre>
 
 <p>
-  <b>IMPORTANT! If you're using subscription mode, you have to call this endpoint to activate the subscription.
-    If the payment is successful, subscription will be activated.</b>
+  <b>IMPORTANT! If you're using the subscription mode, you have to call this endpoint to activate the subscription.
+    If the payment is successful, the subscription will be activated.</b>
 </p>
 
 <pre class="prettyprint">https://api.monei.net/plans/{planId}/subscriptions/payment-status?token={token}&checkoutId={id}</pre>
-<p>you'll get <code>id</code> and <code>token</code> as a query parameters appended to the redirect URL, <code>planId</code> should be the same as the one provided to the widget.</p>
+<p>you'll get <code>id</code> and <code>token</code> as query parameters appended to the redirect URL, <code>planId</code> should be the same as the one provided to the widget.</p>
 <p>
-  Read about response structure and available parameters in
+  Read about the response structure and available parameters in
   <a href="https://docs.monei.net/reference/parameters#response-params" target="_blank">documentation</a>.
 </p>
 
 <h2 id="advanced" class="ui dividing header">Advanced options</h2>
-<p>You can setup a widget using JavaScript</p>
+<p>You can setup the widget using JavaScript</p>
 <pre class="prettyprint lang-js">// Disables automatic setup for all DOM elements with monei-widget class
 moneiWidget.disableAutoSetup();
 
@@ -514,7 +514,7 @@ document.addEventListener('DOMContentLoaded', function() {
   </table>
 
 <h2 id="params" class="ui dividing header">List of supported configuration parameters</h2>
-  <p>Change how widget looks and behaves using the following configuration parameters.</p>
+  <p>Change how the widget looks and behaves using the following configuration parameters:</p>
 
   <p>You can either use <code>data-dashed-case</code> HTML attributes or a
     JavaScript object with <code>camelCase</code> options as <code>setup()</code> second parameter.</p>
