@@ -27,6 +27,10 @@
   }
 }
 
+.fixed {
+
+}
+
 .container {
   margin: auto;
   position: relative;
@@ -161,5 +165,8 @@
     border-radius: 0;
     box-shadow: none;
     transition-timing-function: ease-in;
+  }
+  .fixed {
+    overflow: hidden;
   }
 }

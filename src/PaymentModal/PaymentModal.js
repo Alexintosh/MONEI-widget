@@ -2,14 +2,16 @@ import {Component} from 'preact';
 import Portal from 'preact-portal';
 import PaymentForm from '../PaymentForm';
 import classNames from './PaymentModal.scss';
+import $ from 'cash-dom';
 
 import cx from 'classnames';
 
 class PaymentModal extends Component {
   handleClose = () => {
-    this.setState({isActive: false, isVisible: false});
+    $('body').removeClass(classNames.fixed);
     document.ontouchmove = () => true;
     setTimeout(this.props.onClose.bind(this), 400);
+    this.setState({isActive: false, isVisible: false});
   };
 
   onError = error => {
@@ -20,8 +22,9 @@ class PaymentModal extends Component {
   onReady = () => {
     this.props.onReady && this.props.onReady();
     setTimeout(() => {
-      this.setState({isActive: true});
+      $('body').addClass(classNames.fixed);
       document.ontouchmove = e => e.preventDefault();
+      this.setState({isActive: true});
     }, 500);
     setTimeout(() => {
       this.setState({isVisible: true});
