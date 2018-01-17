@@ -131,7 +131,7 @@ class PaymentForm extends Component {
               name="customer.email"
               className="wpwl-control wpwl-control-email"
               placeholder={showPlaceholders && labels.email}
-              type="text"
+              type="email"
             />
           </div>
         </div>
