@@ -96,6 +96,7 @@
     <a class="item" href="#examples">Examples</a>
     <a class="item" href="#brands">Different payment methods</a>
     <a class="item" href="#sepa">SEPA Direct Debit</a>
+    <a class="item" href="#apple-pay">Apple Pay</a>
     <a class="item" href="#subscription">Subscription mode</a>
     <a class="item" href="#embedded">Embedded mode</a>
     <a class="item" href="#status">How to get the payment status</a>
@@ -297,6 +298,26 @@
     data-token="{TOKEN}"
     data-redirect-url="https://static.monei.net/invoice.html"
     data-brands="DIRECTDEBIT_SEPA"
+    data-amount="100"
+    data-currency="eur"
+    data-test>
+</div></xmp>
+
+<h2 id="apple-pay" class="ui dividing header">Apple Pay</h2>
+  <p>MONEI allows Apple Pay to securely make payments on their iPhone, iPad, and Apple Watch. The button will be visible only on apple devices that support Apple Pay.</p>
+
+  <div class="monei-widget"
+     data-token="eyJ1IjoiZ29vZ2xlLW9hdXRoMnwxMTQxOTk4MTg4MDY3NDg4MjkzNTIiLCJjIjoiOGE4Mjk0MTg1OGUyZGJlOTAxNThlMmVlMzM1ZjAwNDcifQ"
+     data-redirect-url="https://static.monei.net/invoice.html"
+     data-brands="VISA MASTER APPLEPAY"
+     data-amount="100"
+     data-currency="eur"
+     data-test>
+  </div>
+  <xmp class="prettyprint lang-html"><div class="monei-widget"
+    data-token="{TOKEN}"
+    data-redirect-url="https://static.monei.net/invoice.html"
+    data-brands="VISA MASTER APPLEPAY"
     data-amount="100"
     data-currency="eur"
     data-test>
