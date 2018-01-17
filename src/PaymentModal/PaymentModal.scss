@@ -12,7 +12,7 @@
   opacity: 0;
   transition-timing-function: cubic-bezier(.15,1.45,.55,1);
   transition-duration: .4s;
-  overflow: auto !important;
+  overflow: hidden;
   padding: 20px;
   font-family: "Avenir Next", Avenir, -apple-system, BlinkMacSystemFont, Roboto, Helvetica, sans-serif;
   text-rendering: optimizeLegibility;
@@ -21,6 +21,9 @@
     .container {
       transform: translateY(0) scale(1);
     }
+  }
+  &.visible {
+    overflow: auto !important;
   }
 }
 
@@ -32,7 +35,7 @@
   margin: auto;
   position: relative;
   transition: all 0.5s;
-  transform: translateY(20px) scale(.95);
+  transform: translateY(50%) scale(.95);
   transition-timing-function: cubic-bezier(.15,1.45,.55,1);
   transition-duration: .4s;
   max-width: 100%;
@@ -150,21 +153,17 @@
 @media (max-width: 768px){
   .container {
     transform: translateY(100%) scale(1);
-    background-color: #f7f7f9;
     height: 100%;
     width: 100%;
   }
   .portal {
     padding: 0;
-    background: none;
+    background-color: #f7f7f9;
   }
   .modal {
     width: 100%;
     border-radius: 0;
     box-shadow: none;
     transition-timing-function: ease-in;
-  }
-  .fixed {
-    overflow: hidden;
   }
 }

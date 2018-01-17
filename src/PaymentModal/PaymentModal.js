@@ -2,14 +2,13 @@ import {Component} from 'preact';
 import Portal from 'preact-portal';
 import PaymentForm from '../PaymentForm';
 import classNames from './PaymentModal.scss';
-import $ from 'cash-dom';
 
 import cx from 'classnames';
 
 class PaymentModal extends Component {
   handleClose = () => {
-    this.setState({isActive: false});
-    $('body').removeClass(classNames.fixed);
+    this.setState({isActive: false, isVisible: false});
+    document.ontouchmove = () => true;
     setTimeout(this.props.onClose.bind(this), 400);
   };
 
@@ -21,9 +20,12 @@ class PaymentModal extends Component {
   onReady = () => {
     this.props.onReady && this.props.onReady();
     setTimeout(() => {
-      $('body').addClass(classNames.fixed);
       this.setState({isActive: true});
+      document.ontouchmove = e => e.preventDefault();
     }, 500);
+    setTimeout(() => {
+      this.setState({isVisible: true});
+    }, 900);
   };
 
   onLoadThreeDIframe = () => {
@@ -31,13 +33,14 @@ class PaymentModal extends Component {
     this.setState({is3DFrame: true});
   };
 
-  render(props, {isActive, is3DFrame, isError}, context) {
+  render(props, {isActive, isVisible, is3DFrame, isError}, context) {
     if (!props.isOpen) return null;
     return (
       <Portal into="body">
         <div
           className={cx(classNames.portal, {
-            [classNames.active]: isActive
+            [classNames.active]: isActive,
+            [classNames.visible]: isVisible
           })}>
           <div className={classNames.container}>
             <div
