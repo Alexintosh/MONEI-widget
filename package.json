@@ -14,8 +14,7 @@
     "deploy:release": "npm run build:release -- --env.deploy",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "npm run build:release",
-    "version": "npm run build:release",
-    "postversion": "git push && git push --tags && rm -rf build"
+    "postversion": "git push && git push --tags"
   },
   "author": "Dmitriy Nevzorov (dmitriy.nevzorov@microapps.com)",
   "license": "MIT",
