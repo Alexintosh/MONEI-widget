@@ -169,6 +169,13 @@ class PaymentForm extends Component {
     const {showCardHolder, showEmail, customer, customParameters, primaryColor} = this.props;
     const $form = this.$formContainer.find('.wpwl-form-card, .wpwl-form-directDebit');
 
+    const isMobuleSafari =
+      navigator.userAgent.match(/(iPod|iPhone|iPad)/) && navigator.userAgent.match(/AppleWebKit/);
+
+    if (isMobuleSafari) {
+      $form.addClass('wpwl-mobile-safari');
+    }
+
     // move brand icon to the card number field and hide by default
     const $brand = $form
       .find('.wpwl-brand-card')
