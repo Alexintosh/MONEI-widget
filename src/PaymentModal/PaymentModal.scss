@@ -27,10 +27,6 @@
   }
 }
 
-.fixed {
-
-}
-
 .container {
   margin: auto;
   position: relative;
@@ -103,14 +99,14 @@
 
 .name {
   font-weight: 500;
-  line-height: 22px;
-  font-size: 20px;
+  line-height: 1.3em;
+  font-size: 1.5em;
   color: #000;
   margin-bottom: 5px;
 }
 
 .description {
-  font-size: 15px;
+  font-size: 1.1em;
   color: #5b5b65;
 }
 
