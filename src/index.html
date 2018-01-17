@@ -96,6 +96,7 @@
     <a class="item" href="#examples">Examples</a>
     <a class="item" href="#brands">Different payment methods</a>
     <a class="item" href="#sepa">SEPA Direct Debit</a>
+    <a class="item" href="#apple-pay">Apple Pay</a>
     <a class="item" href="#subscription">Subscription mode</a>
     <a class="item" href="#embedded">Embedded mode</a>
     <a class="item" href="#status">How to get the payment status</a>
@@ -150,6 +151,7 @@
     data-test>
    Click me to pay with a Credit Card
 </a></xmp>
+  <a href="#">Back to top</a>
 
   <h3>Define the primary color</h3>
   <div  class="monei-widget"
@@ -168,6 +170,7 @@
     data-primary-color="#1990c6"
     data-test>
 </div></xmp>
+  <a href="#">Back to top</a>
 
   <h3>Show cardholder field</h3>
 <div class="monei-widget"
@@ -186,6 +189,7 @@
     data-show-card-holder
     data-test>
 </div></xmp>
+  <a href="#">Back to top</a>
 
 <h3>Show address fields</h3>
 <div class="monei-widget"
@@ -204,6 +208,7 @@
     data-billing-address
     data-test>
 </div></xmp>
+  <a href="#">Back to top</a>
 
 <h3>Localize - Show the widget in different language than english</h3>
   <p>Supported languages are: ar, be, bg, cn, cz, de, da, el, en, es, fi, fr, gr, hu, it, ja, ko, nl, no, pl, pt, ro, ru, sv, sk, sl, tr</p>
@@ -227,6 +232,7 @@
     data-locale="es"
     data-test>
 </div></xmp>
+  <a href="#">Back to top</a>
 <h3>Force cardholder to equal billing name</h3>
 <p>
   By default the cardholder is displayed as one field. If this option is set then the form displays a field for the given name and a separate field for the surname. The values entered here will be submitted both as card.holder and as customer.givenName and customer.surname. Only works if <code>data-show-card-holder</code> is present.
@@ -249,6 +255,7 @@
     data-force-card-holder-equals-billing-name
     data-test>
 </div></xmp>
+  <a href="#">Back to top</a>
 
 <h2 id="brands" class="ui dividing header">Different payment methods</h2>
 <p>You can enable different card brands and additional payment methods like <b>Paypal</b>, <b>Bitcoin</b> and <b>SEPA</b>. <a href="https://docs.monei.net/tutorials/integration-guide" target="_blank">Supported brands and payment methods</a>.
@@ -270,6 +277,7 @@
     data-currency="eur"
     data-test>
 </div></xmp>
+  <a href="#">Back to top</a>
 
 <h2 id="sepa" class="ui dividing header">SEPA Direct Debit</h2>
   <p>MONEI allows to accept SEPA Direct Debit payments from customers in countries within the
@@ -301,6 +309,29 @@
     data-currency="eur"
     data-test>
 </div></xmp>
+  <a href="#">Back to top</a>
+
+<h2 id="apple-pay" class="ui dividing header">Apple Pay</h2>
+  <p>MONEI allows Apple Pay to securely make payments on their iPhone, iPad, and Apple Watch. <br>
+ <b>The button will be visible only on apple devices that support Apple Pay. The page where the widget is embedded needs to be served via https.</b></p>
+
+  <div class="monei-widget"
+     data-token="eyJ1IjoiZ29vZ2xlLW9hdXRoMnwxMTQxOTk4MTg4MDY3NDg4MjkzNTIiLCJjIjoiOGE4Mjk0MTg1OGUyZGJlOTAxNThlMmVlMzM1ZjAwNDcifQ"
+     data-redirect-url="https://static.monei.net/invoice.html"
+     data-brands="VISA MASTER APPLEPAY"
+     data-amount="100"
+     data-currency="eur"
+     data-test>
+  </div>
+  <xmp class="prettyprint lang-html"><div class="monei-widget"
+    data-token="{TOKEN}"
+    data-redirect-url="https://static.monei.net/invoice.html"
+    data-brands="VISA MASTER APPLEPAY"
+    data-amount="100"
+    data-currency="eur"
+    data-test>
+</div></xmp>
+  <a href="#">Back to top</a>
 
 <h2 id="subscription" class="ui dividing header">Subscription mode</h2>
   <p>You can create recurrent payments and allow your customers to buy daily and monthly subscriptions.</p>
@@ -330,6 +361,7 @@
     data-submit-text="Subscribe now!"
     data-test>
 </div></xmp>
+  <a href="#">Back to top</a>
 
 <h2 id="embedded" class="ui dividing header">Embedded mode</h2>
 <p>
@@ -345,6 +377,7 @@
     data-popup="false"
     data-test>
 </div></xmp>
+  <a href="#">Back to top</a>
 
 <h2 id="status" class="ui dividing header">How to get the payment status</h2>
 <p>To get the status of the payment, you should make a <code>GET</code> request to:</p>

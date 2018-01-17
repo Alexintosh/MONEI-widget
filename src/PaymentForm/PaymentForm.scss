@@ -1,6 +1,7 @@
 .formContainer {
   font-size: 14px;
-  font-family: "Avenir Next", Avenir, -apple-system, BlinkMacSystemFont, Roboto, Helvetica, sans-serif;
+  font-family: 'Avenir Next', Avenir, -apple-system, BlinkMacSystemFont, Roboto, Helvetica,
+    sans-serif;
   text-rendering: optimizeLegibility;
   line-height: 1.3em;
   -webkit-font-smoothing: subpixel-antialiased;
@@ -11,7 +12,8 @@
       display: block;
     }
   }
-  &.error, &.frame {
+  &.error,
+  &.frame {
     :global(.wpwl-container:not(.wpwl-container-card)) {
       display: none !important;
     }
@@ -67,7 +69,7 @@
   .wpwl-message.wpwl-has-error {
     color: #a94442;
     margin: 0;
-    max-width: auto;
+    max-width: none;
     border: none;
   }
 
@@ -81,12 +83,35 @@
     }
   }
 
+  .wpwl-container-virtualAccount-APPLEPAY .wpwl-form {
+    padding: 0.45em;
+  }
+
   .wpwl-form {
     margin-bottom: 0;
     .wpwl-group-button {
       padding: 0.45em;
     }
+
+    .wpwl-apple-pay-button {
+      color: #333;
+      padding: 8px 16px;
+      border-color: #ccc;
+      font-weight: normal;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: middle;
+      -ms-touch-action: manipulation;
+      touch-action: manipulation;
+      cursor: pointer;
+      user-select: none;
+      background: #fff url('../static/apple-pay.svg') center center no-repeat !important;
+      background-size: 100px 30px !important;
+    }
+
+    .wpwl-apple-pay-button,
     .wpwl-button-brand {
+      height: 54px;
       width: 100%;
       border-radius: 3px;
       box-shadow: 0 0 0 0 transparent inset;
@@ -112,7 +137,8 @@
     }
   }
 
-  .wpwl-form-card, .wpwl-form-directDebit {
+  .wpwl-form-card,
+  .wpwl-form-directDebit {
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
@@ -161,12 +187,7 @@
 
     .wpwl-group-expiry,
     .wpwl-group-cvv {
-      max-width: 50%;
-    }
-
-    input.wpwl-control,
-    input.wpwl-input {
-      -webkit-appearance: none;
+      width: 50%;
     }
 
     .wpwl-control,
@@ -176,17 +197,19 @@
       box-sizing: border-box;
       outline: none;
       height: 42px;
-      line-height: 19px;
-      padding: 0 16px;
+      line-height: 22px;
+      padding: 0.2em 1em 0.3em;
       font-size: 16px;
       background: #ffffff;
       color: rgba(0, 0, 0, 0.87);
       border-radius: 3px;
       box-shadow: 0 0 0 0 transparent inset;
       transition: color 0.1s ease, border-color 0.1s ease;
+      -webkit-appearance: none;
       font-smoothing: initial;
       -webkit-font-smoothing: initial;
-      font-family: "Avenir Next", Avenir, -apple-system, BlinkMacSystemFont, Roboto, Helvetica, sans-serif;
+      font-family: 'Avenir Next', Avenir, -apple-system, BlinkMacSystemFont, Roboto, Helvetica,
+        sans-serif;
       text-rendering: optimizeLegibility;
       &:focus {
         color: rgba(0, 0, 0, 0.95);
@@ -194,6 +217,10 @@
         background: #ffffff;
         box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.35) inset;
       }
+    }
+
+    .wpwl-mobile-safari .wpwl-control-iframe {
+      padding: 0 8px;
     }
 
     .wpwl-label {
@@ -241,6 +268,7 @@
       cursor: pointer;
       position: relative;
       border: none;
+      width: 100%;
       background: #00796b;
       transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s ease,
         box-shadow 0.1s ease, background 0.1s ease;
@@ -257,6 +285,10 @@
       &:active {
         opacity: 1;
         box-shadow: 0 0 0 1px transparent inset, 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
+      }
+      @media (max-device-width: 768px) {
+        height: 54px;
+        font-size: 1.5em;
       }
     }
 
