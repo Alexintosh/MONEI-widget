@@ -35,6 +35,8 @@ class PaymentForm extends Component {
   constructor(props) {
     super(props);
     this.apiBaseUrl = `https://${props.test ? 'test.' : ''}oppwa.com`;
+    this.isMobileSafari =
+      navigator.userAgent.match(/(iPod|iPhone|iPad)/) && navigator.userAgent.match(/AppleWebKit/);
     if (props.submitText) {
       props.labels.submit = props.submitText.replace(
         '{amount}',
@@ -169,13 +171,6 @@ class PaymentForm extends Component {
     const {showCardHolder, showEmail, customer, customParameters, primaryColor} = this.props;
     const $form = this.$formContainer.find('.wpwl-form-card, .wpwl-form-directDebit');
 
-    const isMobuleSafari =
-      navigator.userAgent.match(/(iPod|iPhone|iPad)/) && navigator.userAgent.match(/AppleWebKit/);
-
-    if (isMobuleSafari) {
-      $form.addClass('wpwl-mobile-safari');
-    }
-
     // move brand icon to the card number field and hide by default
     const $brand = $form
       .find('.wpwl-brand-card')
@@ -245,7 +240,8 @@ class PaymentForm extends Component {
         className={cx(classNames.formContainer, className, {
           [classNames.frame]: is3DFrame,
           [classNames.ready]: isReady,
-          [classNames.error]: isError
+          [classNames.error]: isError,
+          [classNames.mobileSafari]: this.isMobileSafari
         })}
         ref={el => (this.$formContainer = $(el))}>
         {test && (
