@@ -8,7 +8,7 @@ import cx from 'classnames';
 
 class PaymentModal extends Component {
   handleClose = () => {
-    $('body').removeClass(classNames.fixed);
+    $('body').removeClass(classNames.fixedBody);
     document.ontouchmove = () => true;
     setTimeout(this.props.onClose.bind(this), 400);
     this.setState({isActive: false, isVisible: false});
@@ -22,7 +22,7 @@ class PaymentModal extends Component {
   onReady = () => {
     this.props.onReady && this.props.onReady();
     setTimeout(() => {
-      $('body').addClass(classNames.fixed);
+      $('body').addClass(classNames.fixedBody);
       document.ontouchmove = e => e.preventDefault();
       this.setState({isActive: true});
     }, 500);
