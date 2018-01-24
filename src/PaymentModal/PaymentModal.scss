@@ -64,9 +64,10 @@
   }
 
   &.error {
-    width: 550px;
-    .header {
-      display: none;
+    width: 400px;
+    :global(.wpwl-message.wpwl-has-error){
+      margin: 0;
+      max-width: none;
     }
   }
 }
@@ -131,7 +132,7 @@
   right: 8px;
   text-align: center;
   color: #373737;
-  font-weight: 800;
+  font-weight: 600;
   cursor: pointer;
   opacity: 0.6;
   transition: opacity 0.2s;
