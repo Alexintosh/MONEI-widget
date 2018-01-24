@@ -64,15 +64,10 @@
   }
 
   &.error {
-    width: 420px;
-    .header {
-      display: none;
-    }
-    .body {
-      padding: 0;
-    }
+    width: 400px;
     :global(.wpwl-message.wpwl-has-error){
-      margin: 0 auto;
+      margin: 0;
+      max-width: none;
     }
   }
 }
