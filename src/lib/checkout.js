@@ -5,13 +5,26 @@ export default function({
   paymentType,
   descriptor,
   planId,
+  merchantTransactionId,
+  merchantInvoiceId,
+  transactionCategory,
   apiBase = API_BASE
 }) {
   const url = planId ? `/plans/${planId}/subscriptions` : '/checkouts';
   return fetch(apiBase + url, {
     method: 'POST',
     headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({token, amount, currency, descriptor, planId, paymentType})
+    body: JSON.stringify({
+      token,
+      amount,
+      currency,
+      descriptor,
+      planId,
+      paymentType,
+      merchantTransactionId,
+      merchantInvoiceId,
+      transactionCategory
+    })
   })
     .then(
       res =>
