@@ -89,7 +89,7 @@ class PaymentForm extends Component {
     if (this.props.onBeforeSubmitDirectDebit) {
       return this.props.onBeforeSubmitDirectDebit(e) && this.validateEmail(true);
     }
-    if (!this.validateEmail(true)) {
+    if ($(e.target).hasClass('wpwl-form-directDebit') && !this.validateEmail(true)) {
       e.preventDefault();
     }
   };
