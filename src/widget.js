@@ -31,6 +31,7 @@ function setupWidget(container, options = {}) {
   const defaultProps = {
     popup: true,
     customer: {
+      merchantCustomerId: ds.merchantCustomerId,
       email: ds.customerEmail,
       givenName: ds.customerGivenName,
       middleName: ds.customerMiddleName,
