@@ -168,7 +168,15 @@ class PaymentForm extends Component {
   }
 
   adjustForm() {
-    const {showCardHolder, showEmail, customer, customParameters, primaryColor} = this.props;
+    const {
+      showCardHolder,
+      showEmail,
+      showBillingAddress,
+      customer,
+      customParameters,
+      primaryColor,
+      shipping
+    } = this.props;
     const $form = this.$formContainer.find('.wpwl-form-card, .wpwl-form-directDebit');
 
     // move brand icon to the card number field and hide by default
@@ -186,6 +194,10 @@ class PaymentForm extends Component {
       $cardHolder.remove();
     }
 
+    if (!showBillingAddress) {
+      $form.find('.wpwl-group-billing').css('display', 'none');
+    }
+
     if (showEmail && !customer.email) {
       this.appendEmail($form);
     }
@@ -196,6 +208,10 @@ class PaymentForm extends Component {
     Object.keys(customer).forEach(key => {
       const value = customer[key];
       if (value) $form.prepend(`<input type="hidden" name="customer.${key}" value="${value}">`);
+    });
+    Object.keys(shipping).forEach(key => {
+      const value = shipping[key];
+      if (value) $form.prepend(`<input type="hidden" name="shipping.${key}" value="${value}">`);
     });
     Object.keys(customParameters).forEach(key => {
       const value = customParameters[key];

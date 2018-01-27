@@ -197,7 +197,7 @@
      data-redirect-url="https://static.monei.net/invoice.html"
      data-amount="100"
      data-currency="eur"
-     data-billing-address
+     data-show-billing-address
      data-test>
 </div>
   <xmp class="prettyprint lang-html"><div class="monei-widget"
@@ -205,7 +205,7 @@
     data-redirect-url="https://static.monei.net/invoice.html"
     data-amount="100"
     data-currency="eur"
-    data-billing-address
+    data-show-billing-address
     data-test>
 </div></xmp>
   <a href="#">Back to top</a>
@@ -423,7 +423,7 @@ document.addEventListener('DOMContentLoaded', function() {
   document.addEventListener('DOMContentLoaded', function() {
     moneiWidget.setup('widget1', {
       token: 'eyJ1IjoiYXV0aDB8NTZjZjEwMzIxYzRjN2YyZTJmYjI2NGFhIiwiYyI6IjhhODI5NDE4NTM0MTVmMjEwMTUzNjA2Yzc5MmU0ZmQwIn0',
-      redirectUrl: 'http://monei.net',
+      redirectUrl: 'https://static.monei.net/invoice.html',
       amount: 100,
       currency: 'usd',
       name: 'Product title',
@@ -444,6 +444,7 @@ document.addEventListener('DOMContentLoaded', function() {
         identificationDocType: 'PASSPORT',
         identificationDocId: '123456789'
       },
+      showBillingAddress: true,
       billingAddress: {
         country: "US",
         state: "NY",
@@ -451,6 +452,16 @@ document.addEventListener('DOMContentLoaded', function() {
         postcode: "12345",
         street1: "Suite 1234",
         street2: "Some Road"
+      },
+      shipping: {
+        country: "US",
+        state: "NY",
+        city: "New York",
+        postcode: "12345",
+        street1: "Suite 1234",
+        street2: "Some Road",
+        method: "LOWEST_COST",
+        comment: "a comment left by customer"
       },
       customParameters: {
         foo: 'bar'
@@ -460,7 +471,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 <pre class="prettyprint lang-js">moneiWidget.setup('widget1', {
   token: '{TOKEN}',
-  redirectUrl: 'http://monei.net',
+  redirectUrl: 'https://static.monei.net/invoice.html',
   amount: 100,
   currency: 'usd',
   name: 'Product title',
@@ -489,6 +500,17 @@ document.addEventListener('DOMContentLoaded', function() {
     street1: "Suite 1234",
     street2: "Some Road"
   },
+  shipping: {
+    country: "US",
+    state: "NY",
+    city: "New York",
+    postcode: "12345",
+    street1: "Suite 1234",
+    street2: "Some Road",
+    method: "LOWEST_COST",
+    comment: "a comment left by customer"
+  },
+  showBillingAddress: true,
   customParameters: {
     foo: 'bar'
   }
@@ -634,7 +656,6 @@ document.addEventListener('DOMContentLoaded', function() {
       <td>billingAddress</td>
       <td>
         <p>Information about the customer billing address. It will be saved in the transaction.
-        Pass an object to pre-fill address fields.
         <a href="https://docs.monei.net/reference/parameters#billing">List of available fields</a>.</p>
         <p>html data attributes: <br>
         <code>data-billing-country</code><br>
@@ -647,10 +668,34 @@ document.addEventListener('DOMContentLoaded', function() {
       </td>
     </tr>
     <tr>
+      <td>showBillingAddress</td>
+      <td>
+        Displays billing address fields. Fields are pre-filled form <code>billingAddress</code> object
+        Default: <code>false</code>
+      </td>
+    </tr>
+    <tr>
       <td>mandatoryBillingFields</td>
       <td>
         Describe which billing fields cannot be empty. This option needs to be used with billingAddress option.
         Default: <code>{country: true, state: true, city: true}</code>
+      </td>
+    </tr>
+    <tr>
+      <td>shipping</td>
+      <td>
+        <p>Information about the customer shipping address. It will be saved in the transaction.
+          <a href="https://docs.monei.net/reference/parameters#shipping">List of available fields</a>.</p>
+        <p>html data attributes: <br>
+          <code>data-shipping-country</code><br>
+          <code>data-shipping-state</code><br>
+          <code>data-shipping-city</code><br>
+          <code>data-shipping-postcode</code><br>
+          <code>data-shipping-street1</code><br>
+          <code>data-shipping-street2</code><br>
+          <code>data-shipping-method</code><br>
+          <code>data-shipping-comment</code><br>
+        </p>
       </td>
     </tr>
     <tr>
