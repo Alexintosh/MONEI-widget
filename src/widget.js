@@ -53,6 +53,17 @@ function setupWidget(container, options = {}) {
       street1: ds.billingStreet1,
       street2: ds.billingStreet2
     },
+    shipping: {
+      country: ds.shippingCountry,
+      state: ds.shippingState,
+      city: ds.shippingCity,
+      postcode: ds.shippingPostalcode,
+      street1: ds.shippingStreet1,
+      street2: ds.shippingStreet2,
+      method: ds.shippingMethod,
+      comment: ds.shippingComment
+    },
+    showBillingAddress: false,
     customParameters: {},
     labels: {
       email: 'Email'
@@ -76,7 +87,7 @@ function setupWidget(container, options = {}) {
     return;
   }
   if (typeof props.billingAddress !== 'boolean' && isEmpty(props.billingAddress)) {
-    delete props.billingAddress;
+    props.billingAddress = props.showBillingAddress;
   }
   const Component = props.popup ? PaymentButton : PaymentForm;
   container.moneiWidget = render(
