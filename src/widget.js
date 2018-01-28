@@ -64,7 +64,6 @@ function setupWidget(container, options = {}) {
       method: ds.shippingMethod,
       comment: ds.shippingComment
     },
-    showBillingAddress: false,
     customParameters: {},
     labels: {
       email: 'Email'
