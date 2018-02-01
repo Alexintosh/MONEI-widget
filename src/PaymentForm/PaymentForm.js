@@ -34,7 +34,6 @@ class PaymentForm extends Component {
 
   constructor(props) {
     super(props);
-    this.apiBaseUrl = `https://${props.test ? 'test.' : ''}oppwa.com`;
     this.isMobileSafari =
       navigator.userAgent.match(/(iPod|iPhone|iPad)/) && navigator.userAgent.match(/AppleWebKit/);
     if (props.submitText) {
@@ -52,11 +51,15 @@ class PaymentForm extends Component {
       onBeforeSubmitCard: this.onBeforeSubmitCard,
       onBeforeSubmitDirectDebit: this.onBeforeSubmitDirectDebit
     };
+    this.state = {
+      isTestMode: props.test
+    };
   }
 
   injectPaymentScript(checkoutId, cb) {
     const script = document.createElement('script');
-    script.src = `${this.apiBaseUrl}/v1/paymentWidgets.js?checkoutId=${checkoutId}`;
+    const apiBaseUrl = `https://${this.state.isTestMode ? 'test.' : ''}oppwa.com`;
+    script.src = `${apiBaseUrl}/v1/paymentWidgets.js?checkoutId=${checkoutId}`;
     script.async = true;
     script.onload = () => {
       cb && cb();
@@ -227,10 +230,11 @@ class PaymentForm extends Component {
       this.injectPaymentScript(this.props.checkoutId);
     } else {
       const spinner = new Spinner(this.props.spinner).spin(document.body);
-      checkout(this.props).then(({id, error}) => {
+      checkout(this.props).then(({id, test, error}) => {
         if (error) {
           return this.onError(error);
         }
+        this.setState({isTestMode: test});
         this.injectPaymentScript(id, () => {
           spinner.stop();
         });
@@ -244,8 +248,8 @@ class PaymentForm extends Component {
   }
 
   render(
-    {brands, redirectUrl, token, className, test, popup},
-    {is3DFrame, isReady, isError},
+    {brands, redirectUrl, token, className, popup},
+    {isTestMode, is3DFrame, isReady, isError},
     context
   ) {
     if (token) {
@@ -260,7 +264,7 @@ class PaymentForm extends Component {
           [classNames.mobileSafari]: this.isMobileSafari
         })}
         ref={el => (this.$formContainer = $(el))}>
-        {test && (
+        {isTestMode && (
           <div className={classNames.testModeWarning}>
             <div>You will not be billed for this test charge.</div>
           </div>
