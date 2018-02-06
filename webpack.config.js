@@ -116,14 +116,14 @@ export default options => {
           test: /\.(png|jpg)$/,
           loader: 'url-loader',
           query: {
-            limit: 10000
+            limit: 100000
           }
         },
         {
           test: /\.svg(\?.*)?$/,
           loader: 'url-loader',
           query: {
-            limit: 10000,
+            limit: 100000,
             mimetype: 'image/svg+xml'
           }
         }
