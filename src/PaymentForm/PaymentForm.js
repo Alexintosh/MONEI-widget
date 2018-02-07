@@ -6,31 +6,10 @@ import {formatAmount, isValidEmail, updateQuery} from 'lib/utils';
 import cx from 'classnames';
 import checkout from 'lib/checkout';
 import {Spinner} from 'spin.js';
+import {defaultParams} from 'lib/constants';
 
 class PaymentForm extends Component {
-  static defaultProps = {
-    brands: 'VISA MASTER',
-    redirectUrl: location.href,
-    showLabels: false,
-    showPlaceholders: true,
-    showCardHolder: false,
-    showEmail: true,
-    labels: {
-      email: 'Email',
-      otherPaymentMethods: 'Or pay with'
-    },
-    errorMessages: {
-      email: 'Invalid email'
-    },
-    style: 'plain',
-    spinner: {
-      lines: 8,
-      width: 3,
-      radius: 8,
-      length: 5,
-      position: 'fixed'
-    }
-  };
+  static defaultProps = defaultParams;
 
   constructor(props) {
     super(props);
@@ -175,12 +154,21 @@ class PaymentForm extends Component {
       showCardHolder,
       showEmail,
       showBillingAddress,
-      customer,
-      customParameters,
+      customer = {},
+      customParameters = {},
+      shipping = {},
       primaryColor,
-      shipping
+      labels
     } = this.props;
     const $form = this.$formContainer.find('.wpwl-form-card, .wpwl-form-directDebit');
+    const $container = $form.parent();
+
+    // add separator
+    if (!$container.is(':last-child')) {
+      $container.after(
+        render(<p className={classNames.separator}>{labels.otherPaymentMethods}</p>)
+      );
+    }
 
     // move brand icon to the card number field and hide by default
     const $brand = $form
@@ -234,7 +222,7 @@ class PaymentForm extends Component {
         if (error) {
           return this.onError(error);
         }
-        this.setState({isTestMode: test});
+        if (test !== undefined) this.setState({isTestMode: test});
         this.injectPaymentScript(id, () => {
           spinner.stop();
         });

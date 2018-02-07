@@ -6,6 +6,7 @@ import {normalizeDataSet} from './lib/utils';
 import merge from 'deepmerge';
 import validateProps from 'lib/propsValidator';
 import {isEmpty} from 'lib/utils';
+import {defaultParams} from 'lib/constants';
 
 export const WIDGET_CONTAINER_CLASS_NAME = 'monei-widget';
 
@@ -64,21 +65,8 @@ function setupWidget(container, options = {}) {
       method: ds.shippingMethod,
       comment: ds.shippingComment
     },
-    customParameters: {},
-    labels: {
-      email: 'Email'
-    },
-    errorMessages: {
-      email: 'Invalid email'
-    },
-    spinner: {
-      lines: 8,
-      width: 3,
-      radius: 8,
-      length: 5,
-      position: 'fixed'
-    },
-    locale: window.navigator.userLanguage || window.navigator.language
+    locale: window.navigator.userLanguage || window.navigator.language,
+    ...defaultParams
   };
   const props = merge.all([defaultProps, normalizeDataSet(ds), options]);
   const error = validateProps(props);
