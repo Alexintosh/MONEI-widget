@@ -329,7 +329,6 @@
      data-amount="4.99"
      data-currency="eur"
      data-checkout-text="Subscribe for {amount}"
-     data-test
      data-submit-text="Subscribe now!">
   </div>
   <xmp class="prettyprint lang-html"><div class="monei-widget"
@@ -339,8 +338,7 @@
     data-amount="4.99"
     data-currency="eur"
     data-checkout-text="Subscribe for {amount}"
-    data-submit-text="Subscribe now!"
-    data-test>
+    data-submit-text="Subscribe now!">
 </div></xmp>
   <a href="#">Back to top</a>
 
@@ -402,13 +400,16 @@ document.addEventListener('DOMContentLoaded', function() {
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     moneiWidget.setup('widget1', {
-      token: 'eyJ1IjoiYXV0aDB8NTZjZjEwMzIxYzRjN2YyZTJmYjI2NGFhIiwiYyI6IjhhODI5NDE4NTM0MTVmMjEwMTUzNjA2Yzc5MmU0ZmQwIn0',
+      token: 'eyJ1IjoiYXV0aDB8NTZjZjEwMzIxYzRjN2YyZTJmYjI2NGFhIiwiYyI6IjhhODI5NDE4NTM0MTVmMjEwMTUzNjA2Yzc5MmU0ZmQwIiwidCI6dHJ1ZX0',
       redirectUrl: 'https://static.monei.net/invoice.html',
       amount: 100,
       currency: 'usd',
       name: 'Product title',
       description: 'Product description',
       test: true,
+      merchantInvoiceId: '12345',
+      merchantTransactionId: '12345',
+      transactionCategory: 'EC',
       customer: {
         email: 'example@email.com',
         givenName: 'John',
