@@ -77,9 +77,8 @@ function setupWidget(container, options = {}) {
   if (typeof props.billingAddress !== 'boolean' && isEmpty(props.billingAddress)) {
     props.billingAddress = props.showBillingAddress;
   }
-  const Component = props.popup ? PaymentButton : PaymentForm;
   container.moneiWidget = render(
-    <Component {...props} container={container} />,
+    props.popup ? <PaymentButton {...props} container={container} /> : <PaymentForm {...props} />,
     container,
     container.moneiWidget
   );
