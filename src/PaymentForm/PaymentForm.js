@@ -4,7 +4,7 @@ import classNames from './PaymentForm.scss';
 import render from 'preact-render-to-string';
 import {formatAmount, isValidEmail, updateQuery} from 'lib/utils';
 import cx from 'classnames';
-import {prepareCheckout} from 'lib/api';
+import APIHandler from 'lib/api';
 import {Spinner} from 'spin.js';
 import {defaultParams} from 'lib/constants';
 import {filterWpwlOptions} from 'lib/propsValidator';
@@ -35,13 +35,9 @@ class PaymentForm extends Component {
     };
   }
 
-  getApiBase = () => {
-    return `https://${this.state.isTestMode ? 'test.' : ''}oppwa.com`;
-  };
-
   injectPaymentScript(checkoutId, cb) {
     const script = document.createElement('script');
-    script.src = `${this.getApiBase()}/v1/paymentWidgets.js?checkoutId=${checkoutId}`;
+    script.src = this.api.getPaymentWidgetSrc();
     script.async = true;
     script.onload = () => {
       cb && cb();
@@ -96,10 +92,10 @@ class PaymentForm extends Component {
   };
 
   onSaveTransactionData = data => {
-    const url = `${this.getApiBase()}/v1/checkouts/${data.ndc}/payment`;
-    fetch(url, {method: 'POST'}).then(data => {
+    console.log(data);
+    this.api.completeCheckout().then(data => {
       console.log(data);
-    });
+    }, this.onError);
   };
 
   checkPaymentError = () => {
@@ -225,18 +221,15 @@ class PaymentForm extends Component {
 
   componentDidMount() {
     if (this.props.checkoutId) {
+      this.api = new APIHandler(this.props);
       this.injectPaymentScript(this.props.checkoutId);
     } else {
       const spinner = new Spinner(this.props.spinner).spin(document.body);
-      prepareCheckout(this.props).then(({id, test, error}) => {
-        if (error) {
-          return this.onError(error);
-        }
+      this.api = new APIHandler(this.props);
+      this.api.prepareCheckout().then(({id, test}) => {
         if (test !== undefined) this.setState({isTestMode: test});
-        this.injectPaymentScript(id, () => {
-          spinner.stop();
-        });
-      });
+        this.injectPaymentScript(id, () => spinner.stop());
+      }, this.onError);
     }
     this.checkPaymentError();
   }
