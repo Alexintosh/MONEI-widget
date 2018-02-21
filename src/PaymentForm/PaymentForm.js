@@ -91,10 +91,11 @@ class PaymentForm extends Component {
     this.adjustForm();
   };
 
-  onSaveTransactionData = data => {
-    console.log(data);
+  onSaveTransactionData = () => {
+    const spinner = new Spinner(this.props.spinner).spin(document.body);
     this.api.completeCheckout().then(data => {
       console.log(data);
+      spinner.stop();
     }, this.onError);
   };
 
