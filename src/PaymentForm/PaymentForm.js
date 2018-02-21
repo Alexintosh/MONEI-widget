@@ -4,9 +4,10 @@ import classNames from './PaymentForm.scss';
 import render from 'preact-render-to-string';
 import {formatAmount, isValidEmail, updateQuery} from 'lib/utils';
 import cx from 'classnames';
-import checkout from 'lib/checkout';
+import {prepareCheckout} from 'lib/api';
 import {Spinner} from 'spin.js';
 import {defaultParams} from 'lib/constants';
+import {filterWpwlOptions} from 'lib/propsValidator';
 
 class PaymentForm extends Component {
   static defaultProps = defaultParams;
@@ -15,30 +16,32 @@ class PaymentForm extends Component {
     super(props);
     this.isMobileSafari =
       navigator.userAgent.match(/(iPod|iPhone|iPad)/) && navigator.userAgent.match(/AppleWebKit/);
-    if (props.submitText) {
-      props.labels.submit = props.submitText.replace(
-        '{amount}',
-        formatAmount(props.amount, props.currency)
-      );
-    }
+    const submit = props.submitText.replace('{amount}', formatAmount(props.amount, props.currency));
+    props.labels.submit = submit;
+    props.labels.nextStep = submit;
     window.wpwlOptions = {
-      ...props,
+      ...filterWpwlOptions(props),
       brandDetection: true,
       onLoadThreeDIframe: this.onLoadThreeDIframe,
       onReady: this.onReady,
       onError: this.onError,
       onBeforeSubmitCard: this.onBeforeSubmitCard,
-      onBeforeSubmitDirectDebit: this.onBeforeSubmitDirectDebit
+      onBeforeSubmitDirectDebit: this.onBeforeSubmitDirectDebit,
+      useSummaryPage: true,
+      onSaveTransactionData: this.onSaveTransactionData
     };
     this.state = {
       isTestMode: props.test
     };
   }
 
+  getApiBase = () => {
+    return `https://${this.state.isTestMode ? 'test.' : ''}oppwa.com`;
+  };
+
   injectPaymentScript(checkoutId, cb) {
     const script = document.createElement('script');
-    const apiBaseUrl = `https://${this.state.isTestMode ? 'test.' : ''}oppwa.com`;
-    script.src = `${apiBaseUrl}/v1/paymentWidgets.js?checkoutId=${checkoutId}`;
+    script.src = `${this.getApiBase()}/v1/paymentWidgets.js?checkoutId=${checkoutId}`;
     script.async = true;
     script.onload = () => {
       cb && cb();
@@ -90,6 +93,13 @@ class PaymentForm extends Component {
     this.props.onReady && this.props.onReady();
     this.setState({isReady: true});
     this.adjustForm();
+  };
+
+  onSaveTransactionData = data => {
+    const url = `${this.getApiBase()}/v1/checkouts/${data.ndc}/payment`;
+    fetch(url, {method: 'POST'}).then(data => {
+      console.log(data);
+    });
   };
 
   checkPaymentError = () => {
@@ -218,7 +228,7 @@ class PaymentForm extends Component {
       this.injectPaymentScript(this.props.checkoutId);
     } else {
       const spinner = new Spinner(this.props.spinner).spin(document.body);
-      checkout(this.props).then(({id, test, error}) => {
+      prepareCheckout(this.props).then(({id, test, error}) => {
         if (error) {
           return this.onError(error);
         }

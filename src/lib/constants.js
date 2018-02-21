@@ -19,5 +19,6 @@ export const defaultParams = {
     radius: 8,
     length: 5,
     position: 'fixed'
-  }
+  },
+  submitText: 'Pay {amount}'
 };

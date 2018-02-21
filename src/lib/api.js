@@ -1,4 +1,4 @@
-export default function({
+export const prepareCheckout = ({
   token,
   amount,
   currency,
@@ -9,7 +9,7 @@ export default function({
   merchantInvoiceId,
   transactionCategory,
   apiBase = API_BASE
-}) {
+}) => {
   const url = planId ? `/plans/${planId}/subscriptions` : '/checkouts';
   return fetch(apiBase + url, {
     method: 'POST',
@@ -34,4 +34,4 @@ export default function({
     )
     .then(res => res.json())
     .catch(err => ({error: err.message || err}));
-}
+};
