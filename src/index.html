@@ -101,6 +101,7 @@
     <a class="item" href="#embedded">Embedded mode</a>
     <a class="item" href="#status">How to get the payment status</a>
     <a class="item" href="#advanced">Advanced options</a>
+    <a class="item" href="#async-mode">Asynchronous mode</a>
     <a class="item" href="#test-accounts">Test Accounts</a>
     <a class="item" href="#params">List of supported configuration parameters</a>
   </div>
@@ -344,13 +345,16 @@
 
 <h2 id="embedded" class="ui dividing header">Embedded mode</h2>
 <p>
-  You can render the payment form directly on your page. <br>
+  You can render the payment form directly on your page.
+  If a widget is rendered inside an iframe it is possible to redirect the iframe instead of main window.
   <b>Only one form can be used on a page in embedded mode.</b>
 </p>
-<iframe src="embedded.html" frameborder="0" class="embedded_frame"></iframe>
+<iframe src="embedded.html" frameborder="0" class="embedded_frame" name="embedded_frame"></iframe>
 <xmp class="prettyprint lang-html"><div class="monei-widget"
     data-token="{TOKEN}"
     data-redirect-url="https://static.monei.net/invoice.html"
+    data-payment-target="embedded_frame"
+    data-shopper-result-target="embedded_frame"
     data-amount="100"
     data-currency="eur"
     data-popup="false">
@@ -396,17 +400,16 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </pre>
 <h3>Provide additional information to the widget</h3>
-<span class="custom-widget" id="widget1"></span>
+<span class="custom-widget" id="custom-widget"></span>
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    moneiWidget.setup('widget1', {
-      token: 'eyJ1IjoiYXV0aDB8NTZjZjEwMzIxYzRjN2YyZTJmYjI2NGFhIiwiYyI6IjhhODI5NDE4NTM0MTVmMjEwMTUzNjA2Yzc5MmU0ZmQwIiwidCI6dHJ1ZX0',
+    moneiWidget.setup('custom-widget', {
+      token: 'eyJ1IjoiZ29vZ2xlLW9hdXRoMnwxMTQxOTk4MTg4MDY3NDg4MjkzNTIiLCJjIjoiOGE4Mjk0MTg1OGUyZGJlOTAxNThlMmVlMzM1ZjAwNDciLCJ0Ijp0cnVlfQ',
       redirectUrl: 'https://static.monei.net/invoice.html',
       amount: 100,
       currency: 'usd',
       name: 'Product title',
       description: 'Product description',
-      test: true,
       merchantInvoiceId: '12345',
       merchantTransactionId: '12345',
       transactionCategory: 'EC',
@@ -448,6 +451,18 @@ document.addEventListener('DOMContentLoaded', function() {
         foo: 'bar'
       }
     });
+    moneiWidget.setup('async-widget', {
+      token: 'eyJ1IjoiZ29vZ2xlLW9hdXRoMnwxMTQxOTk4MTg4MDY3NDg4MjkzNTIiLCJjIjoiOGE4Mjk0MTg1OGUyZGJlOTAxNThlMmVlMzM1ZjAwNDciLCJ0Ijp0cnVlfQ',
+      amount: 100,
+      currency: 'eur',
+      redirect: false,
+      onPaymentSuccess: function(data) {
+        console.log('success', data);
+      },
+      onPaymentError: function(data) {
+        console.log('error', data);
+      }
+    });
   });
 </script>
 <pre class="prettyprint lang-js">moneiWidget.setup('widget1', {
@@ -457,7 +472,6 @@ document.addEventListener('DOMContentLoaded', function() {
   currency: 'usd',
   name: 'Product title',
   description: 'Product description',
-  test: true,
   customer: {
     email: 'example@email.com',
     givenName: 'John',
@@ -494,6 +508,26 @@ document.addEventListener('DOMContentLoaded', function() {
   showBillingAddress: true,
   customParameters: {
     foo: 'bar'
+  }
+});
+</pre>
+
+  <h2 id="async-mode" class="ui dividing header">Asynchronous mode</h2>
+  <p>
+    It is possible to avoid redirect and use JavaScript callback function to get transaction data right away.
+    <b>Asynchronous mode is available only for card payment brands without 3D secure!</b>
+  </p>
+  <span class="custom-widget" id="async-widget"></span>
+  <pre class="prettyprint lang-js">moneiWidget.setup('widget1', {
+  token: '{TOKEN}',
+  amount: 100,
+  currency: 'eur',
+  redirect: false,
+  onPaymentSuccess: function(data) {
+    console.log('success', data);
+  },
+  onPaymentError: function(data) {
+    console.log('error', data);
   }
 });
 </pre>
@@ -575,7 +609,16 @@ document.addEventListener('DOMContentLoaded', function() {
       <td>
         After submitting the form a customer will be redirected to this url.
         Transaction <code>id</code> and <code>token</code> will be passed to this URL.
-        <a href="#status">How to get payment status</a>
+        <a href="#status">How to get payment status</a>. Only required if <code>redirect: false</code> is not specified.
+      </td>
+    </tr>
+    <tr>
+      <td>redirect</td>
+      <td>
+        If <code>false</code> the user will not be redirected and <code>onPaymentComplete</code> callback will be called instead.
+        It works only for card payment brands without 3D secure!
+        If <code>false</code> it is required to specify <code>onPaymentComplete</code> or <code>onPaymentSuccess</code> callbacks.
+        <br>Default: <code>true</code>
       </td>
     </tr>
     <tr>
@@ -604,8 +647,30 @@ document.addEventListener('DOMContentLoaded', function() {
       </td>
     </tr>
     <tr>
-      <td>descriptor</td>
-      <td>Descriptor that will be shown in customer's bank statement</td>
+      <td>paymentTarget</td>
+      <td>
+        We submit the form to this target. In case of additional shopper interaction, e.g.
+        3DSecure, we redirect the shopper within this target. This only works for card payment brands.
+      </td>
+    </tr>
+    <tr>
+      <td>shopperResultTarget</td>
+      <td>
+        Works only in combination with <code>paymentTarget</code> option.
+        By default, we redirect the shopper to the given <code>redirectUrl</code>
+        using a self-submitting form with <code>target="_top"</code>.
+        If you use a widget in an iframe and want to redirect the shopper within this iframe,
+        then the <code>shopperResultTarget</code> and the <code>paymentTarget</code>
+        should be the name of this iframe.
+      </td>
+    </tr>
+    <tr>
+      <td>paymentType</td>
+      <td>
+        <code>PA</code> (Preauthorization) or <code>DB</code> (Debit).
+        Default is <code>DB</code> but it is possible to pass <code>PA</code>
+        to enable preauthorisation payments that should be captured manually through the dashboard.
+      </td>
     </tr>
     <tr>
       <td>merchantTransactionId</td>
@@ -822,6 +887,24 @@ document.addEventListener('DOMContentLoaded', function() {
     <tr>
       <td>onLoadThreeDIframe</td>
       <td>Triggers when the 3D secure targetIframe has loaded</td>
+    </tr>
+    <tr>
+      <td>onPaymentComplete</td>
+      <td>
+        Callback that triggers if payment is complete in asynchronous mode. Transaction data is passed as a first argument.
+        <br><code>onPaymentComplete: function(data){ /* function here */}</code></td>
+    </tr>
+    <tr>
+      <td>onPaymentSuccess</td>
+      <td>
+        Callback that triggers if payment is successful in asynchronous mode. Transaction data is passed as a first argument.
+        <br><code>onPaymentComplete: function(data){ /* function here */}</code></td>
+    </tr>
+    <tr>
+      <td>onPaymentError</td>
+      <td>
+        Callback that triggers if payment is not successful in asynchronous mode. Transaction data is passed as a first argument.
+        <br><code>onPaymentComplete: function(data){ /* function here */}</code></td>
     </tr>
   </table>
 </div>
