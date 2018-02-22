@@ -2,12 +2,18 @@ import {Component} from 'preact';
 import $ from 'cash-dom';
 import classNames from './PaymentForm.scss';
 import render from 'preact-render-to-string';
-import {formatAmount, isPaymentFailed, isValidEmail} from 'lib/utils';
+import {formatAmount, isPaymentFailed, isValidEmail, updateQuery} from 'lib/utils';
 import cx from 'classnames';
 import APIHandler from 'lib/api';
 import {Spinner} from 'spin.js';
 import {defaultParams} from 'lib/constants';
 import {filterWpwlOptions} from 'lib/propsValidator';
+
+const getSubmitText = ({amount, currency, submitText = 'Pay {amount}'}) => {
+  if (!amount) return 'Pay now';
+  const price = formatAmount(amount, currency);
+  return submitText.replace('{amount}', price);
+};
 
 class PaymentForm extends Component {
   static defaultProps = defaultParams;
@@ -16,7 +22,7 @@ class PaymentForm extends Component {
     super(props);
     this.isMobileSafari =
       navigator.userAgent.match(/(iPod|iPhone|iPad)/) && navigator.userAgent.match(/AppleWebKit/);
-    const submit = props.submitText.replace('{amount}', formatAmount(props.amount, props.currency));
+    const submit = getSubmitText(props);
     props.labels.submit = submit;
     props.labels.nextStep = submit;
     window.wpwlOptions = {
@@ -81,7 +87,7 @@ class PaymentForm extends Component {
   };
 
   onError = error => {
-    this.props.onError && this.props.onError(error);
+    this.props.onError(error);
     this.setState({isError: true});
   };
 
@@ -94,13 +100,14 @@ class PaymentForm extends Component {
   onSaveTransactionData = () => {
     const {onPaymentComplete, onPaymentSuccess, onPaymentError} = this.props;
     const spinner = new Spinner(this.props.spinner).spin(document.body);
-    this.api.completeCheckout().then(data => {
-      isPaymentFailed(data.result.code) ? onPaymentError(data) : onPaymentSuccess(data);
-      onPaymentComplete(data);
-      const $form = this.$formContainer.find('.wpwl-form-card, .wpwl-form-directDebit');
-      $form[0].reset();
-      spinner.stop();
-    }, this.onError);
+    this.api.completeCheckout().then(
+      data => {
+        isPaymentFailed(data.result.code) ? onPaymentError(data) : onPaymentSuccess(data);
+        onPaymentComplete(data);
+        spinner.stop();
+      },
+      error => this.props.onError(error)
+    );
   };
 
   checkPaymentError = () => {
@@ -248,6 +255,9 @@ class PaymentForm extends Component {
     {isTestMode, is3DFrame, isReady, isError},
     context
   ) {
+    if (token) {
+      redirectUrl = updateQuery(redirectUrl, 'token', token);
+    }
     return (
       <div
         className={cx(classNames.formContainer, className, {

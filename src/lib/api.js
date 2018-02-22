@@ -17,7 +17,7 @@ export default class APIHandler {
     merchantTransactionId,
     merchantInvoiceId,
     transactionCategory,
-    moneiApiBase = API_BASE,
+    apiBase = API_BASE,
     checkoutId,
     test
   }) {
@@ -34,7 +34,7 @@ export default class APIHandler {
     };
     this.checkoutId = checkoutId;
     this.isTestMode = test;
-    this.moneiApiBase = moneiApiBase;
+    this.moneiApiBase = apiBase;
   }
 
   prepareCheckout() {
@@ -84,8 +84,7 @@ export default class APIHandler {
       .catch(formatError);
   }
 
-  completeCheckout = async () => {
-    await this.completePayment();
-    return await this.getPaymentData();
-  };
+  completeCheckout() {
+    return this.completePayment().then(this.getPaymentData.bind(this));
+  }
 }

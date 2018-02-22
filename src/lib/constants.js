@@ -24,5 +24,6 @@ export const defaultParams = {
   redirect: true,
   onPaymentComplete: () => {},
   onPaymentSuccess: () => {},
-  onPaymentError: () => {}
+  onPaymentError: () => {},
+  onError: () => {}
 };

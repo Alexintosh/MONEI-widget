@@ -3,7 +3,6 @@ import Portal from 'preact-portal';
 import PaymentForm from '../PaymentForm';
 import classNames from './PaymentModal.scss';
 import $ from 'cash-dom';
-
 import cx from 'classnames';
 
 class PaymentModal extends Component {
