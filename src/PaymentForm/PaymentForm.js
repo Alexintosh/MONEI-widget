@@ -2,7 +2,7 @@ import {Component} from 'preact';
 import $ from 'cash-dom';
 import classNames from './PaymentForm.scss';
 import render from 'preact-render-to-string';
-import {formatAmount, isValidEmail, updateQuery} from 'lib/utils';
+import {formatAmount, isPaymentFailed, isValidEmail} from 'lib/utils';
 import cx from 'classnames';
 import APIHandler from 'lib/api';
 import {Spinner} from 'spin.js';
@@ -27,7 +27,7 @@ class PaymentForm extends Component {
       onError: this.onError,
       onBeforeSubmitCard: this.onBeforeSubmitCard,
       onBeforeSubmitDirectDebit: this.onBeforeSubmitDirectDebit,
-      useSummaryPage: true,
+      useSummaryPage: !props.redirect,
       onSaveTransactionData: this.onSaveTransactionData
     };
     this.state = {
@@ -92,9 +92,13 @@ class PaymentForm extends Component {
   };
 
   onSaveTransactionData = () => {
+    const {onPaymentComplete, onPaymentSuccess, onPaymentError} = this.props;
     const spinner = new Spinner(this.props.spinner).spin(document.body);
     this.api.completeCheckout().then(data => {
-      console.log(data);
+      isPaymentFailed(data.result.code) ? onPaymentError(data) : onPaymentSuccess(data);
+      onPaymentComplete(data);
+      const $form = this.$formContainer.find('.wpwl-form-card, .wpwl-form-directDebit');
+      $form[0].reset();
       spinner.stop();
     }, this.onError);
   };
@@ -244,9 +248,6 @@ class PaymentForm extends Component {
     {isTestMode, is3DFrame, isReady, isError},
     context
   ) {
-    if (token) {
-      redirectUrl = updateQuery(redirectUrl, 'token', token);
-    }
     return (
       <div
         className={cx(classNames.formContainer, className, {

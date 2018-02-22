@@ -36,6 +36,11 @@ class PaymentModal extends Component {
     this.setState({is3DFrame: true});
   };
 
+  onPaymentComplete = data => {
+    this.props.onPaymentComplete && this.props.onPaymentComplete(data);
+    this.handleClose();
+  };
+
   render(props, {isActive, isVisible, is3DFrame, isError}, context) {
     if (!props.isOpen) return null;
     return (
@@ -65,6 +70,7 @@ class PaymentModal extends Component {
                   className={classNames.paymentForm}
                   onReady={this.onReady}
                   onLoadThreeDIframe={this.onLoadThreeDIframe}
+                  onPaymentComplete={this.onPaymentComplete}
                   onError={this.onError}
                 />
               </div>

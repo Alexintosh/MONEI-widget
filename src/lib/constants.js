@@ -20,5 +20,9 @@ export const defaultParams = {
     length: 5,
     position: 'fixed'
   },
-  submitText: 'Pay {amount}'
+  submitText: 'Pay {amount}',
+  redirect: true,
+  onPaymentComplete: () => {},
+  onPaymentSuccess: () => {},
+  onPaymentError: () => {}
 };
