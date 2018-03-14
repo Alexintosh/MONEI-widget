@@ -51,3 +51,6 @@ export const isEmpty = obj => {
   });
   return isEmpty;
 };
+
+export const isPaymentFailed = code =>
+  !(/^(000\.000\.|000\.100\.1|000\.[36])/.test(code) || /^(000\.400\.0|000\.400\.100)/.test(code));

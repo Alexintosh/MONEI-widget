@@ -1,6 +1,8 @@
 const errorMsg = prop => `MONEI Widget. Failed to create a widget. Missing ${prop}.`;
 const paymentTypes = ['PA', 'DB'];
 
+export const filterWpwlOptions = ({container, children, ...props}) => props;
+
 export default ({token, amount, currency, paymentType, checkoutId}) => {
   if (checkoutId) return;
   if (!token) return errorMsg('token');
