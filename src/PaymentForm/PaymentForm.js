@@ -39,6 +39,9 @@ class PaymentForm extends Component {
     this.state = {
       isTestMode: props.test
     };
+    if (props.customSubmitSelector) {
+      $(props.customSubmitSelector).on('click', this.submitForm);
+    }
   }
 
   injectPaymentScript(checkoutId, cb) {
@@ -176,6 +179,7 @@ class PaymentForm extends Component {
       customParameters = {},
       shipping = {},
       primaryColor,
+      customSubmitSelector,
       labels
     } = this.props;
     const $form = this.$formContainer.find('.wpwl-form-card, .wpwl-form-directDebit');
@@ -211,7 +215,12 @@ class PaymentForm extends Component {
       this.appendEmail($form);
     }
 
-    $form.find('.wpwl-button-pay').css({backgroundColor: primaryColor});
+    const $button = $form.find('.wpwl-button-pay');
+    if (customSubmitSelector) {
+      $button.css('display', 'none');
+    } else {
+      $button.css({backgroundColor: primaryColor});
+    }
 
     // add custom fields
     Object.keys(customer).forEach(key => {
@@ -230,6 +239,11 @@ class PaymentForm extends Component {
         );
     });
   }
+
+  submitForm = () => {
+    const $button = this.$formContainer.find('.wpwl-button-pay');
+    $button[0].click();
+  };
 
   componentDidMount() {
     if (this.props.checkoutId) {
