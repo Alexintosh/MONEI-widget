@@ -177,7 +177,8 @@ class PaymentForm extends Component {
       shipping = {},
       primaryColor,
       customSubmitSelector,
-      labels
+      labels,
+      compact
     } = this.props;
     const $form = this.$formContainer.find('.wpwl-form-card, .wpwl-form-directDebit');
     const $container = $form.parent();
@@ -194,12 +195,14 @@ class PaymentForm extends Component {
       .find('.wpwl-brand-card')
       .removeClass('wpwl-brand-VISA')
       .addClass('wpwl-brand-GENERIC');
-    $brand.appendTo($form.find('.wpwl-wrapper-cardNumber'));
+
+    const $cardNumner = $form.find('.wpwl-group-cardNumber');
+    $brand.appendTo($cardNumner.find('.wpwl-wrapper-cardNumber'));
 
     // show cardholder firs or hide it
     const $cardHolder = $form.find('.wpwl-group-cardHolder');
     if ($cardHolder.length && showCardHolder) {
-      $cardHolder.prependTo($form);
+      compact ? $cardHolder.insertAfter($cardNumner) : $cardHolder.prependTo($form);
     } else {
       $cardHolder.remove();
     }
@@ -265,7 +268,7 @@ class PaymentForm extends Component {
   }
 
   render(
-    {brands, redirectUrl, token, className, popup},
+    {brands, redirectUrl, token, className, popup, compact},
     {isTestMode, is3DFrame, isReady, isError},
     context
   ) {
@@ -275,6 +278,7 @@ class PaymentForm extends Component {
     return (
       <div
         className={cx(classNames.formContainer, className, {
+          [classNames.compact]: compact,
           [classNames.frame]: is3DFrame,
           [classNames.ready]: isReady,
           [classNames.error]: isError,

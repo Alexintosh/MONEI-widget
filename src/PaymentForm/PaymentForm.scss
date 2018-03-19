@@ -27,6 +27,21 @@
       padding: 0 8px;
     }
   }
+  &.compact {
+    .brand {
+      display: none;
+    }
+    :global {
+      .wpwl-group-cardHolder {
+        width: 50%;
+      }
+      .wpwl-group-expiry,
+      .wpwl-group-cvv {
+        width: 25%;
+      }
+    }
+
+  }
 }
 
 .brand {
