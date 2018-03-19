@@ -3,7 +3,7 @@ export const defaultParams = {
   redirectUrl: location.href,
   showLabels: false,
   showPlaceholders: true,
-  showCardHolder: false,
+  showCardHolder: true,
   showEmail: true,
   labels: {
     email: 'Email',
@@ -22,6 +22,8 @@ export const defaultParams = {
   },
   submitText: 'Pay {amount}',
   redirect: true,
+  compact: true,
+  fluid: true,
   onPaymentComplete: () => {},
   onPaymentSuccess: () => {},
   onPaymentError: () => {},

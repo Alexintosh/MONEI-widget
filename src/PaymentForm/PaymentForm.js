@@ -268,7 +268,7 @@ class PaymentForm extends Component {
   }
 
   render(
-    {brands, redirectUrl, token, className, popup, compact},
+    {brands, redirectUrl, token, className, popup, compact, fluid},
     {isTestMode, is3DFrame, isReady, isError},
     context
   ) {
@@ -279,6 +279,7 @@ class PaymentForm extends Component {
       <div
         className={cx(classNames.formContainer, className, {
           [classNames.compact]: compact,
+          [classNames.fluid]: fluid,
           [classNames.frame]: is3DFrame,
           [classNames.ready]: isReady,
           [classNames.error]: isError,

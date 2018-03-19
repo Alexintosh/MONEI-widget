@@ -1,46 +1,60 @@
 .formContainer {
   font-size: 14px;
   font-family: 'Avenir Next', Avenir, -apple-system, BlinkMacSystemFont, Roboto, Helvetica,
-    sans-serif;
+  sans-serif;
   text-rendering: optimizeLegibility;
   line-height: 1.3em;
   -webkit-font-smoothing: subpixel-antialiased;
   color: #212b35;
-  &.ready {
-    .brand,
-    .testModeWarning {
-      display: block;
-    }
-  }
-  &.error,
-  &.frame {
-    :global(.wpwl-container:not(.wpwl-container-card)) {
-      display: none !important;
-    }
-    .brand,
-    .testModeWarning {
-      display: none !important;
-    }
-  }
-  &.mobileSafari {
-    :global(.wpwl-control-iframe) {
-      padding: 0 8px;
-    }
-  }
-  &.compact {
-    .brand {
-      display: none;
-    }
-    :global {
-      .wpwl-group-cardHolder {
-        width: 50%;
-      }
-      .wpwl-group-expiry,
-      .wpwl-group-cvv {
-        width: 25%;
-      }
-    }
+}
 
+.ready {
+  .brand,
+  .testModeWarning {
+    display: block;
+  }
+}
+
+.error,
+.frame {
+  :global(.wpwl-container:not(.wpwl-container-card)) {
+    display: none !important;
+  }
+  .brand,
+  .testModeWarning {
+    display: none !important;
+  }
+}
+
+.mobileSafari {
+  :global(.wpwl-control-iframe) {
+    padding: 0 8px;
+  }
+}
+
+.compact {
+  .brand {
+    display: none;
+  }
+  :global {
+    .wpwl-form .wpwl-group-cardHolder {
+      width: 50%;
+    }
+    .wpwl-form .wpwl-group-expiry,
+    .wpwl-form .wpwl-group-cvv {
+      width: 25%;
+    }
+  }
+}
+
+.fluid {
+  .testModeWarning {
+    max-width: none;
+  }
+  :global {
+    .wpwl-form {
+      max-width: none;
+    }
   }
 }
 
@@ -78,7 +92,7 @@
     margin: 0.45em;
     padding: 0.8em;
     box-shadow: inset 0 3px 0 0 #eec200, inset 0 0 0 0 transparent, 0 0 0 1px rgba(63, 63, 68, 0.05),
-      0 1px 3px 0 rgba(63, 63, 68, 0.15);
+    0 1px 3px 0 rgba(63, 63, 68, 0.15);
     color: #212b35;
   }
   max-width: 30em;
@@ -104,15 +118,15 @@
     color: #212b35;
     &.wpwl-has-error {
       background-color: #fbeae5;
-      box-shadow: inset 0 3px 0 0 #ed6347, inset 0 0 0 0 transparent, 0 0 0 1px rgba(63,63,68,.05), 0 1px 3px 0 rgba(63,63,68,.15);
+      box-shadow: inset 0 3px 0 0 #ed6347, inset 0 0 0 0 transparent, 0 0 0 1px rgba(63, 63, 68, .05), 0 1px 3px 0 rgba(63, 63, 68, .15);
     }
     &.wpwl-has-warning {
       background-color: #fcf1cd;
-      box-shadow: inset 0 3px 0 0 #eec200, inset 0 0 0 0 transparent, 0 0 0 1px rgba(63,63,68,.05), 0 1px 3px 0 rgba(63,63,68,.15)
+      box-shadow: inset 0 3px 0 0 #eec200, inset 0 0 0 0 transparent, 0 0 0 1px rgba(63, 63, 68, .05), 0 1px 3px 0 rgba(63, 63, 68, .15)
     }
   }
 
-  @media (max-width: 30em){
+  @media (max-width: 30em) {
     .wpwl-message {
       margin: 0.45em;
     }
@@ -290,7 +304,7 @@
       font-smoothing: initial;
       -webkit-font-smoothing: initial;
       font-family: 'Avenir Next', Avenir, -apple-system, BlinkMacSystemFont, Roboto, Helvetica,
-        sans-serif;
+      sans-serif;
       text-rendering: optimizeLegibility;
       &:focus {
         color: rgba(0, 0, 0, 0.95);
@@ -348,7 +362,7 @@
       width: 100%;
       background: #00796b;
       transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s ease,
-        box-shadow 0.1s ease, background 0.1s ease;
+      box-shadow 0.1s ease, background 0.1s ease;
       &[disabled],
       &[disabled]:hover,
       &[disabled]:focus,
