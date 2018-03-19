@@ -39,9 +39,6 @@ class PaymentForm extends Component {
     this.state = {
       isTestMode: props.test
     };
-    if (props.customSubmitSelector) {
-      $(props.customSubmitSelector).on('click', this.submitForm);
-    }
   }
 
   injectPaymentScript(checkoutId, cb) {
@@ -258,6 +255,9 @@ class PaymentForm extends Component {
       }, this.onError);
     }
     this.checkPaymentError();
+    if (this.props.customSubmitSelector) {
+      $(this.props.customSubmitSelector).on('click', this.submitForm);
+    }
   }
 
   componentWillUnmount() {
