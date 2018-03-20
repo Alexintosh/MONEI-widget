@@ -37,12 +37,14 @@
     display: none;
   }
   :global {
-    .wpwl-form .wpwl-group-cardHolder {
-      width: 50%;
-    }
-    .wpwl-form .wpwl-group-expiry,
-    .wpwl-form .wpwl-group-cvv {
-      width: 25%;
+    @media (min-width: 768px) {
+      .wpwl-form .wpwl-group-cardHolder {
+        width: 50%;
+      }
+      .wpwl-form .wpwl-group-expiry,
+      .wpwl-form .wpwl-group-cvv {
+        width: 25%;
+      }
     }
   }
 }
