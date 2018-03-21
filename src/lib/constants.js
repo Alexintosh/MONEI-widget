@@ -22,8 +22,6 @@ export const defaultParams = {
   },
   submitText: 'Pay {amount}',
   redirect: true,
-  compact: true,
-  fluid: true,
   onPaymentComplete: () => {},
   onPaymentSuccess: () => {},
   onPaymentError: () => {},

@@ -18,6 +18,9 @@
   },
   "author": "Dmitriy Nevzorov (dmitriy.nevzorov@microapps.com)",
   "license": "MIT",
+  "files": [
+
+  ],
   "devDependencies": {
     "babel-cli": "^6.24.0",
     "babel-core": "^6.24.0",
