@@ -1,6 +1,6 @@
 {
   "name": "monei-widget2",
-  "version": "1.0.36",
+  "version": "1.0.37",
   "description": "An easy way to accept payments from your customers. Embed this widget on your website, blog or online store.",
   "main": "build/widget2.js",
   "scripts": {
@@ -18,9 +18,7 @@
   },
   "author": "Dmitriy Nevzorov (dmitriy.nevzorov@microapps.com)",
   "license": "MIT",
-  "files": [
-
-  ],
+  "files": [],
   "devDependencies": {
     "babel-cli": "^6.24.0",
     "babel-core": "^6.24.0",
