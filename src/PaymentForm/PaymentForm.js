@@ -217,7 +217,7 @@ class PaymentForm extends Component {
 
     const $button = $form.find('.wpwl-button-pay');
     if (customSubmitSelector) {
-      $button.css('display', 'none');
+      $form.find('.wpwl-group-submit').css('display', 'none');
     } else {
       $button.css({backgroundColor: primaryColor});
     }
