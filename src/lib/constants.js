@@ -3,7 +3,7 @@ export const defaultParams = {
   redirectUrl: location.href,
   showLabels: false,
   showPlaceholders: true,
-  showCardHolder: true,
+  showCardHolder: false,
   showEmail: true,
   labels: {
     email: 'Email',

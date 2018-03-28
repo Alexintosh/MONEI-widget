@@ -9,7 +9,10 @@ class PaymentModal extends Component {
   handleClose = () => {
     $('body').removeClass(classNames.fixedBody);
     document.ontouchmove = () => true;
-    setTimeout(this.props.onClose.bind(this), 400);
+    setTimeout(() => {
+      this.props.onClose();
+      this.setState({is3DFrame: false});
+    }, 400);
     this.setState({isActive: false, isVisible: false});
   };
 
@@ -47,11 +50,13 @@ class PaymentModal extends Component {
         <div
           className={cx(classNames.portal, {
             [classNames.active]: isActive,
-            [classNames.visible]: isVisible
+            [classNames.visible]: isVisible,
+            [classNames.fullscreen]: is3DFrame && props.threeDIframeFullscreen
           })}>
           <div className={classNames.container}>
             <div
               className={cx(classNames.modal, {
+                [classNames.frame]: is3DFrame,
                 [classNames.frame]: is3DFrame,
                 [classNames.error]: isError
               })}>

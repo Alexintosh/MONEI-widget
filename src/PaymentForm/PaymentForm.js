@@ -36,6 +36,12 @@ class PaymentForm extends Component {
       useSummaryPage: !props.redirect,
       onSaveTransactionData: this.onSaveTransactionData
     };
+    if (props.threeDIframeFullscreen) {
+      window.wpwlOptions.threeDIframeSize = {
+        width: '100%',
+        height: '100%'
+      };
+    }
     this.state = {
       isTestMode: props.test
     };
@@ -83,6 +89,9 @@ class PaymentForm extends Component {
 
   onLoadThreeDIframe = () => {
     this.props.onLoadThreeDIframe && this.props.onLoadThreeDIframe();
+    if (this.props.threeDIframeFullscreen) {
+      this.$formContainer.find('.wpwl-target').addClass(classNames.fullscreenFrame);
+    }
     this.setState({is3DFrame: true});
   };
 
@@ -265,6 +274,7 @@ class PaymentForm extends Component {
 
   componentWillUnmount() {
     this.removePaymentScript();
+    $(this.props.customSubmitSelector).off('click', this.submitForm);
   }
 
   render(
