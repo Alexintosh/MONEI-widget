@@ -25,6 +25,16 @@
   &.visible {
     overflow: auto !important;
   }
+  &.fullscreen {
+    display: block;
+    .container {
+      height: 100%;
+    }
+    .modal {
+      height: 100%;
+      width: 100%;
+    }
+  }
 }
 
 .fixedBody {
@@ -55,6 +65,7 @@
   backface-visibility: hidden;
   &.frame {
     width: 600px;
+    min-height: 580px;
     .header {
       display: none;
     }

@@ -6,25 +6,71 @@
   line-height: 1.3em;
   -webkit-font-smoothing: subpixel-antialiased;
   color: #212b35;
-  &.ready {
-    .brand,
-    .testModeWarning {
-      display: block;
+}
+
+.ready {
+  .brand,
+  .testModeWarning {
+    display: block;
+  }
+}
+
+.fullscreenFrame {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.error,
+.frame {
+  :global(.wpwl-container:not(.wpwl-container-card)) {
+    display: none !important;
+  }
+  .brand,
+  .testModeWarning {
+    display: none !important;
+  }
+}
+
+.mobileSafari {
+  :global(.wpwl-control-iframe) {
+    padding: 0 8px;
+  }
+}
+
+.compact {
+  .brand {
+    display: none;
+  }
+  :global {
+    @media (min-width: 768px) {
+      .wpwl-form .wpwl-group-cardHolder {
+        width: 50%;
+      }
+      .wpwl-form .wpwl-group-expiry,
+      .wpwl-form .wpwl-group-cvv {
+        width: 25%;
+      }
     }
   }
-  &.error,
-  &.frame {
-    :global(.wpwl-container:not(.wpwl-container-card)) {
-      display: none !important;
-    }
-    .brand,
-    .testModeWarning {
-      display: none !important;
-    }
+}
+
+.fluid {
+  .testModeWarning {
+    max-width: none;
   }
-  &.mobileSafari {
-    :global(.wpwl-control-iframe) {
-      padding: 0 8px;
+  :global {
+    .wpwl-message,
+    .wpwl-form {
+      max-width: none;
     }
   }
 }
@@ -89,15 +135,17 @@
     color: #212b35;
     &.wpwl-has-error {
       background-color: #fbeae5;
-      box-shadow: inset 0 3px 0 0 #ed6347, inset 0 0 0 0 transparent, 0 0 0 1px rgba(63,63,68,.05), 0 1px 3px 0 rgba(63,63,68,.15);
+      box-shadow: inset 0 3px 0 0 #ed6347, inset 0 0 0 0 transparent,
+        0 0 0 1px rgba(63, 63, 68, 0.05), 0 1px 3px 0 rgba(63, 63, 68, 0.15);
     }
     &.wpwl-has-warning {
       background-color: #fcf1cd;
-      box-shadow: inset 0 3px 0 0 #eec200, inset 0 0 0 0 transparent, 0 0 0 1px rgba(63,63,68,.05), 0 1px 3px 0 rgba(63,63,68,.15)
+      box-shadow: inset 0 3px 0 0 #eec200, inset 0 0 0 0 transparent,
+        0 0 0 1px rgba(63, 63, 68, 0.05), 0 1px 3px 0 rgba(63, 63, 68, 0.15);
     }
   }
 
-  @media (max-width: 30em){
+  @media (max-width: 30em) {
     .wpwl-message {
       margin: 0.45em;
     }

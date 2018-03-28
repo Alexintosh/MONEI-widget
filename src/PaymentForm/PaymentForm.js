@@ -36,6 +36,12 @@ class PaymentForm extends Component {
       useSummaryPage: !props.redirect,
       onSaveTransactionData: this.onSaveTransactionData
     };
+    if (props.threeDIframeFullscreen) {
+      window.wpwlOptions.threeDIframeSize = {
+        width: '100%',
+        height: '100%'
+      };
+    }
     this.state = {
       isTestMode: props.test
     };
@@ -83,6 +89,9 @@ class PaymentForm extends Component {
 
   onLoadThreeDIframe = () => {
     this.props.onLoadThreeDIframe && this.props.onLoadThreeDIframe();
+    if (this.props.threeDIframeFullscreen) {
+      this.$formContainer.find('.wpwl-target').addClass(classNames.fullscreenFrame);
+    }
     this.setState({is3DFrame: true});
   };
 
@@ -176,7 +185,9 @@ class PaymentForm extends Component {
       customParameters = {},
       shipping = {},
       primaryColor,
-      labels
+      customSubmitSelector,
+      labels,
+      compact
     } = this.props;
     const $form = this.$formContainer.find('.wpwl-form-card, .wpwl-form-directDebit');
     const $container = $form.parent();
@@ -193,12 +204,14 @@ class PaymentForm extends Component {
       .find('.wpwl-brand-card')
       .removeClass('wpwl-brand-VISA')
       .addClass('wpwl-brand-GENERIC');
-    $brand.appendTo($form.find('.wpwl-wrapper-cardNumber'));
+
+    const $cardNumner = $form.find('.wpwl-group-cardNumber');
+    $brand.appendTo($cardNumner.find('.wpwl-wrapper-cardNumber'));
 
     // show cardholder firs or hide it
     const $cardHolder = $form.find('.wpwl-group-cardHolder');
     if ($cardHolder.length && showCardHolder) {
-      $cardHolder.prependTo($form);
+      compact ? $cardHolder.insertAfter($cardNumner) : $cardHolder.prependTo($form);
     } else {
       $cardHolder.remove();
     }
@@ -211,7 +224,12 @@ class PaymentForm extends Component {
       this.appendEmail($form);
     }
 
-    $form.find('.wpwl-button-pay').css({backgroundColor: primaryColor});
+    const $button = $form.find('.wpwl-button-pay');
+    if (customSubmitSelector) {
+      $form.find('.wpwl-group-submit').css('display', 'none');
+    } else {
+      $button.css({backgroundColor: primaryColor});
+    }
 
     // add custom fields
     Object.keys(customer).forEach(key => {
@@ -231,6 +249,11 @@ class PaymentForm extends Component {
     });
   }
 
+  submitForm = () => {
+    const $button = this.$formContainer.find('.wpwl-button-pay');
+    $button[0].click();
+  };
+
   componentDidMount() {
     if (this.props.checkoutId) {
       this.api = new APIHandler(this.props);
@@ -244,14 +267,18 @@ class PaymentForm extends Component {
       }, this.onError);
     }
     this.checkPaymentError();
+    if (this.props.customSubmitSelector) {
+      $(this.props.customSubmitSelector).on('click', this.submitForm);
+    }
   }
 
   componentWillUnmount() {
     this.removePaymentScript();
+    $(this.props.customSubmitSelector).off('click', this.submitForm);
   }
 
   render(
-    {brands, redirectUrl, token, className, popup},
+    {brands, redirectUrl, token, className, popup, compact, fluid},
     {isTestMode, is3DFrame, isReady, isError},
     context
   ) {
@@ -261,6 +288,8 @@ class PaymentForm extends Component {
     return (
       <div
         className={cx(classNames.formContainer, className, {
+          [classNames.compact]: compact,
+          [classNames.fluid]: fluid,
           [classNames.frame]: is3DFrame,
           [classNames.ready]: isReady,
           [classNames.error]: isError,
