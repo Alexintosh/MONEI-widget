@@ -191,9 +191,10 @@ class PaymentForm extends Component {
     } = this.props;
     const $form = this.$formContainer.find('.wpwl-form-card, .wpwl-form-directDebit');
     const $container = $form.parent();
+    const otherMethod = $container.next()[0];
 
     // add separator
-    if (!$container.is(':last-child')) {
+    if (otherMethod && otherMethod.innerHTML.length > 0) {
       $container.after(
         render(<p className={classNames.separator}>{labels.otherPaymentMethods}</p>)
       );
