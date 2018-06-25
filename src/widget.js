@@ -13,7 +13,7 @@ export const WIDGET_CONTAINER_CLASS_NAME = 'monei-widget';
 let autoSetupEnabled = true;
 
 function setupAll() {
-  $(`.${WIDGET_CONTAINER_CLASS_NAME}`).each(container => setup(container));
+  $(`.${WIDGET_CONTAINER_CLASS_NAME}`).each((_, container) => setup(container));
 }
 
 function setup(element, options) {

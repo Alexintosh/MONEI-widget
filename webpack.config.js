@@ -45,7 +45,7 @@ export default options => {
       new webpack.LoaderOptionsPlugin({
         options: {
           postcss: [
-            require('postcss-cssnext')({
+            require('postcss-preset-env')({
               browsers: ['last 2 versions', '> 5%']
             }),
             require('postcss-reporter')()
