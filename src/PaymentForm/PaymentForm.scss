@@ -1,3 +1,6 @@
+@import './plain';
+
+// Replaces
 .formContainer {
   font-size: 14px;
   font-family: 'Avenir Next', Avenir, -apple-system, BlinkMacSystemFont, Roboto, Helvetica,
@@ -390,58 +393,4 @@
     background-position: center;
     background-repeat: no-repeat;
   }
-
-  .wpwl-brand-MASTER {
-    background-image: url('../static/master.svg'), none;
-  }
-
-  .wpwl-brand-DISCOVER {
-    background-image: url('../static/discover.svg'), none;
-  }
-
-  .wpwl-brand-VISAELECTRON {
-    background-image: url('../static/visaelectron.svg'), none;
-  }
-
-  .wpwl-brand-JCB {
-    background-image: url('../static/jcb.svg'), none;
-  }
-
-  .wpwl-brand-AMEX {
-    background-image: url('../static/american_express.svg'), none;
-  }
-
-  .wpwl-brand-VISA {
-    background-image: url('../static/visa.svg'), none;
-  }
-
-  .wpwl-brand-MAESTRO {
-    background-image: url('../static/maestro.svg'), none;
-  }
-
-  .wpwl-brand-DINERS {
-    background-image: url('../static/diners.svg'), none;
-  }
-
-  .wpwl-brand-DANKORT {
-    background-image: url('../static/dankort.svg'), none;
-  }
-
-  .wpwl-brand-GENERIC {
-    background-image: url('../static/generic.svg'), none;
-  }
-
-  .wpwl-brand-BITCOIN {
-    background-image: url('../static/bitcoin.svg'), none;
-  }
-
-  .wpwl-brand-PAYPAL {
-    background-image: url('../static/paypal.svg'), none;
-  }
-
-  .wpwl-brand-ALIPAY {
-    background-image: url('../static/alipay.svg'), none;
-  }
 }
-
-

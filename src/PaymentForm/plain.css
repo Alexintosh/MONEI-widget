@@ -1,0 +1,2139 @@
+/*!
+ * jQuery UI CSS Framework 1.11.4
+ * http://jqueryui.com
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ *
+ * http://api.jqueryui.com/category/theming/
+ */
+/*!
+ * jQuery UI CSS Framework 1.11.4
+ * http://jqueryui.com
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ *
+ * http://api.jqueryui.com/category/theming/
+ */
+/*!
+ * jQuery UI CSS Framework 1.11.4
+ * http://jqueryui.com
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ *
+ * http://api.jqueryui.com/category/theming/
+ */
+/* Layout helpers
+----------------------------------*/
+.ui-helper-hidden {
+  display: none;
+}
+.ui-helper-hidden-accessible {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+.ui-helper-reset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  line-height: 1.3;
+  text-decoration: none;
+  font-size: 100%;
+  list-style: none;
+}
+.ui-helper-clearfix:before,
+.ui-helper-clearfix:after {
+  content: "";
+  display: table;
+  border-collapse: collapse;
+}
+.ui-helper-clearfix:after {
+  clear: both;
+}
+.ui-helper-clearfix {
+  min-height: 0;
+  /* support: IE7 */
+}
+.ui-helper-zfix {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  /* support: IE8 */
+}
+.ui-front {
+  z-index: 100;
+}
+/* Interaction Cues
+----------------------------------*/
+.ui-state-disabled {
+  cursor: default !important;
+}
+/* Icons
+----------------------------------*/
+/* states and images */
+.ui-icon {
+  display: block;
+  text-indent: -99999px;
+  overflow: hidden;
+  background-repeat: no-repeat;
+}
+/* Misc visuals
+----------------------------------*/
+/* Overlays */
+.ui-widget-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+/* @import "accordion" */
+/*!
+ * jQuery UI Autocomplete 1.11.4
+ * http://jqueryui.com
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ *
+ * http://api.jqueryui.com/autocomplete/#theming
+ */
+.ui-autocomplete {
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: default;
+}
+/* @import "button";
+@import "datepicker";
+@import "dialog";
+@import "draggable"; */
+/*!
+ * jQuery UI Menu 1.11.4
+ * http://jqueryui.com
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ *
+ * http://api.jqueryui.com/menu/#theming
+ */
+.ui-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: block;
+  outline: none;
+}
+.ui-menu .ui-menu {
+  position: absolute;
+}
+.ui-menu .ui-menu-item {
+  position: relative;
+  margin: 0;
+  padding: 3px 1em 3px .4em;
+  cursor: pointer;
+  min-height: 0;
+  /* support: IE7 */
+  /* support: IE10, see #8844 */
+  list-style-image: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
+}
+.ui-menu .ui-menu-divider {
+  margin: 5px 0;
+  height: 0;
+  font-size: 0;
+  line-height: 0;
+  border-width: 1px 0 0 0;
+}
+.ui-menu .ui-state-focus,
+.ui-menu .ui-state-active {
+  margin: -1px;
+}
+/* icon support */
+.ui-menu-icons {
+  position: relative;
+}
+.ui-menu-icons .ui-menu-item {
+  padding-left: 2em;
+}
+/* left-aligned */
+.ui-menu .ui-icon {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: .2em;
+  margin: auto 0;
+}
+/* right-aligned */
+.ui-menu .ui-menu-icon {
+  left: auto;
+  right: 0;
+}
+/* @import "progressbar";
+@import "resizable";
+@import "selectable";
+@import "selectmenu";
+@import "sortable";
+@import "slider";
+@import "spinner";
+@import "tabs";
+@import "tooltip"; */
+/*!
+ * jQuery UI CSS Framework 1.11.4
+ * http://jqueryui.com
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ *
+ * http://api.jqueryui.com/category/theming/
+ *
+ * To view and modify this theme, visit http://jqueryui.com/themeroller/
+ */
+/* Component containers
+----------------------------------*/
+.ui-widget {
+  font-family: Verdana, Arial, sans-serif /*{ffDefault}*/;
+  font-size: 1.1em /*{fsDefault}*/;
+}
+.ui-widget .ui-widget {
+  font-size: 1em;
+}
+.ui-widget input,
+.ui-widget select,
+.ui-widget textarea,
+.ui-widget button {
+  font-family: Verdana, Arial, sans-serif /*{ffDefault}*/;
+  font-size: 1em;
+}
+.ui-widget-content {
+  border: 1px solid #aaaaaa /*{borderColorContent}*/;
+  color: #222222 /*{fcContent}*/;
+}
+.ui-widget-content a {
+  color: #222222 /*{fcContent}*/;
+}
+.ui-widget-header {
+  border: 1px solid #aaaaaa /*{borderColorHeader}*/;
+  color: #222222 /*{fcHeader}*/;
+  font-weight: bold;
+}
+.ui-widget-header a {
+  color: #222222 /*{fcHeader}*/;
+}
+/* Interaction states
+----------------------------------*/
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default {
+  border: 1px solid #d3d3d3 /*{borderColorDefault}*/;
+  font-weight: normal /*{fwDefault}*/;
+  color: #555555 /*{fcDefault}*/;
+}
+.ui-state-default a,
+.ui-state-default a:link,
+.ui-state-default a:visited {
+  color: #555555 /*{fcDefault}*/;
+  text-decoration: none;
+}
+.ui-state-hover,
+.ui-widget-content .ui-state-hover,
+.ui-widget-header .ui-state-hover,
+.ui-state-focus,
+.ui-widget-content .ui-state-focus,
+.ui-widget-header .ui-state-focus {
+  border: 1px solid #999999 /*{borderColorHover}*/;
+  font-weight: normal /*{fwDefault}*/;
+  color: #212121 /*{fcHover}*/;
+}
+.ui-state-hover a,
+.ui-state-hover a:hover,
+.ui-state-hover a:link,
+.ui-state-hover a:visited,
+.ui-state-focus a,
+.ui-state-focus a:hover,
+.ui-state-focus a:link,
+.ui-state-focus a:visited {
+  color: #212121 /*{fcHover}*/;
+  text-decoration: none;
+}
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active {
+  border: 1px solid #aaaaaa /*{borderColorActive}*/;
+  font-weight: normal /*{fwDefault}*/;
+  color: #212121 /*{fcActive}*/;
+}
+.ui-state-active a,
+.ui-state-active a:link,
+.ui-state-active a:visited {
+  color: #212121 /*{fcActive}*/;
+  text-decoration: none;
+}
+/* Interaction Cues
+----------------------------------*/
+.ui-state-highlight,
+.ui-widget-content .ui-state-highlight,
+.ui-widget-header .ui-state-highlight {
+  border: 1px solid #fcefa1 /*{borderColorHighlight}*/;
+  color: #363636 /*{fcHighlight}*/;
+}
+.ui-state-highlight a,
+.ui-widget-content .ui-state-highlight a,
+.ui-widget-header .ui-state-highlight a {
+  color: #363636 /*{fcHighlight}*/;
+}
+.ui-state-error,
+.ui-widget-content .ui-state-error,
+.ui-widget-header .ui-state-error {
+  border: 1px solid #cd0a0a /*{borderColorError}*/;
+  color: #cd0a0a /*{fcError}*/;
+}
+.ui-state-error a,
+.ui-widget-content .ui-state-error a,
+.ui-widget-header .ui-state-error a {
+  color: #cd0a0a /*{fcError}*/;
+}
+.ui-state-error-text,
+.ui-widget-content .ui-state-error-text,
+.ui-widget-header .ui-state-error-text {
+  color: #cd0a0a /*{fcError}*/;
+}
+.ui-priority-primary,
+.ui-widget-content .ui-priority-primary,
+.ui-widget-header .ui-priority-primary {
+  font-weight: bold;
+}
+.ui-priority-secondary,
+.ui-widget-content .ui-priority-secondary,
+.ui-widget-header .ui-priority-secondary {
+  opacity: .7;
+  filter: alpha(opacity=70);
+  /* support: IE8 */
+  font-weight: normal;
+}
+.ui-state-disabled,
+.ui-widget-content .ui-state-disabled,
+.ui-widget-header .ui-state-disabled {
+  opacity: .35;
+  filter: alpha(opacity=35);
+  /* support: IE8 */
+  background-image: none;
+}
+.ui-state-disabled .ui-icon {
+  filter: alpha(opacity=35);
+  /* support: IE8 - See #6059 */
+}
+/* Icons
+----------------------------------*/
+/* states and images */
+.ui-icon {
+  width: 16px;
+  height: 16px;
+}
+/* positioning */
+.ui-icon-blank {
+  background-position: 16px 16px;
+}
+.ui-icon-carat-1-n {
+  background-position: 0 0;
+}
+.ui-icon-carat-1-ne {
+  background-position: -16px 0;
+}
+.ui-icon-carat-1-e {
+  background-position: -32px 0;
+}
+.ui-icon-carat-1-se {
+  background-position: -48px 0;
+}
+.ui-icon-carat-1-s {
+  background-position: -64px 0;
+}
+.ui-icon-carat-1-sw {
+  background-position: -80px 0;
+}
+.ui-icon-carat-1-w {
+  background-position: -96px 0;
+}
+.ui-icon-carat-1-nw {
+  background-position: -112px 0;
+}
+.ui-icon-carat-2-n-s {
+  background-position: -128px 0;
+}
+.ui-icon-carat-2-e-w {
+  background-position: -144px 0;
+}
+.ui-icon-triangle-1-n {
+  background-position: 0 -16px;
+}
+.ui-icon-triangle-1-ne {
+  background-position: -16px -16px;
+}
+.ui-icon-triangle-1-e {
+  background-position: -32px -16px;
+}
+.ui-icon-triangle-1-se {
+  background-position: -48px -16px;
+}
+.ui-icon-triangle-1-s {
+  background-position: -64px -16px;
+}
+.ui-icon-triangle-1-sw {
+  background-position: -80px -16px;
+}
+.ui-icon-triangle-1-w {
+  background-position: -96px -16px;
+}
+.ui-icon-triangle-1-nw {
+  background-position: -112px -16px;
+}
+.ui-icon-triangle-2-n-s {
+  background-position: -128px -16px;
+}
+.ui-icon-triangle-2-e-w {
+  background-position: -144px -16px;
+}
+.ui-icon-arrow-1-n {
+  background-position: 0 -32px;
+}
+.ui-icon-arrow-1-ne {
+  background-position: -16px -32px;
+}
+.ui-icon-arrow-1-e {
+  background-position: -32px -32px;
+}
+.ui-icon-arrow-1-se {
+  background-position: -48px -32px;
+}
+.ui-icon-arrow-1-s {
+  background-position: -64px -32px;
+}
+.ui-icon-arrow-1-sw {
+  background-position: -80px -32px;
+}
+.ui-icon-arrow-1-w {
+  background-position: -96px -32px;
+}
+.ui-icon-arrow-1-nw {
+  background-position: -112px -32px;
+}
+.ui-icon-arrow-2-n-s {
+  background-position: -128px -32px;
+}
+.ui-icon-arrow-2-ne-sw {
+  background-position: -144px -32px;
+}
+.ui-icon-arrow-2-e-w {
+  background-position: -160px -32px;
+}
+.ui-icon-arrow-2-se-nw {
+  background-position: -176px -32px;
+}
+.ui-icon-arrowstop-1-n {
+  background-position: -192px -32px;
+}
+.ui-icon-arrowstop-1-e {
+  background-position: -208px -32px;
+}
+.ui-icon-arrowstop-1-s {
+  background-position: -224px -32px;
+}
+.ui-icon-arrowstop-1-w {
+  background-position: -240px -32px;
+}
+.ui-icon-arrowthick-1-n {
+  background-position: 0 -48px;
+}
+.ui-icon-arrowthick-1-ne {
+  background-position: -16px -48px;
+}
+.ui-icon-arrowthick-1-e {
+  background-position: -32px -48px;
+}
+.ui-icon-arrowthick-1-se {
+  background-position: -48px -48px;
+}
+.ui-icon-arrowthick-1-s {
+  background-position: -64px -48px;
+}
+.ui-icon-arrowthick-1-sw {
+  background-position: -80px -48px;
+}
+.ui-icon-arrowthick-1-w {
+  background-position: -96px -48px;
+}
+.ui-icon-arrowthick-1-nw {
+  background-position: -112px -48px;
+}
+.ui-icon-arrowthick-2-n-s {
+  background-position: -128px -48px;
+}
+.ui-icon-arrowthick-2-ne-sw {
+  background-position: -144px -48px;
+}
+.ui-icon-arrowthick-2-e-w {
+  background-position: -160px -48px;
+}
+.ui-icon-arrowthick-2-se-nw {
+  background-position: -176px -48px;
+}
+.ui-icon-arrowthickstop-1-n {
+  background-position: -192px -48px;
+}
+.ui-icon-arrowthickstop-1-e {
+  background-position: -208px -48px;
+}
+.ui-icon-arrowthickstop-1-s {
+  background-position: -224px -48px;
+}
+.ui-icon-arrowthickstop-1-w {
+  background-position: -240px -48px;
+}
+.ui-icon-arrowreturnthick-1-w {
+  background-position: 0 -64px;
+}
+.ui-icon-arrowreturnthick-1-n {
+  background-position: -16px -64px;
+}
+.ui-icon-arrowreturnthick-1-e {
+  background-position: -32px -64px;
+}
+.ui-icon-arrowreturnthick-1-s {
+  background-position: -48px -64px;
+}
+.ui-icon-arrowreturn-1-w {
+  background-position: -64px -64px;
+}
+.ui-icon-arrowreturn-1-n {
+  background-position: -80px -64px;
+}
+.ui-icon-arrowreturn-1-e {
+  background-position: -96px -64px;
+}
+.ui-icon-arrowreturn-1-s {
+  background-position: -112px -64px;
+}
+.ui-icon-arrowrefresh-1-w {
+  background-position: -128px -64px;
+}
+.ui-icon-arrowrefresh-1-n {
+  background-position: -144px -64px;
+}
+.ui-icon-arrowrefresh-1-e {
+  background-position: -160px -64px;
+}
+.ui-icon-arrowrefresh-1-s {
+  background-position: -176px -64px;
+}
+.ui-icon-arrow-4 {
+  background-position: 0 -80px;
+}
+.ui-icon-arrow-4-diag {
+  background-position: -16px -80px;
+}
+.ui-icon-extlink {
+  background-position: -32px -80px;
+}
+.ui-icon-newwin {
+  background-position: -48px -80px;
+}
+.ui-icon-refresh {
+  background-position: -64px -80px;
+}
+.ui-icon-shuffle {
+  background-position: -80px -80px;
+}
+.ui-icon-transfer-e-w {
+  background-position: -96px -80px;
+}
+.ui-icon-transferthick-e-w {
+  background-position: -112px -80px;
+}
+.ui-icon-folder-collapsed {
+  background-position: 0 -96px;
+}
+.ui-icon-folder-open {
+  background-position: -16px -96px;
+}
+.ui-icon-document {
+  background-position: -32px -96px;
+}
+.ui-icon-document-b {
+  background-position: -48px -96px;
+}
+.ui-icon-note {
+  background-position: -64px -96px;
+}
+.ui-icon-mail-closed {
+  background-position: -80px -96px;
+}
+.ui-icon-mail-open {
+  background-position: -96px -96px;
+}
+.ui-icon-suitcase {
+  background-position: -112px -96px;
+}
+.ui-icon-comment {
+  background-position: -128px -96px;
+}
+.ui-icon-person {
+  background-position: -144px -96px;
+}
+.ui-icon-print {
+  background-position: -160px -96px;
+}
+.ui-icon-trash {
+  background-position: -176px -96px;
+}
+.ui-icon-locked {
+  background-position: -192px -96px;
+}
+.ui-icon-unlocked {
+  background-position: -208px -96px;
+}
+.ui-icon-bookmark {
+  background-position: -224px -96px;
+}
+.ui-icon-tag {
+  background-position: -240px -96px;
+}
+.ui-icon-home {
+  background-position: 0 -112px;
+}
+.ui-icon-flag {
+  background-position: -16px -112px;
+}
+.ui-icon-calendar {
+  background-position: -32px -112px;
+}
+.ui-icon-cart {
+  background-position: -48px -112px;
+}
+.ui-icon-pencil {
+  background-position: -64px -112px;
+}
+.ui-icon-clock {
+  background-position: -80px -112px;
+}
+.ui-icon-disk {
+  background-position: -96px -112px;
+}
+.ui-icon-calculator {
+  background-position: -112px -112px;
+}
+.ui-icon-zoomin {
+  background-position: -128px -112px;
+}
+.ui-icon-zoomout {
+  background-position: -144px -112px;
+}
+.ui-icon-search {
+  background-position: -160px -112px;
+}
+.ui-icon-wrench {
+  background-position: -176px -112px;
+}
+.ui-icon-gear {
+  background-position: -192px -112px;
+}
+.ui-icon-heart {
+  background-position: -208px -112px;
+}
+.ui-icon-star {
+  background-position: -224px -112px;
+}
+.ui-icon-link {
+  background-position: -240px -112px;
+}
+.ui-icon-cancel {
+  background-position: 0 -128px;
+}
+.ui-icon-plus {
+  background-position: -16px -128px;
+}
+.ui-icon-plusthick {
+  background-position: -32px -128px;
+}
+.ui-icon-minus {
+  background-position: -48px -128px;
+}
+.ui-icon-minusthick {
+  background-position: -64px -128px;
+}
+.ui-icon-close {
+  background-position: -80px -128px;
+}
+.ui-icon-closethick {
+  background-position: -96px -128px;
+}
+.ui-icon-key {
+  background-position: -112px -128px;
+}
+.ui-icon-lightbulb {
+  background-position: -128px -128px;
+}
+.ui-icon-scissors {
+  background-position: -144px -128px;
+}
+.ui-icon-clipboard {
+  background-position: -160px -128px;
+}
+.ui-icon-copy {
+  background-position: -176px -128px;
+}
+.ui-icon-contact {
+  background-position: -192px -128px;
+}
+.ui-icon-image {
+  background-position: -208px -128px;
+}
+.ui-icon-video {
+  background-position: -224px -128px;
+}
+.ui-icon-script {
+  background-position: -240px -128px;
+}
+.ui-icon-alert {
+  background-position: 0 -144px;
+}
+.ui-icon-info {
+  background-position: -16px -144px;
+}
+.ui-icon-notice {
+  background-position: -32px -144px;
+}
+.ui-icon-help {
+  background-position: -48px -144px;
+}
+.ui-icon-check {
+  background-position: -64px -144px;
+}
+.ui-icon-bullet {
+  background-position: -80px -144px;
+}
+.ui-icon-radio-on {
+  background-position: -96px -144px;
+}
+.ui-icon-radio-off {
+  background-position: -112px -144px;
+}
+.ui-icon-pin-w {
+  background-position: -128px -144px;
+}
+.ui-icon-pin-s {
+  background-position: -144px -144px;
+}
+.ui-icon-play {
+  background-position: 0 -160px;
+}
+.ui-icon-pause {
+  background-position: -16px -160px;
+}
+.ui-icon-seek-next {
+  background-position: -32px -160px;
+}
+.ui-icon-seek-prev {
+  background-position: -48px -160px;
+}
+.ui-icon-seek-end {
+  background-position: -64px -160px;
+}
+.ui-icon-seek-start {
+  background-position: -80px -160px;
+}
+/* ui-icon-seek-first is deprecated, use ui-icon-seek-start instead */
+.ui-icon-seek-first {
+  background-position: -80px -160px;
+}
+.ui-icon-stop {
+  background-position: -96px -160px;
+}
+.ui-icon-eject {
+  background-position: -112px -160px;
+}
+.ui-icon-volume-off {
+  background-position: -128px -160px;
+}
+.ui-icon-volume-on {
+  background-position: -144px -160px;
+}
+.ui-icon-power {
+  background-position: 0 -176px;
+}
+.ui-icon-signal-diag {
+  background-position: -16px -176px;
+}
+.ui-icon-signal {
+  background-position: -32px -176px;
+}
+.ui-icon-battery-0 {
+  background-position: -48px -176px;
+}
+.ui-icon-battery-1 {
+  background-position: -64px -176px;
+}
+.ui-icon-battery-2 {
+  background-position: -80px -176px;
+}
+.ui-icon-battery-3 {
+  background-position: -96px -176px;
+}
+.ui-icon-circle-plus {
+  background-position: 0 -192px;
+}
+.ui-icon-circle-minus {
+  background-position: -16px -192px;
+}
+.ui-icon-circle-close {
+  background-position: -32px -192px;
+}
+.ui-icon-circle-triangle-e {
+  background-position: -48px -192px;
+}
+.ui-icon-circle-triangle-s {
+  background-position: -64px -192px;
+}
+.ui-icon-circle-triangle-w {
+  background-position: -80px -192px;
+}
+.ui-icon-circle-triangle-n {
+  background-position: -96px -192px;
+}
+.ui-icon-circle-arrow-e {
+  background-position: -112px -192px;
+}
+.ui-icon-circle-arrow-s {
+  background-position: -128px -192px;
+}
+.ui-icon-circle-arrow-w {
+  background-position: -144px -192px;
+}
+.ui-icon-circle-arrow-n {
+  background-position: -160px -192px;
+}
+.ui-icon-circle-zoomin {
+  background-position: -176px -192px;
+}
+.ui-icon-circle-zoomout {
+  background-position: -192px -192px;
+}
+.ui-icon-circle-check {
+  background-position: -208px -192px;
+}
+.ui-icon-circlesmall-plus {
+  background-position: 0 -208px;
+}
+.ui-icon-circlesmall-minus {
+  background-position: -16px -208px;
+}
+.ui-icon-circlesmall-close {
+  background-position: -32px -208px;
+}
+.ui-icon-squaresmall-plus {
+  background-position: -48px -208px;
+}
+.ui-icon-squaresmall-minus {
+  background-position: -64px -208px;
+}
+.ui-icon-squaresmall-close {
+  background-position: -80px -208px;
+}
+.ui-icon-grip-dotted-vertical {
+  background-position: 0 -224px;
+}
+.ui-icon-grip-dotted-horizontal {
+  background-position: -16px -224px;
+}
+.ui-icon-grip-solid-vertical {
+  background-position: -32px -224px;
+}
+.ui-icon-grip-solid-horizontal {
+  background-position: -48px -224px;
+}
+.ui-icon-gripsmall-diagonal-se {
+  background-position: -64px -224px;
+}
+.ui-icon-grip-diagonal-se {
+  background-position: -80px -224px;
+}
+/* Misc visuals
+----------------------------------*/
+/* Corner radius */
+.ui-corner-all,
+.ui-corner-top,
+.ui-corner-left,
+.ui-corner-tl {
+  border-top-left-radius: 4px /*{cornerRadius}*/;
+}
+.ui-corner-all,
+.ui-corner-top,
+.ui-corner-right,
+.ui-corner-tr {
+  border-top-right-radius: 4px /*{cornerRadius}*/;
+}
+.ui-corner-all,
+.ui-corner-bottom,
+.ui-corner-left,
+.ui-corner-bl {
+  border-bottom-left-radius: 4px /*{cornerRadius}*/;
+}
+.ui-corner-all,
+.ui-corner-bottom,
+.ui-corner-right,
+.ui-corner-br {
+  border-bottom-right-radius: 4px /*{cornerRadius}*/;
+}
+/* Overlays */
+.ui-widget-overlay {
+  opacity: 0.3 /*{opacityOverlay}*/;
+  filter: alpha(opacity=30) /*{opacityFilterOverlay}*/;
+  /* support: IE8 */
+}
+.ui-widget-shadow {
+  margin: -8px /*{offsetTopShadow}*/ 0 0 -8px /*{offsetLeftShadow}*/;
+  padding: 8px /*{thicknessShadow}*/;
+  opacity: 0.3 /*{opacityShadow}*/;
+  filter: alpha(opacity=30) /*{opacityFilterShadow}*/;
+  /* support: IE8 */
+  border-radius: 8px /*{cornerRadiusShadow}*/;
+}
+ul.wpwl-control-autocomplete-menu {
+  max-height: 150px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  font-size: 1.0em;
+}
+@media only screen and (max-width: 768px) {
+  ul.wpwl-control-autocomplete-menu {
+    font-size: 1.5em;
+  }
+}
+* html .wpwl-control-autocomplete-menu {
+  height: 100px;
+}
+.wpwl-control-autocomplete-highlight {
+  font-weight: bold;
+}
+[class*="wpwl"] {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+[class*="wpwl"]:before,
+[class*="wpwl"]:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.wpwl-button,
+.wpwl-control {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+.wpwl-container {
+  position: relative;
+}
+.wpwl-form {
+  margin: 0 auto 24px auto;
+  max-width: 30em;
+}
+.wpwl-form-registrations {
+  max-width: 40em;
+}
+.wpwl-group {
+  margin-bottom: 12px;
+  width: 100%;
+}
+.wpwl-group-button {
+  margin-bottom: 0;
+}
+.wpwl-wrapper-billing input,
+.wpwl-wrapper-billing select {
+  margin-top: 12px;
+}
+.wpwl-group-registration {
+  padding: 6px;
+  border: 1px solid transparent;
+  min-height: 49px;
+  -webkit-transition: border-color ease-in-out 0.15s;
+  -o-transition: border-color ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s;
+}
+.wpwl-group-registration.wpwl-selected {
+  border-color: #ccc;
+}
+.wpwl-registration {
+  cursor: pointer;
+}
+.wpwl-registration.disabled {
+  cursor: not-allowed;
+}
+@media (min-width: 480px) {
+  .wpwl-label {
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+  .wpwl-label-registration {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+.wpwl-wrapper-submit:before,
+.wpwl-wrapper-submit:after {
+  content: " ";
+  display: table;
+}
+.wpwl-wrapper-submit:after {
+  clear: both;
+}
+.wpwl-wrapper-surName,
+.wpwl-wrapper-givenName {
+  width: 50%;
+  float: left;
+}
+.wpwl-hint-surNameError:before,
+.wpwl-hint-givenNameError:before,
+.wpwl-hint-surNameError:after,
+.wpwl-hint-givenNameError:after {
+  content: " ";
+  display: table;
+}
+.wpwl-hint-surNameError:after,
+.wpwl-hint-givenNameError:after {
+  clear: both;
+}
+/* icon for inputs are placed over the input element */
+.wpwl-wrapper {
+  position: relative;
+}
+.wpwl-wrapper > .wpwl-icon {
+  position: absolute;
+  right: .5625em;
+  top: .5625em;
+}
+.wpwl-control {
+  display: block;
+  width: 100%;
+  height: 34px;
+  height: 2.125em;
+  padding: 4px 4px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  -webkit-transition: border-color ease-in-out 0.15s;
+  -o-transition: border-color ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s;
+}
+.wpwl-control:focus {
+  border-color: #66afe9;
+  outline: 0;
+}
+.wpwl-control[disabled],
+.wpwl-control.disabled,
+.wpwl-control[readonly] {
+  cursor: not-allowed;
+  background-color: #eee;
+  opacity: 1;
+}
+.wpwl-control-surName,
+.wpwl-control-givenName {
+  width: 49%;
+  float: left;
+}
+.wpwl-control-givenName {
+  margin-right: 2%;
+}
+.wpwl-text-billing span {
+  cursor: pointer;
+  color: #449D44;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+.wpwl-control-expiry-month,
+.wpwl-control-expiry-year {
+  float: right;
+  width: 50%;
+}
+/* wrapper for jqueryui icons */
+.wpwl-icon {
+  cursor: pointer;
+}
+.wpwl-button {
+  display: inline-block;
+  padding: 8px 16px;
+  font-weight: normal;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+}
+.wpwl-button:focus,
+.wpwl-button:active:focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+.wpwl-button:hover,
+.wpwl-button:focus {
+  color: #333;
+  text-decoration: none;
+}
+.wpwl-button:active {
+  background-image: none;
+  outline: 0;
+}
+.wpwl-button[disabled] {
+  cursor: not-allowed;
+  filter: alpha(opacity=65);
+  opacity: .65;
+}
+.wpwl-button-pay {
+  color: #fff;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+}
+.wpwl-button-pay:hover,
+.wpwl-button-pay:focus,
+.wpwl-button-pay:active {
+  color: #fff;
+  background-color: #449d44;
+  border-color: #398439;
+}
+.wpwl-button-pay:active {
+  background-image: none;
+}
+.wpwl-button-pay[disabled],
+.wpwl-button-pay[disabled]:hover,
+.wpwl-button-pay[disabled]:focus,
+.wpwl-button-pay[disabled]:active {
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+}
+.wpwl-button-error {
+  color: #fff;
+  background-color: #d9534f;
+  border-color: #d43f3a;
+}
+.wpwl-button-error:hover,
+.wpwl-button-error:focus,
+.wpwl-button-error:active {
+  color: #fff;
+  background-color: #c9302c;
+  border-color: #ac2925;
+}
+.wpwl-button-error:active {
+  background-image: none;
+}
+.wpwl-button-error[disabled],
+.wpwl-button-error[disabled]:hover,
+.wpwl-button-error[disabled]:focus,
+.wpwl-button-error[disabled]:active {
+  background-color: #d9534f;
+  border-color: #d43f3a;
+}
+.wpwl-button-brand {
+  min-width: 12em;
+  min-height: 3.33333333em;
+}
+.wpwl-button-brand {
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+}
+.wpwl-button-brand:hover,
+.wpwl-button-brand:focus,
+.wpwl-button-brand:active {
+  color: #333;
+  background-color: #fff;
+  border-color: #adadad;
+}
+.wpwl-button-brand:active {
+  background-image: none;
+}
+.wpwl-button-brand[disabled],
+.wpwl-button-brand[disabled]:hover,
+.wpwl-button-brand[disabled]:focus,
+.wpwl-button-brand[disabled]:active {
+  background-color: #fff;
+  border-color: #ccc;
+}
+.wpwl-button-pay {
+  float: right;
+}
+/* deleting wpwl-img would break current alipay integration as the guide uses it */
+.wpwl-brand,
+.wpwl-img {
+  margin: 0 auto;
+}
+/* Next block of styles is generated by gradle task generateBrandsSprite. Please use this task and do not modify it manually. Also, please do not touch block boundaries markers because it will break generation task. */
+/* beginning of the generated block */
+.wpwl-brand-ADVANTAGE {
+  background-position: 0 0px;
+  width: 54px;
+  height: 11px;
+}
+.wpwl-brand-AFTERPAY {
+  background-position: 0 -15px;
+  width: 198px;
+  height: 39px;
+}
+.wpwl-brand-ALIPAY {
+  background-image: url('../static/alipay.svg'), none;
+  width: 120px;
+  height: 38px;
+}
+.wpwl-brand-ALLPAGO_INVOICE {
+  background-position: 0 -100px;
+  width: 85px;
+  height: 39px;
+}
+.wpwl-brand-AMEX {
+  background-position: 0 -143px;
+  width: 54px;
+  height: 34px;
+}
+.wpwl-brand-ARGENCARD {
+  background-position: 0 -181px;
+  width: 54px;
+  height: 34px;
+}
+.wpwl-brand-ASYACARD {
+  background-position: 0 -219px;
+  width: 54px;
+  height: 13px;
+}
+.wpwl-brand-ATLAS {
+  background-position: 0 -236px;
+  width: 142px;
+  height: 40px;
+}
+.wpwl-brand-AURA {
+  background-position: 0 -280px;
+  width: 54px;
+  height: 27px;
+}
+.wpwl-brand-AXESS {
+  background-position: 0 -311px;
+  width: 54px;
+  height: 16px;
+}
+.wpwl-brand-BARPAY {
+  background-position: 0 -331px;
+  width: 115px;
+  height: 23px;
+}
+.wpwl-brand-BCCARD {
+  background-position: 0 -358px;
+  width: 54px;
+  height: 12px;
+}
+.wpwl-brand-BCMC {
+  background-position: 0 -374px;
+  width: 54px;
+  height: 34px;
+}
+.wpwl-brand-BELK_GIFT_CARD {
+  background-position: 0 -412px;
+  width: 54px;
+  height: 34px;
+}
+.wpwl-brand-BELK_PRIVATE_LABEL {
+  background-position: 0 -450px;
+  width: 54px;
+  height: 34px;
+}
+.wpwl-brand-BITCOIN {
+  background-image: url('../static/bitcoin.svg'), none;
+  width: 102px;
+  height: 39px;
+}
+.wpwl-brand-BOLETO {
+  background-position: 0 -531px;
+  width: 45px;
+  height: 44px;
+}
+.wpwl-brand-BONUS {
+  background-position: 0 -579px;
+  width: 54px;
+  height: 11px;
+}
+.wpwl-brand-BRADESCO {
+  background-position: 0 -594px;
+  width: 153px;
+  height: 47px;
+}
+.wpwl-brand-CABAL {
+  background-position: 0 -645px;
+  width: 54px;
+  height: 34px;
+}
+.wpwl-brand-CARDFINANS {
+  background-position: 0 -683px;
+  width: 54px;
+  height: 11px;
+}
+.wpwl-brand-CARTEBANCAIRE {
+  background-position: 0 -698px;
+  width: 54px;
+  height: 34px;
+}
+.wpwl-brand-CARTEBLEUE {
+  background-position: 0 -736px;
+  width: 49px;
+  height: 22px;
+}
+.wpwl-brand-CASHU {
+  background-position: 0 -762px;
+  width: 124px;
+  height: 32px;
+}
+.wpwl-brand-CASH_ON_DELIVERY {
+  background-position: 0 -798px;
+  width: 131px;
+  height: 36px;
+}
+.wpwl-brand-CENCOSUD {
+  background-position: 0 -838px;
+  width: 54px;
+  height: 34px;
+}
+.wpwl-brand-CHINAUNIONPAY {
+  background-position: 0 -876px;
+  width: 173px;
+  height: 43px;
+}
+.wpwl-brand-CLICKANDBUY {
+  background-position: 0 -923px;
+  width: 139px;
+  height: 37px;
+}
+.wpwl-brand-CMR_FALABELLA {
+  background-position: 0 -964px;
+  width: 54px;
+  height: 27px;
+}
+.wpwl-brand-CORDIAL {
+  background-position: 0 -995px;
+  width: 54px;
+  height: 16px;
+}
+.wpwl-brand-CORDOBESA {
+  background-position: 0 -1015px;
+  width: 50px;
+  height: 28px;
+}
+.wpwl-brand-DANKORT {
+  background-position: 0 -1047px;
+  width: 54px;
+  height: 34px;
+}
+.wpwl-brand-DAOPAY {
+  background-position: 0 -1085px;
+  width: 124px;
+  height: 52px;
+}
+.wpwl-brand-DELTA {
+  background-position: 0 -1141px;
+  width: 54px;
+  height: 34px;
+}
+.wpwl-brand-DINACARD {
+  background-position: 0 -1179px;
+  width: 54px;
+  height: 30px;
+}
+.wpwl-brand-DINEROMAIL {
+  background-position: 0 -1213px;
+  width: 148px;
+  height: 40px;
+}
+.wpwl-brand-DINERS {
+  background-image: url('../static/diners.svg'), none;
+  width: 54px;
+  height: 34px;
+}
+.wpwl-brand-DIRECTDEBIT_LOGO {
+  background-position: 0 -1295px;
+  width: 36px;
+  height: 22px;
+}
+.wpwl-brand-DIRECTDEBIT_SEPA {
+  background-position: 0 -1321px;
+  width: 80px;
+  height: 30px;
+}
+.wpwl-brand-DISCOVER {
+  background-image: url('../static/discover.svg'), none;
+  width: 54px;
+  height: 34px;
+}
+.wpwl-brand-ELO {
+  background-position: 0 -1393px;
+  width: 34px;
+  height: 34px;
+}
+.wpwl-brand-ENTERCASH {
+  background-position: 0 -1431px;
+  width: 130px;
+  height: 25px;
+}
+.wpwl-brand-EPS {
+  background-position: 0 -1460px;
+  width: 61px;
+  height: 40px;
+}
+.wpwl-brand-EURO6000 {
+  background-position: 0 -1504px;
+  width: 54px;
+  height: 34px;
+}
+.wpwl-brand-GIROPAY {
+  background-position: 0 -1542px;
+  width: 93px;
+  height: 43px;
+}
+.wpwl-brand-HIPERCARD {
+  background-position: 0 -1589px;
+  width: 54px;
+  height: 24px;
+}
+.wpwl-brand-IDEAL {
+  background-position: 0 -1617px;
+  width: 49px;
+  height: 44px;
+}
+.wpwl-brand-IKANOOI_FI {
+  background-position: 0 -1665px;
+  width: 70px;
+  height: 38px;
+}
+.wpwl-brand-IKANOOI_NO {
+  background-position: 0 -1707px;
+  width: 70px;
+  height: 38px;
+}
+.wpwl-brand-IKANOOI_SE {
+  background-position: 0 -1749px;
+  width: 70px;
+  height: 38px;
+}
+.wpwl-brand-IK_PRIVATE_LABEL {
+  background-position: 0 -1791px;
+  width: 54px;
+  height: 34px;
+}
+.wpwl-brand-INICIS {
+  background-position: 0 -1829px;
+  width: 79px;
+  height: 40px;
+}
+.wpwl-brand-INTERAC_ONLINE {
+  background-position: 0 -1873px;
+  width: 66px;
+  height: 38px;
+}
+.wpwl-brand-INVOICE {
+  background-position: 0 -1915px;
+  width: 115px;
+  height: 43px;
+}
+.wpwl-brand-IPARA {
+  background-position: 0 -1962px;
+  width: 93px;
+  height: 32px;
+}
+.wpwl-brand-IUPAY {
+  background-position: 0 -1998px;
+  width: 85px;
+  height: 42px;
+}
+.wpwl-brand-JCB {
+  background-image: url('../static/jcb.svg'), none;
+  width: 54px;
+  height: 34px;
+}
+.wpwl-brand-KLARNA_CHECKOUT {
+  background-position: 0 -2082px;
+  width: 100px;
+  height: 27px;
+}
+.wpwl-brand-KLARNA_INSTALLMENTS {
+  background-position: 0 -2113px;
+  width: 200px;
+  height: 54px;
+}
+.wpwl-brand-KLARNA_INVOICE {
+  background-position: 0 -2171px;
+  width: 200px;
+  height: 54px;
+}
+.wpwl-brand-KLARNA_PAYMENTS_BILLPAY {
+  background-position: 0 -2229px;
+  width: 101px;
+  height: 18px;
+}
+.wpwl-brand-KLARNA_PAYMENTS_PAYLATER {
+  background-position: 0 -2251px;
+  width: 60px;
+  height: 40px;
+}
+.wpwl-brand-KLARNA_PAYMENTS_SLICEIT {
+  background-position: 0 -2295px;
+  width: 60px;
+  height: 40px;
+}
+.wpwl-brand-LASER {
+  background-position: 0 -2339px;
+  width: 54px;
+  height: 34px;
+}
+.wpwl-brand-LYFPAY {
+  background-position: 0 -2377px;
+  width: 130px;
+  height: 40px;
+}
+.wpwl-brand-MADA {
+  background-position: 0 -2421px;
+  width: 54px;
+  height: 18px;
+}
+.wpwl-brand-MAESTRO {
+  background-position: 0 -2443px;
+  width: 54px;
+  height: 35px;
+}
+.wpwl-brand-MAGNA {
+  background-position: 0 -2482px;
+  width: 54px;
+  height: 32px;
+}
+.wpwl-brand-MASTER {
+  background-image: url('../static/master.svg'), none;
+  width: 54px;
+  height: 35px;
+}
+.wpwl-brand-MASTERDEBIT {
+  background-position: 0 -2557px;
+  width: 54px;
+  height: 34px;
+}
+.wpwl-brand-MASTERPASS {
+  background-position: 0 -2595px;
+  width: 139px;
+  height: 33px;
+}
+.wpwl-brand-MASTERPASS_CZ {
+  background-position: 0 -2632px;
+  width: 145px;
+  height: 34px;
+}
+.wpwl-brand-MASTERPASS_DE {
+  background-position: 0 -2670px;
+  width: 145px;
+  height: 34px;
+}
+.wpwl-brand-MASTERPASS_EN {
+  background-position: 0 -2708px;
+  width: 139px;
+  height: 33px;
+}
+.wpwl-brand-MASTERPASS_ES {
+  background-position: 0 -2745px;
+  width: 145px;
+  height: 34px;
+}
+.wpwl-brand-MASTERPASS_FR {
+  background-position: 0 -2783px;
+  width: 145px;
+  height: 34px;
+}
+.wpwl-brand-MASTERPASS_IT {
+  background-position: 0 -2821px;
+  width: 145px;
+  height: 34px;
+}
+.wpwl-brand-MASTERPASS_NL {
+  background-position: 0 -2859px;
+  width: 145px;
+  height: 34px;
+}
+.wpwl-brand-MASTERPASS_PO {
+  background-position: 0 -2897px;
+  width: 145px;
+  height: 34px;
+}
+.wpwl-brand-MASTERPASS_PT {
+  background-position: 0 -2935px;
+  width: 145px;
+  height: 34px;
+}
+.wpwl-brand-MASTERPASS_RO {
+  background-position: 0 -2973px;
+  width: 145px;
+  height: 34px;
+}
+.wpwl-brand-MASTERPASS_RU {
+  background-position: 0 -3011px;
+  width: 145px;
+  height: 34px;
+}
+.wpwl-brand-MASTERPASS_TR {
+  background-position: 0 -3049px;
+  width: 145px;
+  height: 34px;
+}
+.wpwl-brand-MAXIMUM {
+  background-position: 0 -3087px;
+  width: 54px;
+  height: 19px;
+}
+.wpwl-brand-MAZOOMA {
+  background-position: 0 -3110px;
+  width: 132px;
+  height: 26px;
+}
+.wpwl-brand-MBWAY {
+  background-position: 0 -3140px;
+  width: 130px;
+  height: 40px;
+}
+.wpwl-brand-MERCADOLIVRE {
+  background-position: 0 -3184px;
+  width: 54px;
+  height: 34px;
+}
+.wpwl-brand-MONEYBOOKERS {
+  background-position: 0 -3222px;
+  width: 101px;
+  height: 44px;
+}
+.wpwl-brand-MONEYSAFE {
+  background-position: 0 -3270px;
+  width: 95px;
+  height: 40px;
+}
+.wpwl-brand-MOPAY {
+  background-position: 0 -3314px;
+  width: 124px;
+  height: 51px;
+}
+.wpwl-brand-NARANJA {
+  background-position: 0 -3369px;
+  width: 54px;
+  height: 34px;
+}
+.wpwl-brand-NATIVA {
+  background-position: 0 -3407px;
+  width: 54px;
+  height: 34px;
+}
+.wpwl-brand-NETELLER {
+  background-position: 0 -3445px;
+  width: 130px;
+  height: 32px;
+}
+.wpwl-brand-ONECARD {
+  background-position: 0 -3481px;
+  width: 39px;
+  height: 40px;
+}
+.wpwl-brand-ONEY_CARD {
+  background-position: 0 -3525px;
+  width: 130px;
+  height: 40px;
+}
+.wpwl-brand-ONEY_GIFTCARD {
+  background-position: 0 -3569px;
+  width: 130px;
+  height: 40px;
+}
+.wpwl-brand-OXXO {
+  background-position: 0 -3613px;
+  width: 85px;
+  height: 39px;
+}
+.wpwl-brand-PASTEANDPAY_V {
+  background-position: 0 -3656px;
+  width: 105px;
+  height: 30px;
+}
+.wpwl-brand-PAYBOX {
+  background-position: 0 -3690px;
+  width: 100px;
+  height: 40px;
+}
+.wpwl-brand-PAYDIREKT {
+  background-position: 0 -3734px;
+  width: 130px;
+  height: 45px;
+}
+.wpwl-brand-PAYFAIR {
+  background-position: 0 -3783px;
+  width: 54px;
+  height: 34px;
+}
+.wpwl-brand-PAYOLUTION_ELV {
+  background-position: 0 -3821px;
+  width: 154px;
+  height: 18px;
+}
+.wpwl-brand-PAYOLUTION_INS {
+  background-position: 0 -3843px;
+  width: 154px;
+  height: 18px;
+}
+.wpwl-brand-PAYOLUTION_INVOICE {
+  background-position: 0 -3865px;
+  width: 154px;
+  height: 18px;
+}
+.wpwl-brand-PAYPAL_CONTINUE {
+  background-position: 0 -3887px;
+  width: 112px;
+  height: 35px;
+}
+.wpwl-brand-PAYPAL {
+  background-image: url('../static/paypal.svg'), none;
+  width: 112px;
+  height: 35px;
+}
+.wpwl-brand-PAYSAFECARD {
+  background-position: 0 -3965px;
+  width: 130px;
+  height: 23px;
+}
+.wpwl-brand-PAYTRAIL {
+  background-position: 0 -3992px;
+  width: 40px;
+  height: 40px;
+}
+.wpwl-brand-PF_KARTE_DIRECT {
+  background-position: 0 -4036px;
+  width: 79px;
+  height: 50px;
+}
+.wpwl-brand-POLI {
+  background-position: 0 -4090px;
+  width: 130px;
+  height: 32px;
+}
+.wpwl-brand-POSTEPAY {
+  background-position: 0 -4126px;
+  width: 50px;
+  height: 15px;
+}
+.wpwl-brand-PREPAYMENT {
+  background-position: 0 -4145px;
+  width: 54px;
+  height: 30px;
+}
+.wpwl-brand-PRESTO {
+  background-position: 0 -4179px;
+  width: 54px;
+  height: 21px;
+}
+.wpwl-brand-PRZELEWY {
+  background-position: 0 -4204px;
+  width: 104px;
+  height: 40px;
+}
+.wpwl-brand-QIWI {
+  background-position: 0 -4248px;
+  width: 26px;
+  height: 40px;
+}
+.wpwl-brand-QOOQO {
+  background-position: 0 -4292px;
+  width: 135px;
+  height: 53px;
+}
+.wpwl-brand-RATENKAUF {
+  background-position: 0 -4349px;
+  width: 130px;
+  height: 28px;
+}
+.wpwl-brand-RUPAY {
+  background-position: 0 -4381px;
+  width: 54px;
+  height: 16px;
+}
+.wpwl-brand-SADAD {
+  background-position: 0 -4401px;
+  width: 130px;
+  height: 40px;
+}
+.wpwl-brand-SERVIRED {
+  background-position: 0 -4445px;
+  width: 54px;
+  height: 34px;
+}
+.wpwl-brand-SHETAB {
+  background-position: 0 -4483px;
+  width: 57px;
+  height: 40px;
+}
+.wpwl-brand-SIBS_MULTIBANCO {
+  background-position: 0 -4527px;
+  width: 70px;
+  height: 40px;
+}
+.wpwl-brand-SKRILL {
+  background-position: 0 -4571px;
+  width: 101px;
+  height: 44px;
+}
+.wpwl-brand-SOFORTUEBERWEISUNG {
+  background-position: 0 -4619px;
+  width: 96px;
+  height: 64px;
+}
+.wpwl-brand-TARJETASHOPPING {
+  background-position: 0 -4687px;
+  width: 54px;
+  height: 34px;
+}
+.wpwl-brand-TENPAY {
+  background-position: 0 -4725px;
+  width: 75px;
+  height: 40px;
+}
+.wpwl-brand-TRUSTLY {
+  background-position: 0 -4769px;
+  width: 128px;
+  height: 40px;
+}
+.wpwl-brand-TRUSTPAY_VA {
+  background-position: 0 -4813px;
+  width: 130px;
+  height: 35px;
+}
+.wpwl-brand-UKASH {
+  background-position: 0 -4852px;
+  width: 115px;
+  height: 43px;
+}
+.wpwl-brand-UNIONPAY {
+  background-position: 0 -4899px;
+  width: 53px;
+  height: 34px;
+}
+.wpwl-brand-UNIONPAY_SMS {
+  background-position: 0 -4937px;
+  width: 54px;
+  height: 34px;
+}
+.wpwl-brand-VISA {
+  background-image: url('../static/visa.svg'), none;
+  width: 65px;
+  height: 20px;
+}
+.wpwl-brand-VISADEBIT {
+  background-position: 0 -4999px;
+  width: 65px;
+  height: 20px;
+}
+.wpwl-brand-VISAELECTRON {
+  background-image: url('../static/visaelectron.svg'), none;
+  width: 65px;
+  height: 20px;
+}
+.wpwl-brand-VPAY {
+  background-position: 0 -5047px;
+  width: 26px;
+  height: 28px;
+}
+.wpwl-brand-VSTATION_V {
+  background-position: 0 -5079px;
+  width: 105px;
+  height: 30px;
+}
+.wpwl-brand-WORLD {
+  background-position: 0 -5113px;
+  width: 54px;
+  height: 23px;
+}
+.wpwl-brand-YANDEX {
+  background-position: 0 -5140px;
+  width: 100px;
+  height: 40px;
+}
+.wpwl-brand-YANDEX_CARD {
+  background-position: 0 -5184px;
+  width: 130px;
+  height: 24px;
+}
+.wpwl-brand-YANDEX_RU {
+  background-position: 0 -5212px;
+  width: 100px;
+  height: 40px;
+}
+.wpwl-brand-whereIsMyCVV-AMEX {
+  background-image: url('../static/american_express.svg'), none;
+  width: 58px;
+  height: 34px;
+}
+.wpwl-brand-whereIsMyCVV {
+  background-position: 0 -5294px;
+  width: 58px;
+  height: 34px;
+}
+.wpwl-brand-GENERIC {
+  background-image: url('../static/generic.svg'), none;
+}
+/* end of the generated block */
+.img-responsive {
+  width: 100%;
+  height: auto;
+}
+.wpwl-message {
+  max-width: 30em;
+  margin: 0 auto 24px auto;
+  padding: 12px 36px 12px 12px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+.wpwl-close {
+  /* layout */
+  -webkit-appearance: none;
+  padding: 0;
+  cursor: pointer;
+  background: 0 0;
+  border: 0;
+  color: inherit;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1;
+  text-shadow: 0 1px 0 #fff;
+  filter: alpha(opacity=20);
+  opacity: .2;
+  /* position */
+  float: right;
+  position: relative;
+  top: -2px;
+  right: -21px;
+}
+.wpwl-has-success {
+  color: #3c763d;
+  border-color: #3c763d;
+}
+.wpwl-has-info {
+  color: #31708f;
+  border-color: #31708f;
+}
+.wpwl-has-warning {
+  color: #8a6d3b;
+  border-color: #8a6d3b;
+}
+.wpwl-has-error {
+  color: #a94442;
+  border-color: #a94442;
+}
+.wpwl-hint {
+  margin-top: 2px;
+}
+.wpwl-has-success + .wpwl-hint {
+  color: #3c763d;
+}
+.wpwl-has-info + .wpwl-hint {
+  color: #31708f;
+}
+.wpwl-has-warning + .wpwl-hint {
+  color: #8a6d3b;
+}
+.wpwl-has-error + .wpwl-hint,
+.wpwl-has-error + .wpwl-hint + .wpwl-hint,
+.wpwl-has-error + input + .wpwl-hint {
+  color: #a94442;
+}
+.wpwl-target {
+  display: none;
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+}
+.wpwl-popover {
+  display: none;
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 2.125em;
+  padding: 8px 16px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+.wpwl-popover-in {
+  display: block;
+}
+.wpwl-popover > .wpwl-popover-content {
+  margin: .25em 0;
+}
+.wpwl-popover > .wpwl-arrow,
+.wpwl-popover > .wpwl-arrow:after {
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+}
+.wpwl-popover > .wpwl-arrow {
+  left: 50%;
+  border-width: 10px;
+}
+.wpwl-popover > .wpwl-arrow:after {
+  content: "";
+  border-width: 9px;
+  margin-left: -9px;
+}
+.wpwl-popover.wpwl-top > .wpwl-arrow {
+  bottom: -10px;
+  margin-left: -10px;
+  border-top-color: #ccc;
+  border-bottom-width: 0;
+}
+.wpwl-popover.wpwl-top > .wpwl-arrow:after {
+  bottom: 1px;
+  margin-left: -9px;
+  content: "";
+  border-top-color: #fff;
+  border-bottom-width: 0;
+}
+.wpwl-popover.wpwl-bottom > .wpwl-arrow {
+  top: -10px;
+  margin-left: -10px;
+  border-bottom-color: #ccc;
+  border-top-width: 0;
+}
+.wpwl-popover.wpwl-bottom > .wpwl-arrow:after {
+  top: 1px;
+  margin-left: -9px;
+  content: "";
+  border-bottom-color: #fff;
+  border-top-width: 0;
+}
+.wpwl-label-brand,
+.wpwl-wrapper-brand,
+.wpwl-wrapper-registration {
+  float: left;
+}
+.wpwl-label-brand,
+.wpwl-wrapper-brand,
+.wpwl-wrapper-registration-registrationId,
+.wpwl-wrapper-registration-brand,
+.wpwl-wrapper-registration-number,
+.wpwl-wrapper-registration-expiry {
+  padding-right: 24px;
+}
+.wpwl-brand-card {
+  float: right;
+}
+.wpwl-wrapper-registration-registrationId {
+  width: 16.66666667%;
+}
+.wpwl-wrapper-registration-brand {
+  width: 33.33333333%;
+}
+.wpwl-wrapper-registration-details {
+  width: 50%;
+}
+.wpwl-wrapper-registration-cvv {
+  width: 100%;
+}
+.wpwl-wrapper-required-registration-holder {
+  width: 100%;
+}
+@media (min-width: 480px) {
+  .wpwl-label,
+  .wpwl-wrapper,
+  .wpwl-brand-card {
+    float: left;
+  }
+  .wpwl-label {
+    padding-right: 24px;
+    width: 33.33333333%;
+  }
+  .wpwl-wrapper {
+    width: 66.66666667%;
+  }
+  .wpwl-wrapper-brand,
+  .wpwl-brand-card {
+    width: 33.33333333%;
+  }
+  .wpwl-wrapper-submit {
+    width: 100%;
+  }
+  .wpwl-wrapper-registration-registrationId {
+    width: 8.33333333%;
+  }
+  .wpwl-wrapper-registration-brand {
+    width: 16.66666667%;
+  }
+  .wpwl-wrapper-registration-details {
+    width: 58.33333333%;
+    padding-right: 24px;
+  }
+  .wpwl-wrapper-registration-cvv {
+    width: 16.66666667%;
+  }
+  .wpwl-wrapper-required-registration-holder {
+    width: 50%;
+  }
+  .wpwl-control-expiry-month,
+  .wpwl-control-expiry-year {
+    float: left;
+    width: 33.33333333%;
+  }
+}
+.wpwl-clearfix:before,
+.wpwl-clearfix:after {
+  content: " ";
+  display: table;
+}
+.wpwl-clearfix:after {
+  clear: both;
+}
+.wpwl-invisible {
+  visibility: hidden;
+}
+.wpwl-hidden {
+  display: none !important;
+}
+.wpwl-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
