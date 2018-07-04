@@ -951,20 +951,224 @@ ul.wpwl-control-autocomplete-menu {
 }
 .wpwl-container {
   position: relative;
+  margin: 0;
+  padding: 0;
+  height: auto;
+  width: auto;
+}
+.wpwl-container:last-child {
+  margin-bottom: 0;
 }
 .wpwl-form {
-  margin: 0 auto 24px auto;
+  margin: 0 auto;
   max-width: 30em;
+}
+.wpwl-form .wpwl-apple-pay-button {
+  color: #333;
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  font-weight: normal;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  user-select: none;
+  background: #fff url('../static/apple-pay.svg') center center no-repeat !important;
+  background-size: 100px 30px !important;
+}
+
+.wpwl-form .wpwl-apple-pay-button,
+.wpwl-form .wpwl-button-brand {
+  height: 54px;
+  width: 100%;
+  border-radius: 3px;
+  box-shadow: 0 0 0 0 transparent inset;
+  transition: color 0.1s ease, border-color 0.1s ease;
+}
+.wpwl-form .wpwl-apple-pay-button:hover,
+.wpwl-form .wpwl-button-brand:hover {
+  color: rgba(0, 0, 0, 0.95);
+  border-color: rgb(102, 175, 233);
+  background: #ffffff;
+  box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.35) inset;
 }
 .wpwl-form-registrations {
   max-width: 40em;
+}
+.wpwl-form-card,
+.wpwl-form-directDebit {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+.wpwl-form-card .wpwl-label,
+.wpwl-form-directDebit .wpwl-label {
+  width: auto;
 }
 .wpwl-group {
   margin-bottom: 12px;
   width: 100%;
 }
+.wpwl-form-card .wpwl-group,
+.wpwl-form-directDebit .wpwl-group {
+  padding: 0.45em;
+  margin: 0;
+}
+.wpwl-form-card .wpwl-group,
+.wpwl-form-directDebit .wpwl-group {
+  display: none;
+}
+.wpwl-form-card .wpwl-wrapper-cardHolder .wpwl-control-empty,
+.wpwl-form-directDebit .wpwl-wrapper-cardHolder .wpwl-control-empty {
+  width: 100%;
+}
+.wpwl-form-card .wpwl-wrapper-cardHolder .wpwl-control-empty:first-child,
+.wpwl-form-directDebit .wpwl-wrapper-cardHolder .wpwl-control-empty:first-child {
+  margin-bottom: 0.8em;
+}
+.wpwl-form-card .wpwl-sup-wrapper,
+.wpwl-form-directDebit .wpwl-sup-wrapper {
+  margin-bottom: 0.8em;
+}
+.wpwl-form-card .wpwl-sup-wrapper:last-child,
+.wpwl-form-directDebit .wpwl-sup-wrapper:last-child {
+  margin-bottom: 0;
+}
+.wpwl-form-card .wpwl-group-cardNumber,
+.wpwl-form-directDebit .wpwl-group-cardNumber {
+  width: 100%;
+}
+.wpwl-form-card .wpwl-wrapper,
+.wpwl-form-directDebit .wpwl-wrapper {
+  width: 100%;
+  text-align: left;
+}
+.wpwl-form-card .wpwl-hint,
+.wpwl-form-directDebit .wpwl-hint {
+  font-size: 13px;
+}
+.wpwl-form-card .wpwl-group-expiry,
+.wpwl-form-card .wpwl-group-cvv,
+.wpwl-form-directDebit .wpwl-group-expiry,
+.wpwl-form-directDebit .wpwl-group-cvv {
+  width: 50%;
+}
+.wpwl-form-card input.wpwl-control,
+.wpwl-form-card input.wpwl-input,
+.wpwl-form-directDebit input.wpwl-control,
+.wpwl-form-directDebit input.wpwl-input {
+  -webkit-appearance: none;
+}
+.wpwl-form-card .wpwl-control,
+.wpwl-form-card .wpwl-input,
+.wpwl-form-directDebit .wpwl-control,
+.wpwl-form-directDebit .wpwl-input {
+  color: #333333;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+  height: 42px;
+  line-height: 22px;
+  padding: 0.2em 1em 0.3em;
+  font-size: 16px;
+  background: #ffffff;
+  color: rgba(0, 0, 0, 0.87);
+  border-radius: 3px;
+  box-shadow: 0 0 0 0 transparent inset;
+  transition: color 0.1s ease, border-color 0.1s ease;
+  border: 1px solid #ccc;
+  font-smoothing: initial;
+  -webkit-font-smoothing: initial;
+  font-family: "Avenir Next", Avenir, -apple-system, BlinkMacSystemFont, Roboto, Helvetica, sans-serif;
+  text-rendering: optimizeLegibility;
+}
+.wpwl-form-card .wpwl-control:focus,
+.wpwl-form-card .wpwl-input:focus,
+.wpwl-form-directDebit .wpwl-control:focus,
+.wpwl-form-directDebit .wpwl-input:focus {
+  color: rgba(0, 0, 0, 0.95);
+  border-color: #66afe9;
+  background: #ffffff;
+  box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.35) inset;
+}
+.wpwl-form-card .wpwl-label,
+.wpwl-form-directDebit .wpwl-label {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+.wpwl-form-card .wpwl-brand-card,
+.wpwl-form-directDebit .wpwl-brand-card {
+  position: absolute;
+  right: 9px;
+  top: 9px;
+  width: 38px;
+  height: 24px;
+  background-size: contain;
+  background-position: center;
+}
+.wpwl-form-card .wpwl-icon,
+.wpwl-form-directDebit .wpwl-icon {
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  top: 11px;
+}
+.wpwl-form-card .wpwl-wrapper-cardNumber,
+.wpwl-form-directDebit .wpwl-wrapper-cardNumber {
+  position: relative;
+}
+.wpwl-form-card .wpwl-group-submit,
+.wpwl-form-directDebit .wpwl-group-submit {
+  margin-bottom: 0;
+  text-align: center;
+}
+.wpwl-form-card .wpwl-button-pay,
+.wpwl-form-directDebit .wpwl-button-pay {
+  float: none;
+  font-weight: 500;
+  font-size: 16px;
+  height: 42px;
+  color: white;
+  opacity: 0.9;
+  display: inline-block;
+  border-radius: 3px;
+  box-sizing: border-box;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  border: none;
+  width: 100%;
+  background: #00796b;
+  transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
+}
+.wpwl-form-card .wpwl-button-pay[disabled], .wpwl-form-card .wpwl-button-pay[disabled]:hover, .wpwl-form-card .wpwl-button-pay[disabled]:focus, .wpwl-form-card .wpwl-button-pay[disabled]:active,
+.wpwl-form-directDebit .wpwl-button-pay[disabled],
+.wpwl-form-directDebit .wpwl-button-pay[disabled]:hover,
+.wpwl-form-directDebit .wpwl-button-pay[disabled]:focus,
+.wpwl-form-directDebit .wpwl-button-pay[disabled]:active {
+  background: #00796b;
+  border: none;
+  opacity: 0.65 !important;
+  pointer-events: none;
+}
+.wpwl-form-card .wpwl-button-pay:hover, .wpwl-form-card .wpwl-button-pay:active,
+.wpwl-form-directDebit .wpwl-button-pay:hover,
+.wpwl-form-directDebit .wpwl-button-pay:active {
+  opacity: 1;
+  box-shadow: 0 0 0 1px transparent inset, 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
+}
+@media (max-device-width: 768px) {
+  .wpwl-form-card .wpwl-button-pay,
+.wpwl-form-directDebit .wpwl-button-pay {
+    height: 54px;
+    font-size: 1.5em;
+  }
+}
 .wpwl-group-button {
   margin-bottom: 0;
+  padding: 0.45em;
 }
 .wpwl-wrapper-billing input,
 .wpwl-wrapper-billing select {
@@ -1190,6 +1394,11 @@ ul.wpwl-control-autocomplete-menu {
 .wpwl-brand,
 .wpwl-img {
   margin: 0 auto;
+}
+.wpwl-brand {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 /* Next block of styles is generated by gradle task generateBrandsSprite. Please use this task and do not modify it manually. Also, please do not touch block boundaries markers because it will break generation task. */
 /* beginning of the generated block */
@@ -1906,37 +2115,61 @@ ul.wpwl-control-autocomplete-menu {
 .wpwl-brand-GENERIC {
   background-image: url('../static/generic.svg'), none;
 }
-/* end of the generated block */
+.wpwl-container-virtualAccount-APPLEPAY .wpwl-form {
+  padding: 0.45em;
+}
 .img-responsive {
   width: 100%;
   height: auto;
 }
 .wpwl-message {
-  max-width: 30em;
-  margin: 0 auto 24px auto;
-  padding: 12px 36px 12px 12px;
-  border: 1px solid transparent;
-  border-radius: 4px;
+  position: relative;
+  margin: 0.45em auto;
+  max-width: 29.1em;
+  border: none;
+  padding: 0.8em;
+  border-radius: 3px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  color: #212b35;
+}
+@media (max-width: 30em) {
+  .wpwl-message {
+    margin: 0.45em;
+  }
 }
 .wpwl-close {
   /* layout */
+  visibility: hidden;
+  font-size: 22px;
+  line-height: 22px;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  font-weight: 500;
+  color: #373737;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.2s;
   -webkit-appearance: none;
   padding: 0;
-  cursor: pointer;
   background: 0 0;
   border: 0;
-  color: inherit;
-  font-size: 21px;
-  font-weight: 700;
-  line-height: 1;
   text-shadow: 0 1px 0 #fff;
-  filter: alpha(opacity=20);
-  opacity: .2;
   /* position */
+  position: absolute;
   float: right;
-  position: relative;
-  top: -2px;
   right: -21px;
+  top: 8px;
+  right: 8px;
+}
+.wpwl-close:hover {
+  opacity: 1;
+}
+.wpwl-close::before {
+  position: absolute;
+  visibility: visible;
+  content: '×';
 }
 .wpwl-has-success {
   color: #3c763d;
@@ -1949,10 +2182,16 @@ ul.wpwl-control-autocomplete-menu {
 .wpwl-has-warning {
   color: #8a6d3b;
   border-color: #8a6d3b;
+  background-color: #fcf1cd;
+  box-shadow: inset 0 3px 0 0 #eec200, inset 0 0 0 0 transparent,
+  0 0 0 1px rgba(63, 63, 68, 0.05), 0 1px 3px 0 rgba(63, 63, 68, 0.15);
 }
 .wpwl-has-error {
   color: #a94442;
   border-color: #a94442;
+  background-color: #fbeae5;
+  box-shadow: inset 0 3px 0 0 #ed6347, inset 0 0 0 0 transparent,
+  0 0 0 1px rgba(63, 63, 68, 0.05), 0 1px 3px 0 rgba(63, 63, 68, 0.15);
 }
 .wpwl-hint {
   margin-top: 2px;
