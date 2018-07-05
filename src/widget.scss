@@ -686,17 +686,25 @@ select.wpwl-input {
 .wpwl-has-warning {
   color: #8a6d3b;
   border-color: #8a6d3b;
-  background-color: #fcf1cd;
-  box-shadow: inset 0 3px 0 0 #eec200, inset 0 0 0 0 transparent,
-  0 0 0 1px rgba(63, 63, 68, 0.05), 0 1px 3px 0 rgba(63, 63, 68, 0.15);
 }
 
 .wpwl-has-error {
   color: #a94442;
   border-color: #a94442;
-  background-color: #fbeae5;
-  box-shadow: inset 0 3px 0 0 #ed6347, inset 0 0 0 0 transparent,
-  0 0 0 1px rgba(63, 63, 68, 0.05), 0 1px 3px 0 rgba(63, 63, 68, 0.15);
+}
+
+.wpwl-message {
+  &.wpwl-has-warning {
+    background-color: #fcf1cd;
+    box-shadow: inset 0 3px 0 0 #eec200, inset 0 0 0 0 transparent,
+    0 0 0 1px rgba(63, 63, 68, 0.05), 0 1px 3px 0 rgba(63, 63, 68, 0.15);
+  }
+
+  &.wpwl-has-error {
+    background-color: #fbeae5;
+    box-shadow: inset 0 3px 0 0 #ed6347, inset 0 0 0 0 transparent,
+    0 0 0 1px rgba(63, 63, 68, 0.05), 0 1px 3px 0 rgba(63, 63, 68, 0.15);
+  }
 }
 
 .wpwl-hint {
