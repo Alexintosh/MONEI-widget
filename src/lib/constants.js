@@ -12,7 +12,7 @@ export const defaultParams = {
   errorMessages: {
     email: 'Invalid email'
   },
-  style: 'plain',
+  style: false,
   spinner: {
     lines: 8,
     width: 3,
