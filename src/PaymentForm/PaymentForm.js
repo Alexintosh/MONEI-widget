@@ -256,7 +256,6 @@ class PaymentForm extends Component {
   };
 
   componentDidMount() {
-    console.log(this.props)
     if (this.props.checkoutId) {
       this.api = new APIHandler(this.props);
       this.injectPaymentScript(this.props.checkoutId);
