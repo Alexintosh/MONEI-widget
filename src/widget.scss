@@ -107,6 +107,13 @@ ul.wpwl-control-autocomplete-menu {
   }
 }
 
+.wpwl-group,
+div.wpwl-form-registrations .wpwl-wrapper-submit{
+  padding: 0.45em;
+  margin: 0;
+  width: 100%;
+}
+
 .wpwl-form-card,
 .wpwl-form-directDebit {
   display: flex;
@@ -115,12 +122,6 @@ ul.wpwl-control-autocomplete-menu {
 
   .wpwl-label {
     width: auto;
-  }
-
-  .wpwl-group {
-    padding: 0.45em;
-    margin: 0;
-    width: 100%;
   }
 
   .wpwl-group-brand {
@@ -235,7 +236,6 @@ ul.wpwl-control-autocomplete-menu {
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  width: 100px;
   height: 34px;
 }
 
@@ -250,7 +250,7 @@ ul.wpwl-control-autocomplete-menu {
 }
 
 .wpwl-group-registration {
-  padding: 6px;
+  // padding: 6px;
   border: 1px solid transparent;
   min-height: 49px;
   -webkit-transition: border-color ease-in-out 0.15s;
@@ -263,6 +263,8 @@ ul.wpwl-control-autocomplete-menu {
 }
 
 .wpwl-registration {
+  display: flex;
+  justify-content: space-around;
   cursor: pointer;
 }
 
@@ -605,8 +607,6 @@ select.wpwl-input {
 
 .wpwl-brand-VISA {
   background-image: url('static/visa.svg'), none;
-  width: 65px;
-  height: 20px;
 }
 
 .wpwl-brand-VISADEBIT {
@@ -809,27 +809,12 @@ select.wpwl-input {
   border-top-width: 0;
 }
 
-.wpwl-label-brand,
-.wpwl-wrapper-brand,
-.wpwl-wrapper-registration {
-  float: left;
-}
-
-.wpwl-label-brand,
-.wpwl-wrapper-brand,
-.wpwl-wrapper-registration-registrationId,
-.wpwl-wrapper-registration-brand,
-.wpwl-wrapper-registration-number,
-.wpwl-wrapper-registration-expiry {
-  padding-right: 24px;
-}
-
 .wpwl-brand-card {
   float: right;
 }
 
 .wpwl-wrapper-registration-registrationId {
-  width: 16.66666667%;
+  display: none;
 }
 
 .wpwl-wrapper-registration-brand {
@@ -837,6 +822,8 @@ select.wpwl-input {
 }
 
 .wpwl-wrapper-registration-details {
+  display: flex;
+  justify-content: space-around;
   width: 50%;
 }
 
@@ -848,6 +835,26 @@ select.wpwl-input {
   width: 100%;
 }
 
+.wpwl-wrapper-registration-details {
+  display: flex;
+  justify-content: right;
+  flex-wrap: wrap;
+}
+.wpwl-wrapper-registration-number,
+.wpwl-wrapper-registration-expiry {
+  width: 50%;
+}
+.wpwl-wrapper-registration-holder {
+  width: 100%;
+}
+.wpwl-wrapper-registration-cvv {
+  .wpwl-control-cvv {
+    padding: 0.2em 0.1em 0.4em;
+  }
+  .wpwl-hint-cvvError {
+    display: none;
+  }
+}
 @media (min-width: 480px) {
   .wpwl-label,
   .wpwl-wrapper,
@@ -868,18 +875,11 @@ select.wpwl-input {
   .wpwl-wrapper-submit {
     width: 100%;
   }
-  .wpwl-wrapper-registration-registrationId {
-    width: 8.33333333%;
-  }
   .wpwl-wrapper-registration-brand {
     width: 16.66666667%;
   }
   .wpwl-wrapper-registration-details {
     width: 58.33333333%;
-    padding-right: 24px;
-  }
-  .wpwl-wrapper-registration-cvv {
-    width: 16.66666667%;
   }
   .wpwl-wrapper-required-registration-holder {
     width: 50%;
@@ -890,7 +890,9 @@ select.wpwl-input {
     width: 33.33333333%;
   }
 }
-
+.wpwl-wrapper-registration-cvv {
+  width: 16.66666667%;
+}
 .wpwl-clearfix:before,
 .wpwl-clearfix:after {
   content: ' ';
