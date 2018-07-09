@@ -42,18 +42,8 @@ class PaymentForm extends Component {
         height: '100%'
       };
     }
-    if (props.checkoutId) {
-      this.configureOneClickPayment();
-    }
     this.state = {
       isTestMode: props.test
-    };
-  }
-
-  configureOneClickPayment() {
-    window.wpwlOptions.registrations = {
-      requireCvv: true,
-      hideInitialPaymentForms: true
     };
   }
 
@@ -266,7 +256,6 @@ class PaymentForm extends Component {
   };
 
   componentDidMount() {
-    console.log(this.props)
     if (this.props.checkoutId) {
       this.api = new APIHandler(this.props);
       this.injectPaymentScript(this.props.checkoutId);
