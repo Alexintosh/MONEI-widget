@@ -89,26 +89,6 @@
        data-merchant-invoice-id="1234566"
        data-submit-text="Pay {amount}">
   </div>
-<!--
-  Just for test propose
-  I'll move it to the right place when I finish the doc step
-  data-checkout-id is still hardcoded
--->
-  <h3>One-Click payment</h3>
-
-  <div class="monei-widget"
-       data-token="eyJ1IjoiZ29vZ2xlLW9hdXRoMnwxMTQxOTk4MTg4MDY3NDg4MjkzNTIiLCJjIjoiOGE4Mjk0MTg1OGUyZGJlOTAxNThlMmVlMzM1ZjAwNDciLCJ0Ijp0cnVlfQ"
-       data-redirect-url="https://static.monei.net/invoice.html"
-       data-name="My product"
-       data-description="Product description"
-       data-amount="100"
-       data-currency="eur"
-       data-checkout-text="Pay {amount}"
-       data-merchant-invoice-id="1234566"
-       data-submit-text="Pay {amount}"
-       data-checkout-id="BADE4B44B7EBBC0C7AC742B464F59990.sbg-vm-tx02"
-       data-test="true">
-  </div>
 
   <h3>Quick links</h3>
   <div class="ui bulleted list">
@@ -266,6 +246,24 @@
     data-force-card-holder-equals-billing-name>
 </div></xmp>
   <a href="#">Back to top</a>
+
+<h3>One-Click Payment</h3>
+<div class="monei-widget"
+     data-token="eyJ1IjoiZ29vZ2xlLW9hdXRoMnwxMTQxOTk4MTg4MDY3NDg4MjkzNTIiLCJjIjoiOGE4Mjk0MTg1OGUyZGJlOTAxNThlMmVlMzM1ZjAwNDciLCJ0Ijp0cnVlfQ"
+     data-redirect-url="https://static.monei.net/invoice.html"
+     data-amount="100"
+     data-currency="eur"
+     data-checkout-id="F24CAE38C06A6E5F4319747BEFEA1E31.sbg-vm-tx02"
+     data-test="true">
+</div>
+<xmp class="prettyprint lang-html"><div class="monei-widget"
+  data-token="{TOKEN}"
+  data-redirect-url="https://static.monei.net/invoice.html"
+  data-amount="100"
+  data-currency="eur"
+  data-checkout-id="{checkoutId}">
+</div></xmp>
+<a href="#">Back to top</a>
 
 <h2 id="brands" class="ui dividing header">Different payment methods</h2>
 <p>You can enable different card brands and additional payment methods like <b>Paypal</b>, <b>Bitcoin</b>, <b>Alipay</b> and <b>SEPA</b>. <a href="https://docs.monei.net/tutorials/integration-guide" target="_blank">Supported brands and payment methods</a>.
