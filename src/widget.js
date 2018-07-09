@@ -31,10 +31,6 @@ function setupWidget(container, options = {}) {
   const ds = container.dataset;
   const defaultProps = {
     popup: true,
-    registrations: {
-      requireCvv: true,
-      hideInitialPaymentForms: true
-    },
     customer: {
       merchantCustomerId: ds.merchantCustomerId,
       email: ds.customerEmail,

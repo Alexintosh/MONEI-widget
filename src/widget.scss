@@ -1,24 +1,3 @@
-ul.wpwl-control-autocomplete-menu {
-  max-height: 150px;
-  overflow-y: auto;
-  overflow-x: hidden;
-  font-size: 1em;
-}
-
-@media only screen and (max-width: 768px) {
-  ul.wpwl-control-autocomplete-menu {
-    font-size: 1.5em;
-  }
-}
-
-* html .wpwl-control-autocomplete-menu {
-  height: 100px;
-}
-
-.wpwl-control-autocomplete-highlight {
-  font-weight: bold;
-}
-
 [class*='wpwl'] {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -41,17 +20,6 @@ ul.wpwl-control-autocomplete-menu {
 
 .wpwl-container {
   position: relative;
-  margin: 0;
-  padding: 0;
-  height: auto;
-  width: auto;
-}
-
-.wpwl-container:last-child {
-  margin-bottom: 0;
-}
-
-.wpwl-container {
   margin: 0;
   padding: 0;
   height: auto;
@@ -257,7 +225,7 @@ ul.wpwl-control-autocomplete-menu {
 
 .wpwl-group-registration.wpwl-selected {
   border-color: #ccc;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(102, 175, 233, 0.1);
 }
 
 .wpwl-wrapper-registration-registrationId {
@@ -281,11 +249,10 @@ ul.wpwl-control-autocomplete-menu {
 }
 
 .wpwl-wrapper.wpwl-wrapper-registration-cvv {
-  width: 55px;
+  width: 68px;
   flex-shrink: 0;
   .wpwl-control-cvv {
     height: 36px;
-    padding: 0.2em 0.4em;
   }
 }
 
@@ -293,20 +260,10 @@ ul.wpwl-control-autocomplete-menu {
   flex: 1;
   display: flex;
   flex-wrap: wrap;
-  margin: 0 5%;
+  margin: 0 4%;
   & > div {
-    margin-right: 7%;
+    margin-right: 4%;
   }
-}
-
-.wpwl-wrapper-submit:before,
-.wpwl-wrapper-submit:after {
-  content: ' ';
-  display: table;
-}
-
-.wpwl-wrapper-submit:after {
-  clear: both;
 }
 
 .wpwl-wrapper-surName,
@@ -315,18 +272,6 @@ ul.wpwl-control-autocomplete-menu {
   float: left;
 }
 
-.wpwl-hint-surNameError:before,
-.wpwl-hint-givenNameError:before,
-.wpwl-hint-surNameError:after,
-.wpwl-hint-givenNameError:after {
-  content: ' ';
-  display: table;
-}
-
-.wpwl-hint-surNameError:after,
-.wpwl-hint-givenNameError:after {
-  clear: both;
-}
 
 /* icon for inputs are placed over the input element */
 .wpwl-wrapper {
