@@ -73,6 +73,10 @@ function setupWidget(container, options = {}) {
     console.error(error);
     return;
   }
+
+  props.registrations = {
+    requireCvv: !!props.registrationRequireCvv
+  };
   if (typeof props.billingAddress !== 'boolean' && isEmpty(props.billingAddress)) {
     props.billingAddress = props.showBillingAddress;
   }
