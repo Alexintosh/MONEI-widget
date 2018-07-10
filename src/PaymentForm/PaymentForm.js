@@ -254,7 +254,7 @@ class PaymentForm extends Component {
 
   hideInitialPaymentForRegistrations() {
     const registrations = window.wpwlOptions.registrations;
-    if (registrations && registrations.hideInitialPaymentForms) {
+    if (registrations && registrations.hideInitialPaymentForms && this.props.checkoutId) {
       this.$formContainer.find(':not(#wpwl-registrations)>.wpwl-container').css('display', 'none');
     }
   }
