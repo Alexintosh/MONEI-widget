@@ -260,8 +260,8 @@ class PaymentForm extends Component {
 
   applyingCustomColor(primaryColor) {
     this.$formContainer
-        .find('.wpwl-button-pay:not([data-action="show-initial-forms"])')
-        .css({backgroundColor: primaryColor});
+      .find('.wpwl-button-pay:not([data-action="show-initial-forms"])')
+      .css({backgroundColor: primaryColor});
     this.$formContainer
       .find('.wpwl-button-pay[data-action="show-initial-forms"]')
       .css({color: primaryColor});
