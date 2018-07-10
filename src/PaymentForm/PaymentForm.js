@@ -225,11 +225,10 @@ class PaymentForm extends Component {
       this.appendEmail($form);
     }
 
-    const $button = $form.find('.wpwl-button-pay');
     if (customSubmitSelector) {
       $form.find('.wpwl-group-submit').css('display', 'none');
     } else {
-      $button.css({backgroundColor: primaryColor});
+      this.applyingCustomColor(primaryColor)
     }
 
     // add custom fields
@@ -257,6 +256,15 @@ class PaymentForm extends Component {
     if (registrations && registrations.hideInitialPaymentForms && this.props.checkoutId) {
       this.$formContainer.find(':not(#wpwl-registrations)>.wpwl-container').css('display', 'none');
     }
+  }
+
+  applyingCustomColor(primaryColor) {
+    this.$formContainer
+        .find('.wpwl-button-pay:not([data-action="show-initial-forms"])')
+        .css({backgroundColor: primaryColor});
+    this.$formContainer
+      .find('.wpwl-button-pay[data-action="show-initial-forms"]')
+      .css({color: primaryColor});
   }
 
   submitForm = () => {
