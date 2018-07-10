@@ -248,12 +248,21 @@ class PaymentForm extends Component {
           `<input type="hidden" name="customParameters[SHOPPER_${key}]" value="${value}">`
         );
     });
+
+    this.hideInitialPaymentForRegistrations();
   }
 
   submitForm = () => {
     const $button = this.$formContainer.find('.wpwl-button-pay');
     $button[0].click();
   };
+
+  hideInitialPaymentForRegistrations() {
+    const registrations = window.wpwlOptions.registrations;
+    if (registrations && registrations.hideInitialPaymentForms) {
+      document.querySelector(':not(#wpwl-registrations) > .wpwl-container').style.display = 'none';
+    }
+  }
 
   componentDidMount() {
     if (this.props.checkoutId) {
