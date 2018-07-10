@@ -30,7 +30,6 @@ function setup(element, options) {
 function setupWidget(container, options = {}) {
   const ds = container.dataset;
   const defaultProps = {
-    popup: true,
     customer: {
       merchantCustomerId: ds.merchantCustomerId,
       email: ds.customerEmail,

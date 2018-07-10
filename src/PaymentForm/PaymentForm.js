@@ -264,7 +264,6 @@ class PaymentForm extends Component {
     $button[0].click();
   };
 
-
   isTestMode(checkoutId) {
     const prodRegex = /\.prod/;
     return !prodRegex.test(checkoutId);
@@ -273,8 +272,8 @@ class PaymentForm extends Component {
   componentDidMount() {
     if (this.props.checkoutId) {
       const isTestMode = this.isTestMode(this.props.checkoutId);
-      this.api = new APIHandler({ ...this.props, test: isTestMode });
-      this.setState({ isTestMode });
+      this.api = new APIHandler({...this.props, test: isTestMode});
+      this.setState({isTestMode});
       this.injectPaymentScript(this.props.checkoutId);
     } else {
       const spinner = new Spinner(this.props.spinner).spin(document.body);
