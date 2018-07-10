@@ -252,17 +252,18 @@ class PaymentForm extends Component {
     this.hideInitialPaymentForRegistrations();
   }
 
-  submitForm = () => {
-    const $button = this.$formContainer.find('.wpwl-button-pay');
-    $button[0].click();
-  };
-
   hideInitialPaymentForRegistrations() {
     const registrations = window.wpwlOptions.registrations;
     if (registrations && registrations.hideInitialPaymentForms) {
       document.querySelector(':not(#wpwl-registrations) > .wpwl-container').style.display = 'none';
     }
   }
+
+  submitForm = () => {
+    const $button = this.$formContainer.find('.wpwl-button-pay');
+    $button[0].click();
+  };
+
 
   isTestMode(checkoutId) {
     const prodRegex = /\.prod/;
