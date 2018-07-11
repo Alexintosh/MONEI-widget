@@ -248,14 +248,35 @@ class PaymentForm extends Component {
         );
     });
 
-    this.hideInitialPaymentForRegistrations();
+    if (this.shouldHideInitialPaymentForm(window.wpwlOptions) && this.isThereRegistrations(window.wpwl)) {
+      this.hideInitialFormAndSeparator();
+      this.$formContainer
+        .find('.wpwl-button-pay[data-action="show-initial-forms"]')
+        .on('click', () => this.showSeparator());
+    }
   }
 
-  hideInitialPaymentForRegistrations() {
-    const registrations = window.wpwlOptions.registrations;
-    if (registrations && registrations.hideInitialPaymentForms && this.props.checkoutId) {
-      this.$formContainer.find(':not(#wpwl-registrations)>.wpwl-container').css('display', 'none');
-    }
+  shouldHideInitialPaymentForm({ registrations: registrationOptions }) {
+    return registrationOptions && registrationOptions.hideInitialPaymentForms;
+  }
+
+  isThereRegistrations({ checkout }) {
+    return checkout && checkout.config && checkout.config.registrations.length;
+  }
+
+  hideInitialFormAndSeparator() {
+    // jQuery is not hidden the initial paymento form by itself
+    this.$formContainer.find(':not(#wpwl-registrations)>.wpwl-container')
+      .css('display', 'none');
+
+    // Hide the "or pay with" separator added by us
+    this.$formContainer.find('.wpwl-PaymentForm-separator')
+      .css('display', 'none');
+
+  }
+
+  showSeparator() {
+    this.$formContainer.find('.wpwl-PaymentForm-separator').css('display', 'block')
   }
 
   applyingCustomColor(primaryColor) {
