@@ -30,6 +30,7 @@ function setup(element, options) {
 function setupWidget(container, options = {}) {
   const ds = container.dataset;
   const defaultProps = {
+    ...defaultParams,
     customer: {
       merchantCustomerId: ds.merchantCustomerId,
       email: ds.customerEmail,
@@ -68,8 +69,7 @@ function setupWidget(container, options = {}) {
       requireCvv: ds.registrationRequireCvv,
       hideInitialPaymentForms: ds.registrationHideInitialPaymentForms
     },
-    locale: window.navigator.userLanguage || window.navigator.language,
-    ...defaultParams
+    locale: window.navigator.userLanguage || window.navigator.language
   };
   const props = merge.all([defaultProps, normalizeDataSet(ds), options]);
   const error = validateProps(props);
