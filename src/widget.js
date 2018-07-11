@@ -64,6 +64,10 @@ function setupWidget(container, options = {}) {
       method: ds.shippingMethod,
       comment: ds.shippingComment
     },
+    registrations: {
+      requireCvv: ds.registrationRequireCvv,
+      hideInitialPaymentForms: ds.registrationHideInitialPaymentForms
+    },
     locale: window.navigator.userLanguage || window.navigator.language,
     ...defaultParams
   };
@@ -74,9 +78,6 @@ function setupWidget(container, options = {}) {
     return;
   }
 
-  props.registrations = {
-    requireCvv: !!props.registrationRequireCvv
-  };
   if (typeof props.billingAddress !== 'boolean' && isEmpty(props.billingAddress)) {
     props.billingAddress = props.showBillingAddress;
   }
