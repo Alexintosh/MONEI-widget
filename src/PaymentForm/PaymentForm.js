@@ -42,6 +42,7 @@ class PaymentForm extends Component {
         height: '100%'
       };
     }
+    this.hideInitialPaymentForm = false;
     this.state = {
       isTestMode: props.test
     };
@@ -225,6 +226,14 @@ class PaymentForm extends Component {
       this.appendEmail($form);
     }
 
+    if (this.isThereRegistrations(window.wpwl)) {
+      this.createSwitchButton();
+      this.hideInitialFormAndSeparator();
+      this.$formContainer
+        .find('.wpwl-button-pay[data-action="show-initial-forms"]')
+        .on('click', () => this.showSeparator());
+    }
+
     if (customSubmitSelector) {
       $form.find('.wpwl-group-submit').css('display', 'none');
     } else {
@@ -247,17 +256,37 @@ class PaymentForm extends Component {
           `<input type="hidden" name="customParameters[SHOPPER_${key}]" value="${value}">`
         );
     });
-
-    if (this.shouldHideInitialPaymentForm(window.wpwlOptions) && this.isThereRegistrations(window.wpwl)) {
-      this.hideInitialFormAndSeparator();
-      this.$formContainer
-        .find('.wpwl-button-pay[data-action="show-initial-forms"]')
-        .on('click', () => this.showSeparator());
-    }
   }
 
-  shouldHideInitialPaymentForm({ registrations: registrationOptions }) {
-    return registrationOptions && registrationOptions.hideInitialPaymentForms;
+  createSwitchButton() {
+    const label = this.getSwitchButtonLabel();
+    const $switchPaymentForms = $(
+      render(
+        <button type="button" data-action="switch-payment-forms" className="switch-payment-forms-button">{label}</button>
+      )
+    );
+    $switchPaymentForms.on('click', () => this.switchPaymentForms())
+    $('.wpwl-container:not(.wpwl-container-registration)').last().after($switchPaymentForms);
+  }
+
+  getSwitchButtonLabel() {
+    return $('.wpwl-button-pay[data-action=show-initial-forms]').text();
+  }
+
+  switchPaymentForms() {
+    const $initialPaymentForm = $('.wpwl-container:not(.wpwl-container-registration)');
+    const $registrationForm = $('.wpwl-container-registration');
+    const $separator = this.$formContainer.find('.wpwl-PaymentForm-separator');
+    if (this.hideInitialPaymentForm) {
+      $initialPaymentForm.css('display', 'none');
+      $separator.css('display', 'none')
+      $registrationForm.css('display', 'block');
+    } else {
+      $initialPaymentForm.css('display', 'block');
+      $separator.css('display', 'block')
+      $registrationForm.css('display', 'none');
+    }
+    this.hideInitialPaymentForm = !this.hideInitialPaymentForm;
   }
 
   isThereRegistrations({ checkout }) {
@@ -266,7 +295,7 @@ class PaymentForm extends Component {
 
   hideInitialFormAndSeparator() {
     // jQuery is not hidden the initial paymento form by itself
-    this.$formContainer.find(':not(#wpwl-registrations)>.wpwl-container')
+    this.$formContainer.find('.wpwl-container:not(.wpwl-container-registration)')
       .css('display', 'none');
 
     // Hide the "or pay with" separator added by us
@@ -283,8 +312,7 @@ class PaymentForm extends Component {
     this.$formContainer
       .find('.wpwl-button-pay:not([data-action="show-initial-forms"])')
       .css({backgroundColor: primaryColor});
-    this.$formContainer
-      .find('.wpwl-button-pay[data-action="show-initial-forms"]')
+    $('.switch-payment-forms-button')
       .css({color: primaryColor});
   }
 

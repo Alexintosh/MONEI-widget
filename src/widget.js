@@ -28,9 +28,10 @@ function setup(element, options) {
 }
 
 function setupWidget(container, options = {}) {
-  const ds = container.dataset;
+  const ds = normalizeDataSet(container.dataset);
+  const registrationRequireCvv = ds.registrationRequireCvv !== undefined ? ds.registrationRequireCvv : true;
+
   const defaultProps = {
-    ...defaultParams,
     customer: {
       merchantCustomerId: ds.merchantCustomerId,
       email: ds.customerEmail,
@@ -66,12 +67,12 @@ function setupWidget(container, options = {}) {
       comment: ds.shippingComment
     },
     registrations: {
-      requireCvv: ds.registrationRequireCvv,
-      hideInitialPaymentForms: ds.registrationHideInitialPaymentForms
+      requireCvv: registrationRequireCvv,
+      hideInitialPaymentForms: true // Always true to get the button text and use on the switchButton
     },
     locale: window.navigator.userLanguage || window.navigator.language
   };
-  const props = merge.all([defaultProps, normalizeDataSet(ds), options]);
+  const props = merge.all([defaultParams, defaultProps, ds, options]);
   const error = validateProps(props);
   if (error) {
     console.error(error);

@@ -151,51 +151,56 @@
     margin-bottom: 0;
     text-align: center;
   }
+}
 
-  .wpwl-button-pay[data-action=show-initial-forms] {
-    background: none;
-    color: #00796b;
-    font-weight: normal;
-    font-size: 14px;
-  }
-
-  .wpwl-button-pay {
-    float: none;
-    font-weight: 500;
-    font-size: 16px;
-    height: 42px;
-    color: white;
-    opacity: 0.9;
-    display: inline-block;
-    border-radius: 3px;
-    box-sizing: border-box;
-    text-align: center;
-    cursor: pointer;
-    position: relative;
-    border: none;
-    width: 100%;
+.wpwl-button-pay,
+.switch-payment-forms-button {
+  float: none;
+  font-weight: 500;
+  font-size: 16px;
+  height: 42px;
+  color: white;
+  opacity: 0.9;
+  display: inline-block;
+  border-radius: 3px;
+  box-sizing: border-box;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  border: none;
+  width: 100%;
+  background: #00796b;
+  transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s ease,
+  box-shadow 0.1s ease, background 0.1s ease;
+  &[disabled],
+  &[disabled]:hover,
+  &[disabled]:focus,
+  &[disabled]:active {
     background: #00796b;
-    transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s ease,
-    box-shadow 0.1s ease, background 0.1s ease;
-    &[disabled],
-    &[disabled]:hover,
-    &[disabled]:focus,
-    &[disabled]:active {
-      background: #00796b;
-      border: none;
-      opacity: 0.65;
-      pointer-events: none;
-    }
-    &:hover,
-    &:active {
-      opacity: 1;
-      box-shadow: 0 0 0 1px transparent inset, 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
-    }
-    @media (max-device-width: 768px) {
-      height: 54px;
-      font-size: 1.5em;
-    }
+    border: none;
+    opacity: 0.65;
+    pointer-events: none;
   }
+  &:hover,
+  &:active {
+    opacity: 1;
+    box-shadow: 0 0 0 1px transparent inset, 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
+  }
+  @media (max-device-width: 768px) {
+    height: 54px;
+    font-size: 1.5em;
+  }
+}
+
+.wpwl-button-pay[data-action=show-initial-forms] {
+  display: none;
+}
+
+.switch-payment-forms-button {
+  background: none;
+  color: #00796b;
+  font-weight: normal;
+  font-size: 14px;
 }
 
 .wpwl-brand {
@@ -357,6 +362,10 @@ select.wpwl-input {
 .wpwl-control-expiry-year {
   float: right;
   width: 50%;
+}
+
+.wpwl-button {
+  border: 1px solid transparent
 }
 
 .wpwl-button[disabled] {

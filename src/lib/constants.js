@@ -23,10 +23,6 @@ export const defaultParams = {
   submitText: 'Pay {amount}',
   redirect: true,
   popup: true,
-  registrations: {
-    requireCvv: true,
-    hideInitialPaymentForms: true
-  },
   onPaymentComplete: () => {},
   onPaymentSuccess: () => {},
   onPaymentError: () => {},
