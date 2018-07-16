@@ -248,6 +248,22 @@ class PaymentForm extends Component {
           `<input type="hidden" name="customParameters[SHOPPER_${key}]" value="${value}">`
         );
     });
+
+    if (this.props.savePaymentDetails) {
+      this.addSavePaymentOption();
+    }
+  }
+
+  addSavePaymentOption() {
+    const createRegistrationHtml = `
+      <div class="store-payment-details">
+        <div class="custom-input">
+          <input type="checkbox" name="createRegistration" value="true" />
+        </div>
+        <div class="custom-label">Store payment details?</div>
+      </div>
+    `;
+    $('.wpwl-group-submit').before(createRegistrationHtml);
   }
 
   submitForm = () => {

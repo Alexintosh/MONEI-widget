@@ -85,6 +85,7 @@
        data-description="Product description"
        data-amount="100"
        data-currency="eur"
+       data-save-payment-details="true"
        data-checkout-text="Pay {amount}"
        data-merchant-invoice-id="1234566"
        data-submit-text="Pay {amount}">
@@ -764,6 +765,10 @@ document.addEventListener('DOMContentLoaded', function() {
           <code>data-shipping-comment</code><br>
         </p>
       </td>
+    </tr>
+    <tr>
+      <td>savePaymentDetails</td>
+      <td>Add a checkbox to the payment form to let the customer decide whether or not to store the card details. Default <code>false</code></td>
     </tr>
     <tr>
       <td>customParameters</td>
