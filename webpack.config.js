@@ -135,7 +135,7 @@ export default options => {
     },
     devServer: {
       port: process.env.PORT || 4000,
-      host: '0.0.0.0',
+      host: 'localhost',
       disableHostCheck: true,
       publicPath: '/',
       contentBase: './src',
