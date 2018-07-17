@@ -29,7 +29,6 @@ function setup(element, options) {
 
 function setupWidget(container, options = {}) {
   const ds = normalizeDataSet(container.dataset);
-  const registrationRequireCvv = ds.registrationRequireCvv !== undefined ? ds.registrationRequireCvv : true;
 
   const defaultProps = {
     customer: {
@@ -67,7 +66,7 @@ function setupWidget(container, options = {}) {
       comment: ds.shippingComment
     },
     registrations: {
-      requireCvv: registrationRequireCvv,
+      requireCvv: ds.registrationRequireCvv,
       hideInitialPaymentForms: true // Always true to get the button text and use on the switchButton
     },
     locale: window.navigator.userLanguage || window.navigator.language
