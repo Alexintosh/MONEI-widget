@@ -22,6 +22,7 @@ export const defaultParams = {
   },
   submitText: 'Pay {amount}',
   redirect: true,
+  popup: true,
   onPaymentComplete: () => {},
   onPaymentSuccess: () => {},
   onPaymentError: () => {},
