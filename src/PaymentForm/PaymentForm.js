@@ -392,11 +392,11 @@ class PaymentForm extends Component {
           [classNames.mobileSafari]: this.isMobileSafari
         })}
         ref={el => (this.$formContainer = $(el))}>
-        {/*{isTestMode && (*/}
-        {/*<div className={classNames.testModeWarning}>*/}
-        {/*<div>You will not be billed for this test charge.</div>*/}
-        {/*</div>*/}
-        {/*)}*/}
+        {isTestMode && (
+          <div className={classNames.testModeWarning}>
+            <div>You will not be billed for this test charge.</div>
+          </div>
+        )}
         <div>
           <form action={redirectUrl} className="paymentWidgets" data-brands={brands} />
         </div>
