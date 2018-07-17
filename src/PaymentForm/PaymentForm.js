@@ -42,6 +42,7 @@ class PaymentForm extends Component {
         height: '100%'
       };
     }
+    this.hideInitialPaymentForm = false;
     this.state = {
       isTestMode: props.test
     };
@@ -225,11 +226,18 @@ class PaymentForm extends Component {
       this.appendEmail($form);
     }
 
-    const $button = $form.find('.wpwl-button-pay');
+    if (this.isThereRegistrations(window.wpwl)) {
+      this.createSwitchButton();
+      this.hideInitialFormAndSeparator();
+      this.$formContainer
+        .find('.wpwl-button-pay[data-action="show-initial-forms"]')
+        .on('click', () => this.showSeparator());
+    }
+
     if (customSubmitSelector) {
       $form.find('.wpwl-group-submit').css('display', 'none');
     } else {
-      $button.css({backgroundColor: primaryColor});
+      this.applyingCustomColor(primaryColor);
     }
 
     // add custom fields
@@ -243,11 +251,75 @@ class PaymentForm extends Component {
     });
     Object.keys(customParameters).forEach(key => {
       const value = customParameters[key];
-      if (value)
+      if (value) {
         $form.prepend(
           `<input type="hidden" name="customParameters[SHOPPER_${key}]" value="${value}">`
         );
+      }
     });
+  }
+
+  createSwitchButton() {
+    const label = this.getSwitchButtonLabel();
+    const $switchPaymentForms = $(
+      render(
+        <button
+          type="button"
+          data-action="switch-payment-forms"
+          className="switch-payment-forms-button">
+          {label}
+        </button>
+      )
+    );
+    $switchPaymentForms.on('click', () => this.switchPaymentForms());
+    $('.wpwl-container:not(.wpwl-container-registration)')
+      .last()
+      .after($switchPaymentForms);
+  }
+
+  getSwitchButtonLabel() {
+    return $('.wpwl-button-pay[data-action=show-initial-forms]').text();
+  }
+
+  switchPaymentForms() {
+    const $initialPaymentForm = $('.wpwl-container:not(.wpwl-container-registration)');
+    const $registrationForm = $('.wpwl-container-registration');
+    const $separator = this.$formContainer.find('.wpwl-PaymentForm-separator');
+    if (this.hideInitialPaymentForm) {
+      $initialPaymentForm.css('display', 'none');
+      $separator.css('display', 'none');
+      $registrationForm.css('display', 'block');
+    } else {
+      $initialPaymentForm.css('display', 'block');
+      $separator.css('display', 'block');
+      $registrationForm.css('display', 'none');
+    }
+    this.hideInitialPaymentForm = !this.hideInitialPaymentForm;
+  }
+
+  isThereRegistrations({checkout}) {
+    return checkout && checkout.config && checkout.config.registrations.length;
+  }
+
+  hideInitialFormAndSeparator() {
+    // jQuery is not hidden the initial paymento form by itself
+    this.$formContainer
+      .find('.wpwl-container:not(.wpwl-container-registration)')
+      .css('display', 'none');
+
+    // Hide the "or pay with" separator added by us
+    this.$formContainer.find('.wpwl-PaymentForm-separator').css('display', 'none');
+  }
+
+  showSeparator() {
+    this.$formContainer.find('.wpwl-PaymentForm-separator').css('display', 'block');
+  }
+
+  applyingCustomColor(primaryColor) {
+    this.$formContainer
+      .find('.wpwl-button-pay:not([data-action="show-initial-forms"])')
+      .css({backgroundColor: primaryColor});
+    $('.switch-payment-forms-button').css({color: primaryColor});
   }
 
   submitForm = () => {
@@ -255,9 +327,16 @@ class PaymentForm extends Component {
     $button[0].click();
   };
 
+  isTestMode(checkoutId) {
+    const prodRegex = /\.prod/;
+    return !prodRegex.test(checkoutId);
+  }
+
   componentDidMount() {
     if (this.props.checkoutId) {
-      this.api = new APIHandler(this.props);
+      const isTestMode = this.isTestMode(this.props.checkoutId);
+      this.api = new APIHandler({...this.props, test: isTestMode});
+      this.setState({isTestMode});
       this.injectPaymentScript(this.props.checkoutId);
     } else {
       const spinner = new Spinner(this.props.spinner).spin(document.body);
@@ -297,22 +376,23 @@ class PaymentForm extends Component {
           [classNames.mobileSafari]: this.isMobileSafari
         })}
         ref={el => (this.$formContainer = $(el))}>
-        {isTestMode && (
-          <div className={classNames.testModeWarning}>
-            <div>You will not be billed for this test charge.</div>
-          </div>
-        )}
+        {/*{isTestMode && (*/}
+        {/*<div className={classNames.testModeWarning}>*/}
+        {/*<div>You will not be billed for this test charge.</div>*/}
+        {/*</div>*/}
+        {/*)}*/}
         <div>
           <form action={redirectUrl} className="paymentWidgets" data-brands={brands} />
         </div>
         <div className={classNames.brand}>
           <span>Powered by</span>{' '}
           <a href="https://monei.net/" target="_blank" tabIndex={-1}>
+            {' '}
             <img
               src="https://static.monei.net/monei-logo.svg"
               alt="MONEI"
               title="Best payment gateway rates. The perfect solution to manage your digital payments. Get in now!"
-            />
+            />{' '}
           </a>
         </div>
       </div>

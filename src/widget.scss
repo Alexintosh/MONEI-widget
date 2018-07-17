@@ -1,24 +1,3 @@
-ul.wpwl-control-autocomplete-menu {
-  max-height: 150px;
-  overflow-y: auto;
-  overflow-x: hidden;
-  font-size: 1em;
-}
-
-@media only screen and (max-width: 768px) {
-  ul.wpwl-control-autocomplete-menu {
-    font-size: 1.5em;
-  }
-}
-
-* html .wpwl-control-autocomplete-menu {
-  height: 100px;
-}
-
-.wpwl-control-autocomplete-highlight {
-  font-weight: bold;
-}
-
 [class*='wpwl'] {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -45,22 +24,6 @@ ul.wpwl-control-autocomplete-menu {
   padding: 0;
   height: auto;
   width: auto;
-}
-
-.wpwl-container:last-child {
-  margin-bottom: 0;
-}
-
-.wpwl-form {
-  margin: 0 auto;
-  max-width: 30em;
-}
-
-.wpwl-container {
-  margin: 0;
-  padding: 0;
-  height: auto;
-  width: auto;
   &:last-child {
     margin-bottom: 0;
   }
@@ -70,8 +33,18 @@ ul.wpwl-control-autocomplete-menu {
   padding: 0.45em;
 }
 
+.wpwl-group {
+  padding: 0.45em;
+  margin: 0;
+  width: 100%;
+}
+
 .wpwl-form {
-  margin-bottom: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  max-width: 30em;
+
   .wpwl-group-button {
     padding: 0.45em;
   }
@@ -105,22 +78,9 @@ ul.wpwl-control-autocomplete-menu {
       box-shadow: 0 0 0 0 rgba(34, 36, 38, 0.35) inset;
     }
   }
-}
-
-.wpwl-form-card,
-.wpwl-form-directDebit {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 auto;
 
   .wpwl-label {
     width: auto;
-  }
-
-  .wpwl-group {
-    padding: 0.45em;
-    margin: 0;
-    width: 100%;
   }
 
   .wpwl-group-brand {
@@ -191,52 +151,64 @@ ul.wpwl-control-autocomplete-menu {
     margin-bottom: 0;
     text-align: center;
   }
+}
 
-  .wpwl-button-pay {
-    float: none;
-    font-weight: 500;
-    font-size: 16px;
-    height: 42px;
-    color: white;
-    opacity: 0.9;
-    display: inline-block;
-    border-radius: 3px;
-    box-sizing: border-box;
-    text-align: center;
-    cursor: pointer;
-    position: relative;
-    border: none;
-    width: 100%;
+.wpwl-button-pay,
+.switch-payment-forms-button {
+  float: none;
+  font-weight: 500;
+  font-size: 16px;
+  height: 42px;
+  color: white;
+  opacity: 0.9;
+  display: inline-block;
+  border-radius: 3px;
+  box-sizing: border-box;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  border: none;
+  width: 100%;
+  background: #00796b;
+  transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s ease,
+  box-shadow 0.1s ease, background 0.1s ease;
+  &[disabled],
+  &[disabled]:hover,
+  &[disabled]:focus,
+  &[disabled]:active {
     background: #00796b;
-    transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s ease,
-    box-shadow 0.1s ease, background 0.1s ease;
-    &[disabled],
-    &[disabled]:hover,
-    &[disabled]:focus,
-    &[disabled]:active {
-      background: #00796b;
-      border: none;
-      opacity: 0.65;
-      pointer-events: none;
-    }
-    &:hover,
-    &:active {
-      opacity: 1;
-      box-shadow: 0 0 0 1px transparent inset, 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
-    }
-    @media (max-device-width: 768px) {
-      height: 54px;
-      font-size: 1.5em;
-    }
+    border: none;
+    opacity: 0.65;
+    pointer-events: none;
   }
+  &:hover,
+  &:active {
+    opacity: 1;
+    box-shadow: 0 0 0 1px transparent inset, 0 0 0 0 rgba(34, 36, 38, 0.15) inset;
+  }
+  @media (max-device-width: 768px) {
+    height: 54px;
+    font-size: 1.5em;
+  }
+}
+
+.wpwl-button-pay[data-action=show-initial-forms] {
+  display: none;
+}
+
+.switch-payment-forms-button {
+  background: none;
+  color: #00796b;
+  font-weight: normal;
+  font-size: 14px;
 }
 
 .wpwl-brand {
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
-  width: 100px;
   height: 34px;
+  width: 100px;
 }
 
 .wpwl-group-button {
@@ -250,45 +222,53 @@ ul.wpwl-control-autocomplete-menu {
 }
 
 .wpwl-group-registration {
-  padding: 6px;
+  margin: 0.45em;
   border: 1px solid transparent;
-  min-height: 49px;
-  -webkit-transition: border-color ease-in-out 0.15s;
-  -o-transition: border-color ease-in-out 0.15s;
+  border-radius: 3px;
   transition: border-color ease-in-out 0.15s;
 }
 
 .wpwl-group-registration.wpwl-selected {
   border-color: #ccc;
+  background: rgba(102, 175, 233, 0.1);
+}
+
+.wpwl-wrapper-registration-registrationId {
+  display: none;
+}
+
+.wpwl-wrapper-registration-brand .wpwl-brand {
+  width: 51px;
+  height: 32px;
 }
 
 .wpwl-registration {
+  display: flex;
+  justify-content: space-between;
   cursor: pointer;
+  align-items: center;
 }
 
 .wpwl-registration.disabled {
   cursor: not-allowed;
 }
 
-@media (min-width: 480px) {
-  .wpwl-label {
-    padding-top: 4px;
-    padding-bottom: 4px;
-  }
-  .wpwl-label-registration {
-    padding-top: 0;
-    padding-bottom: 0;
+.wpwl-wrapper.wpwl-wrapper-registration-cvv {
+  width: 68px;
+  flex-shrink: 0;
+  .wpwl-control-cvv {
+    height: 36px;
   }
 }
 
-.wpwl-wrapper-submit:before,
-.wpwl-wrapper-submit:after {
-  content: ' ';
-  display: table;
-}
-
-.wpwl-wrapper-submit:after {
-  clear: both;
+.wpwl-wrapper-registration-details {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 4%;
+  & > div {
+    margin-right: 4%;
+  }
 }
 
 .wpwl-wrapper-surName,
@@ -297,18 +277,6 @@ ul.wpwl-control-autocomplete-menu {
   float: left;
 }
 
-.wpwl-hint-surNameError:before,
-.wpwl-hint-givenNameError:before,
-.wpwl-hint-surNameError:after,
-.wpwl-hint-givenNameError:after {
-  content: ' ';
-  display: table;
-}
-
-.wpwl-hint-surNameError:after,
-.wpwl-hint-givenNameError:after {
-  clear: both;
-}
 
 /* icon for inputs are placed over the input element */
 .wpwl-wrapper {
@@ -340,7 +308,7 @@ select.wpwl-input {
   outline: none;
   height: 42px;
   line-height: 22px;
-  padding: 0.2em 0.8em 0.3em;
+  padding: 0.2em 0.8em;
   font-size: 16px;
   background: #ffffff;
   color: rgba(0, 0, 0, 0.87);
@@ -396,39 +364,8 @@ select.wpwl-input {
   width: 50%;
 }
 
-/* wrapper for jqueryui icons */
-.wpwl-icon {
-  cursor: pointer;
-}
-
 .wpwl-button {
-  display: inline-block;
-  padding: 8px 16px;
-  font-weight: normal;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  -ms-touch-action: manipulation;
-  touch-action: manipulation;
-  cursor: pointer;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  background-image: none;
-  border: 1px solid transparent;
-}
-
-.wpwl-button:focus,
-.wpwl-button:active:focus {
-  outline: thin dotted;
-  outline: 5px auto -webkit-focus-ring-color;
-  outline-offset: -2px;
-}
-
-.wpwl-button:active {
-  background-image: none;
-  outline: 0;
+  border: 1px solid transparent
 }
 
 .wpwl-button[disabled] {
@@ -499,20 +436,6 @@ select.wpwl-input {
   margin: 0 auto;
 }
 
-.wpwl-brand {
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-/* Next block of styles is generated by gradle task generateBrandsSprite. Please use this task and do not modify it manually. Also, please do not touch block boundaries markers because it will break generation task. */
-/* beginning of the generated block */
-.wpwl-brand-ADVANTAGE {
-  background-position: 0 0px;
-  width: 54px;
-  height: 11px;
-}
-
 .wpwl-brand-ALIPAY {
   background-image: url('static/alipay.svg'), none;
 }
@@ -529,6 +452,10 @@ select.wpwl-input {
   background-image: url('static/diners.svg'), none;
 }
 
+.wpwl-brand-DANKORT {
+  background-image: url('static/dankort.svg'), none;
+}
+
 .wpwl-brand-DISCOVER {
   background-image: url('static/discover.svg'), none;
 }
@@ -543,6 +470,10 @@ select.wpwl-input {
 
 .wpwl-brand-MASTERDEBIT {
   background-image: url('static/master.svg'), none;
+}
+
+.wpwl-brand-MAESTRO {
+  background-image: url('static/maestro.svg'), none;
 }
 
 .wpwl-brand-MASTERPASS {
@@ -605,8 +536,6 @@ select.wpwl-input {
 
 .wpwl-brand-VISA {
   background-image: url('static/visa.svg'), none;
-  width: 65px;
-  height: 20px;
 }
 
 .wpwl-brand-VISADEBIT {
@@ -807,88 +736,6 @@ select.wpwl-input {
   content: '';
   border-bottom-color: #fff;
   border-top-width: 0;
-}
-
-.wpwl-label-brand,
-.wpwl-wrapper-brand,
-.wpwl-wrapper-registration {
-  float: left;
-}
-
-.wpwl-label-brand,
-.wpwl-wrapper-brand,
-.wpwl-wrapper-registration-registrationId,
-.wpwl-wrapper-registration-brand,
-.wpwl-wrapper-registration-number,
-.wpwl-wrapper-registration-expiry {
-  padding-right: 24px;
-}
-
-.wpwl-brand-card {
-  float: right;
-}
-
-.wpwl-wrapper-registration-registrationId {
-  width: 16.66666667%;
-}
-
-.wpwl-wrapper-registration-brand {
-  width: 33.33333333%;
-}
-
-.wpwl-wrapper-registration-details {
-  width: 50%;
-}
-
-.wpwl-wrapper-registration-cvv {
-  width: 100%;
-}
-
-.wpwl-wrapper-required-registration-holder {
-  width: 100%;
-}
-
-@media (min-width: 480px) {
-  .wpwl-label,
-  .wpwl-wrapper,
-  .wpwl-brand-card {
-    float: left;
-  }
-  .wpwl-label {
-    padding-right: 24px;
-    width: 33.33333333%;
-  }
-  .wpwl-wrapper {
-    width: 66.66666667%;
-  }
-  .wpwl-wrapper-brand,
-  .wpwl-brand-card {
-    width: 33.33333333%;
-  }
-  .wpwl-wrapper-submit {
-    width: 100%;
-  }
-  .wpwl-wrapper-registration-registrationId {
-    width: 8.33333333%;
-  }
-  .wpwl-wrapper-registration-brand {
-    width: 16.66666667%;
-  }
-  .wpwl-wrapper-registration-details {
-    width: 58.33333333%;
-    padding-right: 24px;
-  }
-  .wpwl-wrapper-registration-cvv {
-    width: 16.66666667%;
-  }
-  .wpwl-wrapper-required-registration-holder {
-    width: 50%;
-  }
-  .wpwl-control-expiry-month,
-  .wpwl-control-expiry-year {
-    float: left;
-    width: 33.33333333%;
-  }
 }
 
 .wpwl-clearfix:before,

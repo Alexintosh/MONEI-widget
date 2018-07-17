@@ -28,9 +28,9 @@ function setup(element, options) {
 }
 
 function setupWidget(container, options = {}) {
-  const ds = container.dataset;
+  const ds = normalizeDataSet(container.dataset);
+
   const defaultProps = {
-    popup: true,
     customer: {
       merchantCustomerId: ds.merchantCustomerId,
       email: ds.customerEmail,
@@ -65,15 +65,19 @@ function setupWidget(container, options = {}) {
       method: ds.shippingMethod,
       comment: ds.shippingComment
     },
-    locale: window.navigator.userLanguage || window.navigator.language,
-    ...defaultParams
+    registrations: {
+      requireCvv: ds.registrationRequireCvv,
+      hideInitialPaymentForms: true // Always true to get the button text and use on the switchButton
+    },
+    locale: window.navigator.userLanguage || window.navigator.language
   };
-  const props = merge.all([defaultProps, normalizeDataSet(ds), options]);
+  const props = merge.all([defaultParams, defaultProps, ds, options]);
   const error = validateProps(props);
   if (error) {
     console.error(error);
     return;
   }
+
   if (typeof props.billingAddress !== 'boolean' && isEmpty(props.billingAddress)) {
     props.billingAddress = props.showBillingAddress;
   }
