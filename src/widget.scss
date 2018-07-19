@@ -138,10 +138,8 @@
   }
 
   .wpwl-icon {
-    border-radius: 50%;
-    width: 18px;
-    height: 18px;
-    top: 11px;
+    width: 20px;
+    height: 20px;
   }
 
   .wpwl-wrapper-cardNumber {
@@ -287,7 +285,13 @@
 .wpwl-wrapper > .wpwl-icon {
   position: absolute;
   right: 0.5625em;
-  top: 0.5625em;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  opacity: 0.7;
+  &:hover {
+    opacity: 1;
+  }
 }
 
 input.wpwl-control,
