@@ -8,6 +8,7 @@ import APIHandler from 'lib/api';
 import {Spinner} from 'spin.js';
 import {defaultParams} from 'lib/constants';
 import {filterWpwlOptions} from 'lib/propsValidator';
+import locales from 'lib/locales.js';
 
 const getSubmitText = ({amount, currency, submitText = 'Pay {amount}'}) => {
   if (!amount) return 'Pay now';
@@ -20,6 +21,7 @@ class PaymentForm extends Component {
 
   constructor(props) {
     super(props);
+    const labels = this.getLocalizedLabels(props.locale);
     this.isMobileSafari =
       navigator.userAgent.match(/(iPod|iPhone|iPad)/) && navigator.userAgent.match(/AppleWebKit/);
     const submit = getSubmitText(props);
@@ -46,6 +48,11 @@ class PaymentForm extends Component {
     this.state = {
       isTestMode: props.test
     };
+  }
+
+  getLocalizedLabels(locale) {
+    const localeNormalized = locale.match(/(\w+)-?/)[1];
+    return locales[localeNormalized] || locales['en'];
   }
 
   injectPaymentScript(checkoutId, cb) {
