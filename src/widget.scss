@@ -29,7 +29,8 @@
   }
 }
 
-.wpwl-container-virtualAccount-APPLEPAY .wpwl-form {
+.wpwl-container-virtualAccount-APPLEPAY .wpwl-form,
+.store-payment-details {
   padding: 0.45em;
 }
 
@@ -153,13 +154,13 @@
 
 .wpwl-button-pay,
 .switch-payment-forms-button {
-  display: block;
   float: none;
   font-weight: 500;
   font-size: 16px;
   height: 42px;
   color: white;
   opacity: 0.9;
+  display: inline-block;
   border-radius: 3px;
   box-sizing: border-box;
   text-align: center;
@@ -195,9 +196,6 @@
 }
 
 .switch-payment-forms-button {
-  outline: none;
-  max-width: 30em;
-  margin: auto;
   background: none;
   color: #00796b;
   font-weight: normal;
@@ -286,8 +284,10 @@
 
 .wpwl-wrapper > .wpwl-icon {
   position: absolute;
-  right: 5px;
-  top: 10px;
+  right: 0.5625em;
+  top: 0;
+  bottom: 0;
+  margin: auto;
   opacity: 0.7;
   &:hover {
     opacity: 1;
@@ -375,7 +375,34 @@ select.wpwl-input {
 
 .wpwl-button[disabled] {
   cursor: not-allowed;
+  filter: alpha(opacity=65);
   opacity: 0.65;
+}
+
+.wpwl-button-error {
+  color: #fff;
+  background-color: #d9534f;
+  border-color: #d43f3a;
+}
+
+.wpwl-button-error:hover,
+.wpwl-button-error:focus,
+.wpwl-button-error:active {
+  color: #fff;
+  background-color: #c9302c;
+  border-color: #ac2925;
+}
+
+.wpwl-button-error:active {
+  background-image: none;
+}
+
+.wpwl-button-error[disabled],
+.wpwl-button-error[disabled]:hover,
+.wpwl-button-error[disabled]:focus,
+.wpwl-button-error[disabled]:active {
+  background-color: #d9534f;
+  border-color: #d43f3a;
 }
 
 .wpwl-button-brand {
@@ -743,6 +770,13 @@ select.wpwl-input {
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
+}
+
+.store-payment-details {
+  div {
+    display: inline;
+    padding-right: 5px;
+  }
 }
 
 .ui-icon-help {

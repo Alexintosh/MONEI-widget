@@ -257,6 +257,23 @@ class PaymentForm extends Component {
         );
       }
     });
+
+    if (this.props.savePaymentDetails) {
+      this.addSavePaymentOption();
+    }
+  }
+
+  addSavePaymentOption() {
+    const {labels} = this.props;
+    const createRegistrationHtml = `
+      <div class="store-payment-details">
+        <div class="custom-input">
+          <input type="checkbox" name="createRegistration" id="createRegistration" value="true" />
+        </div>
+        <label for="createRegistration" class="custom-label">${labels.savePaymentDetails}</label>
+      </div>
+    `;
+    $('.wpwl-group-submit').before(createRegistrationHtml);
   }
 
   createSwitchButton() {
