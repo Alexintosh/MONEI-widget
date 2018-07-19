@@ -7,7 +7,8 @@ export const defaultParams = {
   showEmail: true,
   labels: {
     email: 'Email',
-    otherPaymentMethods: 'or pay with'
+    otherPaymentMethods: 'or pay with',
+    savePaymentDetails: 'Store payment details?'
   },
   errorMessages: {
     email: 'Invalid email'
@@ -22,6 +23,8 @@ export const defaultParams = {
   },
   submitText: 'Pay {amount}',
   redirect: true,
+  popup: true,
+  showCVVHint: true,
   onPaymentComplete: () => {},
   onPaymentSuccess: () => {},
   onPaymentError: () => {},

@@ -85,6 +85,7 @@
        data-description="Product description"
        data-amount="100"
        data-currency="eur"
+       data-save-payment-details="true"
        data-checkout-text="Pay {amount}"
        data-merchant-invoice-id="1234566"
        data-submit-text="Pay {amount}">
@@ -152,7 +153,7 @@
   <a href="#">Back to top</a>
 
   <h3>Define the primary color</h3>
-  <div  class="monei-widget"
+  <div class="monei-widget"
      data-token="eyJ1IjoiZ29vZ2xlLW9hdXRoMnwxMTQxOTk4MTg4MDY3NDg4MjkzNTIiLCJjIjoiOGE4Mjk0MTg1OGUyZGJlOTAxNThlMmVlMzM1ZjAwNDciLCJ0Ijp0cnVlfQ"
      data-redirect-url="https://static.monei.net/invoice.html"
      data-amount="100"
@@ -246,6 +247,28 @@
     data-force-card-holder-equals-billing-name>
 </div></xmp>
   <a href="#">Back to top</a>
+
+<!--
+  Waiting for API support for end users
+<h3>One-Click Payment</h3>
+<div class="monei-widget"
+    data-token="eyJ1IjoiZ29vZ2xlLW9hdXRoMnwxMTQxOTk4MTg4MDY3NDg4MjkzNTIiLCJjIjoiOGE4Mjk0MTg1OGUyZGJlOTAxNThlMmVlMzM1ZjAwNDciLCJ0Ijp0cnVlfQ"
+    data-redirect-url="https://static.monei.net/invoice.html"
+    data-amount="100"
+    data-currency="eur"
+    data-checkout-id="D8C20F7A78502C6E1B60148951FA908E.sbg-vm-tx01"
+    data-registration-require-cvv="false"
+    data-test="true">
+</div>
+<xmp class="prettyprint lang-html"><div class="monei-widget"
+  data-token="{TOKEN}"
+  data-redirect-url="https://static.monei.net/invoice.html"
+  data-amount="100"
+  data-currency="eur"
+  data-registration-require-cvv="false"
+  data-checkout-id="{checkoutId}">
+</div></xmp>
+<a href="#">Back to top</a> -->
 
 <h2 id="brands" class="ui dividing header">Different payment methods</h2>
 <p>You can enable different card brands and additional payment methods like <b>Paypal</b>, <b>Bitcoin</b>, <b>Alipay</b> and <b>SEPA</b>. <a href="https://docs.monei.net/tutorials/integration-guide" target="_blank">Supported brands and payment methods</a>.
@@ -766,9 +789,17 @@ document.addEventListener('DOMContentLoaded', function() {
       </td>
     </tr>
     <tr>
+      <td>savePaymentDetails</td>
+      <td>Add a checkbox to the payment form to let the customer decide whether or not to store the card details. Default <code>false</code></td>
+    </tr>
+    <tr>
       <td>customParameters</td>
       <td>Pass and object with any custom key/values. It will be saved in the transaction (each key will be prefixed with SHOPPER_)</td>
     </tr>
+    <!-- <tr>
+      <td>checkoutId</td>
+      <td>The identifier of the checkout request that can be used to reference the payment later.</td>
+    </tr> -->
   </table>
 
   <h3>Appearance parameters</h3>
@@ -844,6 +875,10 @@ document.addEventListener('DOMContentLoaded', function() {
       <td>showCVVHint</td>
       <td>If set to true then the credit card form will display a hint on where the CVV is located when the mouse is hovering over the CVV field.</td>
     </tr>
+    <!-- <tr>
+      <td>registrationRequireCvv</td>
+      <td>If set to true then the CVV field will be displayed on the credit card list and user will have to provide it. Default: <code>true</code></td>
+    </tr> -->
     <tr>
       <td>showLabels</td>
       <td>Shows input labels</td>
