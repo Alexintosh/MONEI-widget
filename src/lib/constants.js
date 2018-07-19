@@ -7,7 +7,8 @@ export const defaultParams = {
   showEmail: true,
   labels: {
     email: 'Email',
-    otherPaymentMethods: 'or pay with'
+    otherPaymentMethods: 'or pay with',
+    savePaymentDetails: 'Store payment details?'
   },
   errorMessages: {
     email: 'Invalid email'

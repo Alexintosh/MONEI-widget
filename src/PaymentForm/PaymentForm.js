@@ -264,12 +264,13 @@ class PaymentForm extends Component {
   }
 
   addSavePaymentOption() {
+    const {labels} = this.props;
     const createRegistrationHtml = `
       <div class="store-payment-details">
         <div class="custom-input">
           <input type="checkbox" name="createRegistration" id="createRegistration" value="true" />
         </div>
-        <label for="createRegistration" class="custom-label">Store payment details?</label>
+        <label for="createRegistration" class="custom-label">${labels.savePaymentDetails}</label>
       </div>
     `;
     $('.wpwl-group-submit').before(createRegistrationHtml);
