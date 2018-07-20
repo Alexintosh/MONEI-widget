@@ -246,6 +246,15 @@
   justify-content: space-between;
   cursor: pointer;
   align-items: center;
+
+  .wpwl-popover.wpwl-top {
+    width: 200px;
+    left: -130px;
+  }
+
+  .wpwl-popover.wpwl-top > .wpwl-arrow {
+    margin-left: -12.5px;
+  }
 }
 
 .wpwl-registration.disabled {
