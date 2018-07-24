@@ -293,11 +293,15 @@
   right: 0.5625em;
   top: 0;
   bottom: 0;
-  margin: auto;
+  margin-top: 11px;
   opacity: 0.7;
   &:hover {
     opacity: 1;
   }
+}
+
+.wpwl-wrapper-registration > .wpwl-icon {
+  margin-top: 8px;
 }
 
 input.wpwl-control,
