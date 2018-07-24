@@ -247,13 +247,10 @@
   cursor: pointer;
   align-items: center;
 
-  .wpwl-popover.wpwl-top {
+  .wpwl-top,
+  .wpwl-bottom {
     width: 200px;
-    left: -130px;
-  }
-
-  .wpwl-popover.wpwl-top > .wpwl-arrow {
-    margin-left: -12.5px;
+    left: -126px;
   }
 }
 
@@ -262,7 +259,7 @@
 }
 
 .wpwl-wrapper.wpwl-wrapper-registration-cvv {
-  width: 68px;
+  width: 80px;
   flex-shrink: 0;
   .wpwl-control-cvv {
     height: 36px;
@@ -796,7 +793,8 @@ select.wpwl-input {
   background: url('static/question.svg');
 }
 
-.wpwl-brand-whereIsMyCVV {
+.wpwl-brand-whereIsMyCVV,
+.wpwl-brand-whereIsMyCVV-AMEX {
   display: block;
   background-size: 100% !important;
   width: 65px;
