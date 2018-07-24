@@ -389,32 +389,6 @@ select.wpwl-input {
   opacity: 0.65;
 }
 
-.wpwl-button-error {
-  color: #fff;
-  background-color: #d9534f;
-  border-color: #d43f3a;
-}
-
-.wpwl-button-error:hover,
-.wpwl-button-error:focus,
-.wpwl-button-error:active {
-  color: #fff;
-  background-color: #c9302c;
-  border-color: #ac2925;
-}
-
-.wpwl-button-error:active {
-  background-image: none;
-}
-
-.wpwl-button-error[disabled],
-.wpwl-button-error[disabled]:hover,
-.wpwl-button-error[disabled]:focus,
-.wpwl-button-error[disabled]:active {
-  background-color: #d9534f;
-  border-color: #d43f3a;
-}
-
 .wpwl-button-brand {
   min-width: 12em;
   min-height: 3.33333333em;
