@@ -22,8 +22,8 @@ class PaymentButton extends Component {
   handleClose = () => this.setState({isModalOpen: false});
 
   getButtonText() {
-    const {amount, currency, checkoutText = 'Pay {amount}'} = this.props;
-    if (!amount) return 'Pay now';
+    const {amount, currency, labels, checkoutText = labels.payAmount} = this.props;
+    if (!amount) return labels.payNow;
     const price = formatAmount(amount, currency);
     return checkoutText.replace('{amount}', price);
   }
