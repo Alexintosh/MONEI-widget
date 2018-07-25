@@ -16,7 +16,6 @@ export const defaultParams = {
     length: 5,
     position: 'fixed'
   },
-  submitText: 'Pay {amount}',
   redirect: true,
   popup: true,
   showCVVHint: true,
