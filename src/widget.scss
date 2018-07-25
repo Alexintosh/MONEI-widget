@@ -200,6 +200,7 @@
   color: #00796b;
   font-weight: normal;
   font-size: 14px;
+  outline: none;
 }
 
 .wpwl-brand {
@@ -247,13 +248,10 @@
   cursor: pointer;
   align-items: center;
 
-  .wpwl-popover.wpwl-top {
+  .wpwl-top,
+  .wpwl-bottom {
     width: 200px;
-    left: -130px;
-  }
-
-  .wpwl-popover.wpwl-top > .wpwl-arrow {
-    margin-left: -12.5px;
+    left: -126px;
   }
 }
 
@@ -262,7 +260,7 @@
 }
 
 .wpwl-wrapper.wpwl-wrapper-registration-cvv {
-  width: 68px;
+  width: 80px;
   flex-shrink: 0;
   .wpwl-control-cvv {
     height: 36px;
@@ -296,11 +294,15 @@
   right: 0.5625em;
   top: 0;
   bottom: 0;
-  margin: auto;
+  margin-top: 11px;
   opacity: 0.7;
   &:hover {
     opacity: 1;
   }
+}
+
+.wpwl-wrapper-registration > .wpwl-icon {
+  margin-top: 8px;
 }
 
 input.wpwl-control,
@@ -386,32 +388,6 @@ select.wpwl-input {
   cursor: not-allowed;
   filter: alpha(opacity=65);
   opacity: 0.65;
-}
-
-.wpwl-button-error {
-  color: #fff;
-  background-color: #d9534f;
-  border-color: #d43f3a;
-}
-
-.wpwl-button-error:hover,
-.wpwl-button-error:focus,
-.wpwl-button-error:active {
-  color: #fff;
-  background-color: #c9302c;
-  border-color: #ac2925;
-}
-
-.wpwl-button-error:active {
-  background-image: none;
-}
-
-.wpwl-button-error[disabled],
-.wpwl-button-error[disabled]:hover,
-.wpwl-button-error[disabled]:focus,
-.wpwl-button-error[disabled]:active {
-  background-color: #d9534f;
-  border-color: #d43f3a;
 }
 
 .wpwl-button-brand {
@@ -796,7 +772,8 @@ select.wpwl-input {
   background: url('static/question.svg');
 }
 
-.wpwl-brand-whereIsMyCVV {
+.wpwl-brand-whereIsMyCVV,
+.wpwl-brand-whereIsMyCVV-AMEX {
   display: block;
   background-size: 100% !important;
   width: 65px;
