@@ -9,8 +9,8 @@ import {Spinner} from 'spin.js';
 import {defaultParams} from 'lib/constants';
 import {filterWpwlOptions} from 'lib/propsValidator';
 
-const getSubmitText = ({amount, currency, submitText = 'Pay {amount}'}) => {
-  if (!amount) return 'Pay now';
+const getSubmitText = ({amount, currency, labels, submitText = labels.payAmount}) => {
+  if (!amount) return labels.payNow;
   const price = formatAmount(amount, currency);
   return submitText.replace('{amount}', price);
 };
@@ -375,7 +375,7 @@ class PaymentForm extends Component {
   }
 
   render(
-    {brands, redirectUrl, token, className, popup, compact, fluid},
+    {brands, redirectUrl, token, className, popup, compact, fluid, labels},
     {isTestMode, is3DFrame, isReady, isError},
     context
   ) {
@@ -408,7 +408,7 @@ class PaymentForm extends Component {
             <img
               src="https://static.monei.net/monei-logo.svg"
               alt="MONEI"
-              title="Best payment gateway rates. The perfect solution to manage your digital payments. Get in now!"
+              title={labels.moneiImageTitle}
             />{' '}
           </a>
         </div>

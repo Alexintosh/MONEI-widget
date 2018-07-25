@@ -5,11 +5,6 @@ export const defaultParams = {
   showPlaceholders: true,
   showCardHolder: false,
   showEmail: true,
-  labels: {
-    email: 'Email',
-    otherPaymentMethods: 'or pay with',
-    savePaymentDetails: 'Store payment details?'
-  },
   errorMessages: {
     email: 'Invalid email'
   },
@@ -21,7 +16,6 @@ export const defaultParams = {
     length: 5,
     position: 'fixed'
   },
-  submitText: 'Pay {amount}',
   redirect: true,
   popup: true,
   showCVVHint: true,
