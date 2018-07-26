@@ -271,12 +271,15 @@
   flex: 1;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
   margin: 0 4%;
 }
 
+.wpwl-wrapper-registration-number {
+  margin-right: 4%;
+}
+
 .wpwl-wrapper-registration-holder {
-  flex: 0.8;
+  width: 100%;
 }
 
 .wpwl-wrapper-surName,

@@ -19,6 +19,7 @@ export const defaultParams = {
   redirect: true,
   popup: true,
   showCVVHint: true,
+  labels: {},
   onPaymentComplete: () => {},
   onPaymentSuccess: () => {},
   onPaymentError: () => {},
