@@ -94,6 +94,7 @@ function setupWidget(container, options = {}) {
 
 function getLocalizedLabels(locale) {
   const localeNormalized = locale.match(/(\w+)-?/)[1];
+  console.log(localeNormalized);
   return locales[localeNormalized] || locales['en'];
 }
 
