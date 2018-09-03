@@ -1,3 +1,9 @@
+.store-payment-details {
+  div {
+    display: inline;
+  }
+}
+
 .label-cbx {
   user-select: none;
   cursor: pointer;
@@ -63,6 +69,12 @@
     pointer-events: none;
     vertical-align: middle;
   }
+}
+
+// Fix for embedded forms displaying the checkbox bigger than normal
+[data-payment-target="embedded_frame"] .checkbox {
+  width: 16px;
+  height: 16px;
 }
 
 .invisible {
