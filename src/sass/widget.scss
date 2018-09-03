@@ -168,14 +168,14 @@
   position: relative;
   border: none;
   width: 100%;
-  background: #00796b;
+  background: $primary-color;
   transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s ease,
   box-shadow 0.1s ease, background 0.1s ease;
   &[disabled],
   &[disabled]:hover,
   &[disabled]:focus,
   &[disabled]:active {
-    background: #00796b;
+    background: $primary-color;
     border: none;
     opacity: 0.65;
     pointer-events: none;
@@ -197,7 +197,7 @@
 
 .switch-payment-forms-button {
   background: none;
-  color: #00796b;
+  color: $primary-color;
   font-weight: normal;
   font-size: 14px;
   outline: none;
