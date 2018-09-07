@@ -1,0 +1,74 @@
+.wpwl-checkbox-label {
+  user-select: none;
+  cursor: pointer;
+  margin-bottom: 0;
+  line-height: 24px;
+  input:checked {
+    & + .wpwl-checkbox-box {
+      border-color: $primary-color;
+      svg {
+        path {
+          fill: $primary-color;
+        }
+        polyline {
+          stroke-dashoffset: 0;
+        }
+      }
+    }
+  }
+  &:hover {
+    .wpwl-checkbox-box {
+      svg {
+        path {
+          stroke-dashoffset: 0;
+        }
+      }
+    }
+  }
+  > span {
+    pointer-events: none;
+    vertical-align: middle;
+  }
+  input {
+    position: absolute;
+    z-index: -1;
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+}
+
+.wpwl-checkbox-box {
+  position: relative;
+  top: 2px;
+  float: left;
+  margin-right: 8px;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #C8CCD4;
+  border-radius: 3px;
+  svg {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    path {
+      fill: none;
+      stroke: $primary-color;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 71px;
+      stroke-dashoffset: 71px;
+    }
+    polyline {
+      fill: none;
+      stroke: #FFF;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 18px;
+      stroke-dashoffset: 18px;
+      transition: all .3s ease;
+    }
+  }
+}

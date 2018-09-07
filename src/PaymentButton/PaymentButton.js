@@ -2,9 +2,11 @@ import {Component} from 'preact';
 import PaymentModal from '../PaymentModal';
 import classNames from './PaymentButton.scss';
 import {formatAmount} from 'lib/utils';
+import {getLocalizedLabels} from 'lib/locales';
 
 class PaymentButton extends Component {
   constructor(props) {
+    props.labels = Object.assign(getLocalizedLabels(props.locale), props.labels);
     super(props);
     this.state = {
       isModalOpen: false
