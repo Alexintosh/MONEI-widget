@@ -7,7 +7,8 @@ export const locales = {
     savePaymentDetails: 'Store payment details?',
     payNow: 'Pay Now',
     payAmount: 'Pay {amount}',
-    moneiImageTitle: 'Best payment gateway rates. The perfect solution to manage your digital payments. Get in now!'
+    moneiImageTitle:
+      'Best payment gateway rates. The perfect solution to manage your digital payments. Get in now!'
   },
   es: {
     email: 'Email',
@@ -17,7 +18,8 @@ export const locales = {
     savePaymentDetails: '¿Almacenar detalles de pago?',
     payNow: 'Pagar Ahora',
     payAmount: 'Pagar {amount}',
-    moneiImageTitle: 'Las mejores tarifas de pasarela de pago. La solución perfecta para administrar sus pagos digitales. ¡Entra ahora!'
+    moneiImageTitle:
+      'Las mejores tarifas de pasarela de pago. La solución perfecta para administrar sus pagos digitales. ¡Entra ahora!'
   },
   pt: {
     email: 'Email',
@@ -27,7 +29,8 @@ export const locales = {
     savePaymentDetails: 'Armazenas detalhes de pagamento?',
     payNow: 'Pagar Agora',
     payAmount: 'Pagar {amount}',
-    moneiImageTitle: 'Melhores taxas de gateway de pagamento. A solução perfeita para gerenciar seus pagamentos digitais. Entre agora!'
+    moneiImageTitle:
+      'Melhores taxas de gateway de pagamento. A solução perfeita para gerenciar seus pagamentos digitais. Entre agora!'
   }
 };
 
