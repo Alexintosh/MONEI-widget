@@ -1,4 +1,4 @@
-export default {
+export const locales = {
   en: {
     email: 'Email',
     paymentAmountText: 'payment amount',
@@ -30,3 +30,10 @@ export default {
     moneiImageTitle: 'Melhores taxas de gateway de pagamento. A solução perfeita para gerenciar seus pagamentos digitais. Entre agora!'
   }
 };
+
+export function getLocalizedLabels(locale) {
+  const localeNormalized = locale.match(/(\w+)-?/)[1];
+  return locales[localeNormalized] || locales['en'];
+}
+
+export default locales;

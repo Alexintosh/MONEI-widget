@@ -7,7 +7,6 @@ import merge from 'deepmerge';
 import validateProps from 'lib/propsValidator';
 import {isEmpty} from 'lib/utils';
 import {defaultParams} from 'lib/constants';
-import locales from 'lib/locales.js';
 
 export const WIDGET_CONTAINER_CLASS_NAME = 'monei-widget';
 
@@ -70,8 +69,7 @@ function setupWidget(container, options = {}) {
       requireCvv: ds.registrationRequireCvv,
       hideInitialPaymentForms: true // Always true to get the button text and use on the switchButton
     },
-    locale,
-    labels: getLocalizedLabels(locale)
+    locale
   };
 
   const props = merge.all([defaultParams, defaultProps, ds, options]);
@@ -90,12 +88,6 @@ function setupWidget(container, options = {}) {
     container,
     container.moneiWidget
   );
-}
-
-function getLocalizedLabels(locale) {
-  const localeNormalized = locale.match(/(\w+)-?/)[1];
-  console.log(localeNormalized);
-  return locales[localeNormalized] || locales['en'];
 }
 
 function disableAutoSetup() {
