@@ -8,7 +8,7 @@ import APIHandler from 'lib/api';
 import {Spinner} from 'spin.js';
 import {defaultParams} from 'lib/constants';
 import {filterWpwlOptions} from 'lib/propsValidator';
-import {storePaymentDetailsCheckbox} from '../lib/storePaymentDetailsCheckbox';
+import renderCheckbox from './checkbox';
 
 const getSubmitText = ({amount, currency, labels, submitText = labels.payAmount}) => {
   if (!amount) return labels.payNow;
@@ -238,7 +238,7 @@ class PaymentForm extends Component {
     if (this.props.savePaymentDetails) {
       $('.wpwl-form:not(.wpwl-form-registrations)')
         .find('.wpwl-group-submit')
-        .before(storePaymentDetailsCheckbox(this.props));
+        .before(renderCheckbox(this.props));
     }
 
     // add custom fields
@@ -273,7 +273,7 @@ class PaymentForm extends Component {
         <button
           type="button"
           data-action="switch-payment-forms"
-          className="switch-payment-forms-button">
+          className="wpwl-switch-forms-button">
           {label}
         </button>
       )
@@ -326,8 +326,8 @@ class PaymentForm extends Component {
     this.$formContainer
       .find('.wpwl-button-pay:not([data-action="show-initial-forms"])')
       .css({backgroundColor: primaryColor});
-    $('.switch-payment-forms-button').css({color: primaryColor});
-    $('.label-cbx .checkbox svg path').css({stroke: primaryColor});
+    $('.wpwl-switch-forms-button').css({color: primaryColor});
+    $('.wpwl-checkbox-box svg path').css({stroke: primaryColor});
   }
 
   submitForm = () => {
