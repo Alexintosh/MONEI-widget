@@ -8,6 +8,7 @@ import APIHandler from 'lib/api';
 import {Spinner} from 'spin.js';
 import {defaultParams} from 'lib/constants';
 import {filterWpwlOptions} from 'lib/propsValidator';
+import {storePaymentDetailsCheckbox} from '../lib/storePaymentDetailsCheckbox';
 
 const getSubmitText = ({amount, currency, labels, submitText = labels.payAmount}) => {
   if (!amount) return labels.payNow;
@@ -234,10 +235,10 @@ class PaymentForm extends Component {
         .on('click', () => this.showSeparator());
     }
 
-    if (customSubmitSelector) {
-      $form.find('.wpwl-group-submit').css('display', 'none');
-    } else {
-      this.applyingCustomColor(primaryColor);
+    if (this.props.savePaymentDetails) {
+      $('.wpwl-form:not(.wpwl-form-registrations)')
+        .find('.wpwl-group-submit')
+        .before(storePaymentDetailsCheckbox(this.props));
     }
 
     // add custom fields
@@ -258,22 +259,11 @@ class PaymentForm extends Component {
       }
     });
 
-    if (this.props.savePaymentDetails) {
-      this.addSavePaymentOption();
+    if (customSubmitSelector) {
+      $form.find('.wpwl-group-submit').css('display', 'none');
+    } else if (primaryColor) {
+      this.applyCustomColor(primaryColor);
     }
-  }
-
-  addSavePaymentOption() {
-    const {labels} = this.props;
-    const createRegistrationHtml = `
-      <div class="store-payment-details">
-        <div class="custom-input">
-          <input type="checkbox" name="createRegistration" id="createRegistration" value="true" />
-        </div>
-        <label for="createRegistration" class="custom-label">${labels.savePaymentDetails}</label>
-      </div>
-    `;
-    $('.wpwl-group-submit').before(createRegistrationHtml);
   }
 
   createSwitchButton() {
@@ -332,11 +322,12 @@ class PaymentForm extends Component {
     this.$formContainer.find('.wpwl-PaymentForm-separator').css('display', 'block');
   }
 
-  applyingCustomColor(primaryColor) {
+  applyCustomColor(primaryColor) {
     this.$formContainer
       .find('.wpwl-button-pay:not([data-action="show-initial-forms"])')
       .css({backgroundColor: primaryColor});
     $('.switch-payment-forms-button').css({color: primaryColor});
+    $('.label-cbx .checkbox svg path').css({stroke: primaryColor});
   }
 
   submitForm = () => {
