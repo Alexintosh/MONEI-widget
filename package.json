@@ -1,6 +1,6 @@
 {
   "name": "monei-widget2",
-  "version": "1.0.51",
+  "version": "1.0.52",
   "description": "An easy way to accept payments from your customers. Embed this widget on your website, blog or online store.",
   "main": "build/widget2.js",
   "scripts": {
