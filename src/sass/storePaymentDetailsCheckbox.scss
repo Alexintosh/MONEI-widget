@@ -8,6 +8,7 @@
   user-select: none;
   cursor: pointer;
   margin-bottom: 0;
+  line-height: 24px;
   input:checked {
     & + .checkbox {
       border-color: $primary-color;
