@@ -11,7 +11,7 @@ import {filterWpwlOptions} from 'lib/propsValidator';
 import renderCheckbox from './checkbox';
 import {getLocalizedLabels} from 'lib/locales';
 
-const getSubmitText = ({amount, currency, labels, submitText = labels.submitText}) => {
+const getSubmitText = ({amount, currency, labels, submitText = labels.payAmount}) => {
   if (!amount) return labels.payNow;
   const price = formatAmount(amount, currency);
   return submitText.replace('{amount}', price);
