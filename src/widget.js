@@ -30,7 +30,7 @@ function setup(element, options) {
 
 function setupWidget(container, options = {}) {
   const ds = normalizeDataSet(container.dataset);
-  const locale = ds.locale || window.navigator.userLanguage || window.navigator.language;
+  const locale = ds.locale || options.locale || window.navigator.userLanguage || window.navigator.language;
   const defaultProps = {
     customer: {
       merchantCustomerId: ds.merchantCustomerId,
