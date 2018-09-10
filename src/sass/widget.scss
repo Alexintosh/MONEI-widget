@@ -386,7 +386,8 @@ select.wpwl-input {
 }
 
 .wpwl-button {
-  border: 1px solid transparent
+  border: 1px solid transparent;
+  cursor: pointer;
 }
 
 .wpwl-button[disabled] {

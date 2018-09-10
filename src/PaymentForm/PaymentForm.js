@@ -243,6 +243,12 @@ class PaymentForm extends Component {
         .before(renderCheckbox(this.props));
     }
 
+    $('.wpwl-control-expiry').on('input', e => {
+      if (e.target.value.length === 7) {
+        $('.wpwl-control-cvv')[0].contentWindow.focus();
+      }
+    });
+
     // add custom fields
     Object.keys(customer).forEach(key => {
       const value = customer[key];
