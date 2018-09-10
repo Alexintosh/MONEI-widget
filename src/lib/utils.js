@@ -34,7 +34,7 @@ export const formatAmount = (amount, currency) => {
   if (!currency) return formattedAmount;
   switch (currency.toUpperCase()) {
     case 'EUR':
-      return `€${formattedAmount}`;
+      return String.fromCharCode(8364) + formattedAmount;
     case 'USD':
       return `$${formattedAmount}`;
   }
